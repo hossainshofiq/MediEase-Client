@@ -1,0 +1,53 @@
+[
+    {
+      "categoryName": "Over-the-Counter (OTC) Medicines",
+      "image": "https://example.com/images/otc.jpg",
+      "medicineCount": 125
+    },
+    {
+      "categoryName": "Prescription Medicines",
+      "image": "https://example.com/images/prescription.jpg",
+      "medicineCount": 200
+    },
+    {
+      "categoryName": "Vitamins & Supplements",
+      "image": "https://example.com/images/vitamins.jpg",
+      "medicineCount": 85
+    },
+    {
+      "categoryName": "Herbal & Ayurvedic Medicines",
+      "image": "https://example.com/images/herbal.jpg",
+      "medicineCount": 70
+    },
+    {
+      "categoryName": "Cold, Cough, & Flu",
+      "image": "https://example.com/images/cold-flu.jpg",
+      "medicineCount": 95
+    },
+    {
+      "categoryName": "Pain Relief",
+      "image": "https://example.com/images/pain-relief.jpg",
+      "medicineCount": 110
+    },
+    {
+      "categoryName": "Diabetes Management",
+      "image": "https://example.com/images/diabetes.jpg",
+      "medicineCount": 65
+    },
+    {
+      "categoryName": "Skin Care Treatments",
+      "image": "https://example.com/images/skin-care.jpg",
+      "medicineCount": 50
+    },
+    {
+      "categoryName": "Child Care Medicines",
+      "image": "https://example.com/images/child-care.jpg",
+      "medicineCount": 40
+    },
+    {
+      "categoryName": "Cardiovascular Health",
+      "image": "https://example.com/images/cardiovascular.jpg",
+      "medicineCount": 55
+    }
+  ]
+  
