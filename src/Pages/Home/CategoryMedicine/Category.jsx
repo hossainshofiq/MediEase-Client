@@ -1,11 +1,8 @@
 import React from 'react';
-import Slider from './Slider';
-import { Helmet } from 'react-helmet-async';
-import CategoryMedicine from './CategoryMedicine/CategoryMedicine';
-import DiscountedProducts from './DiscountedProducts';
-import useProduct from '../../Hooks/useProduct';
+import useProduct from '../../../Hooks/useProduct';
+import CategoryMedicine from './CategoryMedicine';
 
-const Home = () => {
+const Category = () => {
 
     const [product] = useProduct();
 
@@ -17,23 +14,13 @@ const Home = () => {
 
     return (
         <div>
-            <Helmet>
-                <title>MediEase | Home</title>
-            </Helmet>
-
-            <Slider></Slider>
-
-            {/* <CategoryMedicine></CategoryMedicine> */}
-
             <CategoryMedicine items={Tablets} title={"Tablet"}></CategoryMedicine>
             <CategoryMedicine items={Capsules} title={"Capsule"}></CategoryMedicine>
             <CategoryMedicine items={Syrups} title={"Syrup"}></CategoryMedicine>
             <CategoryMedicine items={Injections} title={"Injection"}></CategoryMedicine>
             <CategoryMedicine items={Topicals} title={"Topical"}></CategoryMedicine>
-
-            <DiscountedProducts></DiscountedProducts>
         </div>
     );
 };
 
-export default Home;
+export default Category;

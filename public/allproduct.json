@@ -1,0 +1,162 @@
+[
+    {
+        "_id": "642c155b2c4774f05c36eeaa",
+        "name": "Paracetamol",
+        "category": "Tablet",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Pain Reliever",
+        "price": 1.2
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeab",
+        "name": "Ibuprofen",
+        "category": "Tablet",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Pain Reliever",
+        "price": 2.0
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeac",
+        "name": "Amoxicillin",
+        "category": "Capsule",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Antibiotic",
+        "price": 3.5
+    },
+    {
+        "_id": "642c155b2c4774f05c36eead",
+        "name": "Cetrizine",
+        "category": "Tablet",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Antihistamine",
+        "price": 1.0
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeae",
+        "name": "Cough Syrup",
+        "category": "Syrup",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Cough Suppressant",
+        "price": 2.5
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeaf",
+        "name": "Insulin",
+        "category": "Injection",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Diabetes Management",
+        "price": 20.0
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeb0",
+        "name": "Multivitamins",
+        "category": "Tablet",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Supplement",
+        "price": 5.0
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeb1",
+        "name": "Diclofenac",
+        "category": "Tablet",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Anti-inflammatory",
+        "price": 1.8
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeb2",
+        "name": "Azithromycin",
+        "category": "Capsule",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Antibiotic",
+        "price": 4.0
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeb3",
+        "name": "Saline Water",
+        "category": "Injection",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Rehydration",
+        "price": 1.0
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeb4",
+        "name": "Omeprazole",
+        "category": "Capsule",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Acid Reducer",
+        "price": 2.2
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeb5",
+        "name": "Antacid Syrup",
+        "category": "Syrup",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Antacid",
+        "price": 3.0
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeb6",
+        "name": "Vitamin C",
+        "category": "Tablet",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Supplement",
+        "price": 1.5
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeb7",
+        "name": "Hydrocortisone Cream",
+        "category": "Topical",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Anti-inflammatory",
+        "price": 3.5
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeb8",
+        "name": "Erythromycin",
+        "category": "Tablet",
+        "image": "https://example.com/images/erythromycin.jpg",
+        "genre": "Antibiotic",
+        "price": 3.0
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeb9",
+        "name": "Ranitidine",
+        "category": "Tablet",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Acid Reducer",
+        "price": 1.0
+    },
+    {
+        "_id": "642c155b2c4774f05c36eeba",
+        "name": "Dextrose Saline",
+        "category": "Injection",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Rehydration",
+        "price": 1.2
+    },
+    {
+        "_id": "642c155b2c4774f05c36eebb",
+        "name": "Zinc Syrup",
+        "category": "Syrup",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Supplement",
+        "price": 2.8
+    },
+    {
+        "_id": "642c155b2c4774f05c36eebc",
+        "name": "Metformin",
+        "category": "Tablet",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Diabetes Management",
+        "price": 1.5
+    },
+    {
+        "_id": "642c155b2c4774f05c36eebd",
+        "name": "Iron Syrup",
+        "category": "Syrup",
+        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+        "genre": "Supplement",
+        "price": 2.5
+    }
+]
