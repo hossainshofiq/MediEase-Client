@@ -36,19 +36,20 @@ const Navbar = () => {
             <li><NavLink to="/dashboard">Dashboard</NavLink></li>
 
             <li>
-                <Link to={'/'}>
+                <NavLink className="" to={'/cart'}>
                     <button className="flex gap-2">
                         <FaShoppingCart className='text-lg'></FaShoppingCart>
                         <div className="badge badge-secondary">+{cart.length}</div>
                     </button>
-                </Link>
+                </NavLink>
             </li>
 
             <li><NavLink to="/">Languages</NavLink></li>
         </div>
     </>
     return (
-        <div className="navbar fixed z-50 bg-black bg-opacity-30 text-white max-w-screen-xl mx-auto">
+        // <div className="navbar fixed z-50 bg-black bg-opacity-30 text-white max-w-screen-xl mx-auto">
+        <div className="navbar bg-green-300 max-w-screen-xl mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">

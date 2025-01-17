@@ -8,7 +8,8 @@ import PrivateRoute from './PrivateRoute';
 import Secret from '../Pages/Shared/Secret';
 import Shop from '../Pages/Shop/Shop';
 import DashboardLayout from '../Layouts/DashboardLayout';
-import ManageUsers from '../Pages/Dashboard/ManageUsers';
+import Cart from '../Pages/Cart/Cart';
+import ManageUsers from '../Pages/Dashboard/Admin/ManageUsers';
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
             {
                 path: '/shop',
                 element: <Shop></Shop>
+            },
+            {
+                path: '/cart',
+                element: <Cart></Cart>
             },
             //
             {

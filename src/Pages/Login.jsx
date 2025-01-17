@@ -1,11 +1,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import SocialLogin from './SocialLogin';
 import loginLottie from '../assets/Lottie/login.json'
 import Lottie from 'lottie-react';
 import useAuth from '../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import GoogleLogin from './GoogleLogin';
 
 const Login = () => {
 
@@ -73,7 +73,7 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Login" />
                                 <div className='divider'>Or continue with</div>
-                                <SocialLogin></SocialLogin>
+                                <GoogleLogin></GoogleLogin>
                             </div>
                             <p className='text-center'>New here? <Link className='text-red-600 underline' to="/signUP">Sign UP</Link></p>
                         </form>

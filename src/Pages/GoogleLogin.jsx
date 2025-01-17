@@ -4,7 +4,7 @@ import useAuth from '../Hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useAxiosPublic from '../Hooks/useAxiosPublic';
 
-const SocialLogin = () => {
+const GoogleLogin = () => {
 
     const { googleLogin } = useAuth();
     const axiosPublic = useAxiosPublic();
@@ -37,4 +37,4 @@ const SocialLogin = () => {
     );
 };
 
-export default SocialLogin;
+export default GoogleLogin;

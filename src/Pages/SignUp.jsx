@@ -1,13 +1,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import SocialLogin from './SocialLogin';
 import signUpLottie from '../assets/Lottie/signUp.json'
 import Lottie from 'lottie-react';
 import { useForm } from 'react-hook-form';
 import useAuth from '../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../Hooks/useAxiosPublic';
+import GoogleLogin from './GoogleLogin';
 
 const SignUp = () => {
 
@@ -36,6 +36,7 @@ const SignUp = () => {
                         const userInfo = {
                             name: data.name,
                             email: data.email,
+                            role: data.role
                         }
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
@@ -140,7 +141,7 @@ const SignUp = () => {
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Sign Up" />
                                 <div className='divider'>Or continue with</div>
-                                <SocialLogin></SocialLogin>
+                                <GoogleLogin></GoogleLogin>
                             </div>
                             <p className='text-center'>Already have an account? <Link className='text-blue-700 underline' to="/login">Login</Link></p>
                         </form>
