@@ -43,7 +43,6 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser);
             console.log('Current User', currentUser);
             if (currentUser) {
-                // get token and store client
                 const userInfo = { email: currentUser.email };
                 axiosPublic.post('/jwt', userInfo)
                     .then(res => {
@@ -53,7 +52,6 @@ const AuthProvider = ({ children }) => {
                     })
             }
             else {
-                // todo: remove token(if token stored in the client side: (local storage, caching, in memory))
                 localStorage.removeItem('access-token');
             }
             setLoading(false)

@@ -1,28 +1,29 @@
 import React, { useState } from 'react';
-import SectionTitle from './../../Components/SectionTitle';
+import useProduct from '../../../Hooks/useProduct';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 import { FaEye } from 'react-icons/fa';
-import useProduct from '../../Hooks/useProduct';
-import { Helmet } from 'react-helmet-async';
-import useAuth from '../../Hooks/useAuth';
+import useAuth from '../../../Hooks/useAuth';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import useCart from '../../../Hooks/useCart';
 import Swal from 'sweetalert2';
-import { useLocation, useNavigate } from 'react-router-dom';
-import useAxiosSecure from '../../Hooks/useAxiosSecure';
-import useCart from '../../Hooks/useCart';
-import { FaDeleteLeft } from 'react-icons/fa6';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { MdOutlineCloseFullscreen } from 'react-icons/md';
 
-const Shop = () => {
+const SpecificMedicine = () => {
 
     const [product] = useProduct();
+    const { category } = useParams();
     const { user } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
     const axiosSecure = useAxiosSecure();
     const [, refetch] = useCart();
 
-    //
+    console.log(category);
+
+    const filteredProducts = product.filter(item => item.category === category);
     const [selectedMedicine, setSelectedMedicine] = useState(null);
+
+    console.log(filteredProducts.length);
 
     const handleAddToCart = (item) => {
         const { image, name, company, unit_price, _id } = item;
@@ -37,8 +38,7 @@ const Shop = () => {
                 name,
                 image,
                 company,
-                unit_price,
-
+                unit_price
             }
             axiosSecure.post('/carts', cartMedicine)
                 .then(res => {
@@ -74,34 +74,31 @@ const Shop = () => {
     }
 
     const handleSee = (item) => {
-        console.log(item._id);
+        console.log(item);
         setSelectedMedicine(item);
-
     }
+
     return (
-        <div>
-            <Helmet>
-                <title>MediEase | Shop</title>
-            </Helmet>
-            <SectionTitle heading="All Medicine" subHeading="Ready to buy"></SectionTitle>
+        <div className='my-10'>
+            <h1 className='text-3xl font-semibold mb-5'>All information of: {category} </h1>
+
             <div className="overflow-x-auto">
                 <table className="table border">
                     {/* head */}
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Photo</th>
-                            <th>Name</th>
-                            <th>Category</th>
-                            <th>Company</th>
+                            <th>Image</th>
+                            <th>Medicine Name</th>
                             <th>Generic Name</th>
-                            <th>price</th>
-                            <th>Action</th>
+                            <th>Company</th>
+                            <th>Unit Price</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            product.map((item, index) =>
+                        {filteredProducts.length > 0 ? (
+                            filteredProducts.map((item, index) => (
                                 <tr className='hover:bg-gray-200' key={item._id}>
                                     <th>{index + 1}</th>
                                     <td>
@@ -110,28 +107,32 @@ const Shop = () => {
                                                 <div className="mask mask-squircle h-12 w-12">
                                                     <img
                                                         src={item.image}
-                                                        alt="Avatar Tailwind CSS Component" />
+                                                        alt={item.category}
+                                                    />
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
                                     <td>{item.name}</td>
-                                    <td>{item.category}</td>
-                                    <td>{item.company}</td>
                                     <td>{item.generic_name}</td>
+                                    <td>{item.company}</td>
                                     <td>${item.unit_price}</td>
-                                    <th className='flex gap-3'>
+                                    <td className='flex gap-2'>
                                         <button onClick={() => handleAddToCart(item)} className="btn btn-primary btn-sm">Select</button>
                                         <button onClick={() => handleSee(item)} className="btn btn-primary btn-sm"><FaEye></FaEye></button>
-                                    </th>
+                                    </td>
                                 </tr>
-                            )
-                        }
-
+                            ))
+                        ) : (
+                            <tr>
+                                <td colSpan="5" className="text-center">
+                                    No items found in this category.
+                                </td>
+                            </tr>
+                        )}
                     </tbody>
                 </table>
             </div>
-
             {/* Modal */}
             {selectedMedicine && (
                 <div className="modal modal-open">
@@ -168,9 +169,8 @@ const Shop = () => {
                     </div>
                 </div>
             )}
-
         </div>
     );
 };
 
-export default Shop;
+export default SpecificMedicine;

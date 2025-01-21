@@ -1,73 +1,48 @@
-// import React, { useEffect, useState } from 'react';
-// import useProduct from '../../../Hooks/useProduct';
-// import SectionTitle from '../../../Components/SectionTitle';
-
-// const CategoryMedicine = ( {products, title}) => {
-
-//     // const [category, setCategory] = useState([]);
-
-//     // useEffect(() => {
-//     //     fetch('http://localhost:5000/category')
-//     //         .then(res => res.json())
-//     //         .then(data => {
-//     //             console.log(data);
-//     //             setCategory(data)
-//     //         })
-//     // }, [])
-
-//     const [product] = useProduct();
-
-//     // const Tablet = product.filter(item => item.category === 'Tablet');
-//     // const Capsule = product.filter(item => item.category === 'Capsule');
-//     // const Syrup = product.filter(item => item.category === 'Syrup');
-//     // const Injection = product.filter(item => item.category === 'Injection');
-//     // const Topical = product.filter(item => item.category === 'Topical');
-
-//     return (
-//         <div>
-//             <h1>Category Medicine:{product.length} </h1>
-
-//             <SectionTitle heading="Category Medicine" subHeading="Here is our all category medicine"></SectionTitle>
-//             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
-//                 {
-//                     product.map(item =>
-//                         <div key={item._id} className="card bg-base-100 shadow-xl">
-//                             <figure>
-//                                 <img
-//                                     src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-//                                     alt="Shoes" />
-//                             </figure>
-//                             <div className="card-body">
-//                                 <h2 className="card-title">{item.categoryName}</h2>
-//                                 <p>{item.medicineCount}</p>
-//                                 <div className="card-actions justify-end">
-//                                     <button className="btn btn-primary">Buy Now</button>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     )
-//                 }
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default CategoryMedicine;
-
 import React from 'react';
-import CategoryCard from './CategoryCard';
-import SectionTitle from '../../../Components/SectionTitle';
+import CategoryMedicineCard from './CategoryMedicineCard';
+import { Link } from 'react-router-dom';
+import useProduct from '../../../Hooks/useProduct';
+import useCategory from '../../../Hooks/useCategory';
 
 const CategoryMedicine = ({ items, title }) => {
+
+    const [product] = useProduct();
+    const [category] = useCategory();
+
+    const filteredProducts = product.filter(item => item.category === category);
+    // console.log(filteredProducts.length);
+
     return (
         <div>
-            <SectionTitle heading="Category Medicine"></SectionTitle>
-            <h2>Category: {items.length} </h2>
-            <div className='grid grid-cols-3 gap-5'>
-                {
-                    items.map(item => <CategoryCard key={item._id} item={item}></CategoryCard>)
-                }
-            </div>
+            {/* {
+                items.map(item => <CategoryMedicineCard key={item._id} item={item}></CategoryMedicineCard>)
+            } */}
+
+            {
+                items.map(item =>
+                    <div key={item._id} className="card bg-white border rounded-lg shadow-md hover:shadow-lg transition duration-200">
+                        <Link to={`/specificMedicine/${title}`}>
+                            <figure className="p-4">
+                                <img className="mx-auto max-w-full rounded-lg h-auto"
+                                    src={item.image}
+                                    alt="Medicine image"
+                                />
+                            </figure>
+                            <div className="p-4 text-center">
+                                <p className="text-sm text-gray-500">
+                                    Available Medicines: {item.medicine_count}
+                                </p>
+                                {/* <p className="text-sm text-gray-500">
+                                    Available Medicines: {item.category?.length}
+                                </p> */}
+                                <h2 className="font-bold text-center bg-white text-gray-700 hover:bg-blue-500 hover:text-white py-2 rounded transition duration-200">
+                                    {item.category}
+                                </h2>
+                            </div>
+                        </Link>
+                    </div>
+                )
+            }
         </div>
     );
 };

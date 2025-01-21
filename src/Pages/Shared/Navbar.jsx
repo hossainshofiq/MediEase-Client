@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../../assets/Logo/Website_logo_fabicon.png'
 import { Link, NavLink } from 'react-router-dom';
-import { FaCartPlus, FaShoppingCart } from 'react-icons/fa';
+import { FaShoppingCart } from 'react-icons/fa';
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { Tooltip } from 'react-tooltip';
@@ -29,11 +29,12 @@ const Navbar = () => {
     }
 
     const navOptions = <>
-        <div className='flex gap-2'>
+        <div className='lg:flex gap-2'>
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/shop">Shop</NavLink></li>
-            <li><NavLink to="/secret">Secret</NavLink></li>
             <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+            {/* for checking route */}
+            <li><NavLink to="/secret">Secret</NavLink></li>
 
             <li>
                 <NavLink className="" to={'/cart'}>
@@ -44,7 +45,15 @@ const Navbar = () => {
                 </NavLink>
             </li>
 
-            <li><NavLink to="/">Languages</NavLink></li>
+            <li>
+                <details className="dropdown">
+                    <summary className="">Languages</summary>
+                    <ul className="menu dropdown-content bg-gray-500 text-white rounded-box z-[50] p-2">
+                        <li><a>English</a></li>
+                        <li><a>Bangla</a></li>
+                    </ul>
+                </details>
+            </li>
         </div>
     </>
     return (

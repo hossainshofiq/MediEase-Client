@@ -1,53 +1,38 @@
 [
-    {
-      "categoryName": "Over-the-Counter (OTC) Medicines",
-      "image": "https://example.com/images/otc.jpg",
-      "medicineCount": 125
-    },
-    {
-      "categoryName": "Prescription Medicines",
-      "image": "https://example.com/images/prescription.jpg",
-      "medicineCount": 200
-    },
-    {
-      "categoryName": "Vitamins & Supplements",
-      "image": "https://example.com/images/vitamins.jpg",
-      "medicineCount": 85
-    },
-    {
-      "categoryName": "Herbal & Ayurvedic Medicines",
-      "image": "https://example.com/images/herbal.jpg",
-      "medicineCount": 70
-    },
-    {
-      "categoryName": "Cold, Cough, & Flu",
-      "image": "https://example.com/images/cold-flu.jpg",
-      "medicineCount": 95
-    },
-    {
-      "categoryName": "Pain Relief",
-      "image": "https://example.com/images/pain-relief.jpg",
-      "medicineCount": 110
-    },
-    {
-      "categoryName": "Diabetes Management",
-      "image": "https://example.com/images/diabetes.jpg",
-      "medicineCount": 65
-    },
-    {
-      "categoryName": "Skin Care Treatments",
-      "image": "https://example.com/images/skin-care.jpg",
-      "medicineCount": 50
-    },
-    {
-      "categoryName": "Child Care Medicines",
-      "image": "https://example.com/images/child-care.jpg",
-      "medicineCount": 40
-    },
-    {
-      "categoryName": "Cardiovascular Health",
-      "image": "https://example.com/images/cardiovascular.jpg",
-      "medicineCount": 55
-    }
-  ]
-  
+  {
+    "_id": "642c155b2c4774f05c36eeaa",
+    "image": "https://media.istockphoto.com/id/186607295/photo/bottle-pouring-medicine-syrup-in-spoon.jpg?s=612x612&w=0&k=20&c=MreDAPImIXXCCuYZCK04hYII_O9ayXYjXUiJt8vli4g=",
+    "medicine_count": 2,
+    "category": "Syrup"
+  },
+  {
+    "_id": "642c155b2c4774f05c36eeab",
+    "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
+    "medicine_count": 5,
+    "category": "Tablet"
+  },
+  {
+    "_id": "642c155b2c4774f05c36eeac",
+    "image": "https://www.epiphanydermatology.com/wp-content/uploads/2019/11/topical-chemotherapy.png",
+    "medicine_count": 5,
+    "category": "Cream"
+  },
+  {
+    "_id": "642c155b2c4774f05c36eead",
+    "image": "https://plus.unsplash.com/premium_photo-1668898899067-8ffbb886b2f2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2Fwc3VsZXxlbnwwfHwwfHx8MA%3D%3D",
+    "medicine_count": 2,
+    "category": "Capsule"
+  },
+  {
+    "_id": "642c155b2c4774f05c36eeae",
+    "image": "https://media.istockphoto.com/id/1263021678/photo/close-up-of-medical-syringe-with-vaccine.jpg?s=612x612&w=0&k=20&c=6mtKx7B0aB3DWTBMm3vjx7vQ7LUleMXT4d22EVBwL9U=",
+    "medicine_count": 2,
+    "category": "Injection"
+  },
+  {
+    "_id": "642c155b2c4774f05c36eeaf",
+    "image": "https://sutherlandhouse.life/wp-content/uploads/2022/08/why-use-herbal-medicine.jpg",
+    "medicine_count": 5,
+    "category": "Herbal"
+  }
+]

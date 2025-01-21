@@ -10,6 +10,9 @@ import Shop from '../Pages/Shop/Shop';
 import DashboardLayout from '../Layouts/DashboardLayout';
 import Cart from '../Pages/Cart/Cart';
 import ManageUsers from '../Pages/Dashboard/Admin/ManageUsers';
+import ManageCategory from '../Pages/Dashboard/Admin/ManageCategory';
+import AdminRoute from './AdminRoute';
+import SpecificMedicine from '../Pages/Shared/SpecificMedicine/SpecificMedicine';
 
 const router = createBrowserRouter([
     {
@@ -21,27 +24,31 @@ const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
-                path: '/login',
+                path: 'login',
                 element: <Login></Login>
             },
             {
-                path: '/signUp',
+                path: 'signUp',
                 element: <SignUp></SignUp>
             },
             {
-                path: '/shop',
+                path: 'shop',
                 element: <Shop></Shop>
             },
             {
-                path: '/cart',
+                path: 'cart',
                 element: <Cart></Cart>
             },
             //
             {
-                path: '/secret',
+                path: 'secret',
                 element: <PrivateRoute>
                     <Secret></Secret>
                 </PrivateRoute>
+            },
+            {
+                path: 'specificMedicine/:category',
+                element: <SpecificMedicine></SpecificMedicine>
             }
         ]
     },
@@ -54,8 +61,16 @@ const router = createBrowserRouter([
         children: [
             // admin dashboard routes
             {
-                path: 'users',
-                element: <ManageUsers></ManageUsers>
+                path: 'manageUsers',
+                element: <AdminRoute>
+                    <ManageUsers></ManageUsers>
+                </AdminRoute>
+            },
+            {
+                path: 'manageCategory',
+                element: <AdminRoute>
+                    <ManageCategory></ManageCategory>
+                </AdminRoute>
             }
         ]
     }

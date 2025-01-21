@@ -2,161 +2,221 @@
     {
         "_id": "642c155b2c4774f05c36eeaa",
         "name": "Paracetamol",
+        "generic_name": "Acetaminophen",
+        "short_description": "Used to relieve pain and reduce fever.",
+        "company": "PharmaCorp",
         "category": "Tablet",
         "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Pain Reliever",
-        "price": 1.2
+        "item_mass_unit": "500mg",
+        "unit_price": 1.2
     },
     {
         "_id": "642c155b2c4774f05c36eeab",
         "name": "Ibuprofen",
+        "generic_name": "Ibuprofen",
+        "short_description": "Non-steroidal anti-inflammatory drug for pain and swelling.",
+        "company": "MediHealth",
         "category": "Tablet",
         "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Pain Reliever",
-        "price": 2.0
+        "item_mass_unit": "400mg",
+        "unit_price": 2.0
     },
     {
         "_id": "642c155b2c4774f05c36eeac",
         "name": "Amoxicillin",
+        "generic_name": "Amoxicillin",
+        "short_description": "Antibiotic used to treat bacterial infections.",
+        "company": "BioPharma",
         "category": "Capsule",
-        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Antibiotic",
-        "price": 3.5
+        "image": "https://plus.unsplash.com/premium_photo-1668898899067-8ffbb886b2f2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2Fwc3VsZXxlbnwwfHwwfHx8MA%3D%3D",
+        "item_mass_unit": "250mg",
+        "unit_price": 3.5
     },
     {
         "_id": "642c155b2c4774f05c36eead",
         "name": "Cetrizine",
+        "generic_name": "Cetirizine",
+        "short_description": "Antihistamine for allergy relief.",
+        "company": "HealTech",
         "category": "Tablet",
         "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Antihistamine",
-        "price": 1.0
+        "item_mass_unit": "10mg",
+        "unit_price": 1.0
     },
     {
         "_id": "642c155b2c4774f05c36eeae",
         "name": "Cough Syrup",
+        "generic_name": "Dextromethorphan",
+        "short_description": "Relieves cough and throat irritation.",
+        "company": "WellnessLabs",
         "category": "Syrup",
-        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Cough Suppressant",
-        "price": 2.5
+        "image": "https://media.istockphoto.com/id/186607295/photo/bottle-pouring-medicine-syrup-in-spoon.jpg?s=612x612&w=0&k=20&c=MreDAPImIXXCCuYZCK04hYII_O9ayXYjXUiJt8vli4g=",
+        "item_mass_unit": "100ml",
+        "unit_price": 2.5
     },
     {
         "_id": "642c155b2c4774f05c36eeaf",
         "name": "Insulin",
+        "generic_name": "Insulin",
+        "short_description": "Controls blood sugar levels in diabetes.",
+        "company": "DiabCare",
         "category": "Injection",
-        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Diabetes Management",
-        "price": 20.0
+        "image": "https://media.istockphoto.com/id/1263021678/photo/close-up-of-medical-syringe-with-vaccine.jpg?s=612x612&w=0&k=20&c=6mtKx7B0aB3DWTBMm3vjx7vQ7LUleMXT4d22EVBwL9U=",
+        "item_mass_unit": "10ml",
+        "unit_price": 20.0
     },
     {
         "_id": "642c155b2c4774f05c36eeb0",
         "name": "Multivitamins",
+        "generic_name": "Multivitamin Complex",
+        "short_description": "Supports overall health and nutrition.",
+        "company": "NutriPlus",
         "category": "Tablet",
         "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Supplement",
-        "price": 5.0
+        "item_mass_unit": "500mg",
+        "unit_price": 5.0
     },
     {
         "_id": "642c155b2c4774f05c36eeb1",
         "name": "Diclofenac",
+        "generic_name": "Diclofenac Sodium",
+        "short_description": "Reduces inflammation and pain.",
+        "company": "PainReliefCo",
         "category": "Tablet",
         "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Anti-inflammatory",
-        "price": 1.8
+        "item_mass_unit": "50mg",
+        "unit_price": 1.8
     },
     {
         "_id": "642c155b2c4774f05c36eeb2",
         "name": "Azithromycin",
+        "generic_name": "Azithromycin",
+        "short_description": "Antibiotic for bacterial infections.",
+        "company": "BioHealth",
         "category": "Capsule",
-        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Antibiotic",
-        "price": 4.0
+        "image": "https://plus.unsplash.com/premium_photo-1668898899067-8ffbb886b2f2?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y2Fwc3VsZXxlbnwwfHwwfHx8MA%3D%3D",
+        "item_mass_unit": "500mg",
+        "unit_price": 4.0
     },
     {
         "_id": "642c155b2c4774f05c36eeb3",
         "name": "Saline Water",
+        "generic_name": "Sodium Chloride",
+        "short_description": "Restores body fluids and electrolytes.",
+        "company": "HydroLife",
         "category": "Injection",
-        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Rehydration",
-        "price": 1.0
+        "image": "https://media.istockphoto.com/id/1263021678/photo/close-up-of-medical-syringe-with-vaccine.jpg?s=612x612&w=0&k=20&c=6mtKx7B0aB3DWTBMm3vjx7vQ7LUleMXT4d22EVBwL9U=",
+        "item_mass_unit": "500ml",
+        "unit_price": 1.0
     },
     {
         "_id": "642c155b2c4774f05c36eeb4",
-        "name": "Omeprazole",
-        "category": "Capsule",
-        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Acid Reducer",
-        "price": 2.2
+        "name": "Hydrocortisone Cream",
+        "generic_name": "Hydrocortisone",
+        "short_description": "Used to treat skin irritation and inflammation.",
+        "company": "DermaCare",
+        "category": "Cream",
+        "image": "https://www.epiphanydermatology.com/wp-content/uploads/2019/11/topical-chemotherapy.png",
+        "item_mass_unit": "10g",
+        "unit_price": 4.5
     },
     {
         "_id": "642c155b2c4774f05c36eeb5",
-        "name": "Antacid Syrup",
-        "category": "Syrup",
-        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Antacid",
-        "price": 3.0
+        "name": "Antifungal Cream",
+        "generic_name": "Clotrimazole",
+        "short_description": "Treats fungal infections on the skin.",
+        "company": "FungiStop",
+        "category": "Cream",
+        "image": "https://www.epiphanydermatology.com/wp-content/uploads/2019/11/topical-chemotherapy.png",
+        "item_mass_unit": "15g",
+        "unit_price": 3.0
     },
     {
         "_id": "642c155b2c4774f05c36eeb6",
-        "name": "Vitamin C",
-        "category": "Tablet",
-        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Supplement",
-        "price": 1.5
+        "name": "Burn Relief Cream",
+        "generic_name": "Silver Sulfadiazine",
+        "short_description": "Helps in healing and preventing infection in burns.",
+        "company": "HealBurn",
+        "category": "Cream",
+        "image": "https://www.epiphanydermatology.com/wp-content/uploads/2019/11/topical-chemotherapy.png",
+        "item_mass_unit": "20g",
+        "unit_price": 6.5
     },
     {
         "_id": "642c155b2c4774f05c36eeb7",
-        "name": "Hydrocortisone Cream",
-        "category": "Topical",
-        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Anti-inflammatory",
-        "price": 3.5
+        "name": "Moisturizing Cream",
+        "generic_name": "Emollient",
+        "short_description": "Used to hydrate and protect dry skin.",
+        "company": "SkinCare",
+        "category": "Cream",
+        "image": "https://www.epiphanydermatology.com/wp-content/uploads/2019/11/topical-chemotherapy.png",
+        "item_mass_unit": "50g",
+        "unit_price": 5.0
     },
     {
         "_id": "642c155b2c4774f05c36eeb8",
-        "name": "Erythromycin",
-        "category": "Tablet",
-        "image": "https://example.com/images/erythromycin.jpg",
-        "genre": "Antibiotic",
-        "price": 3.0
+        "name": "Antiseptic Cream",
+        "generic_name": "Chlorhexidine",
+        "short_description": "Prevents infection in cuts and wounds.",
+        "company": "FirstAidPro",
+        "category": "Cream",
+        "image": "https://www.epiphanydermatology.com/wp-content/uploads/2019/11/topical-chemotherapy.png",
+        "item_mass_unit": "25g",
+        "unit_price": 2.5
+    },
+    {
+        "_id": "642c155b2c4774f05e36eeb8",
+        "name": "Herbal Antiseptic Cream",
+        "generic_name": "Aloe Vera Extract",
+        "short_description": "Soothes and protects skin from minor cuts and burns.",
+        "company": "HerbalCare",
+        "category": "Herbal",
+        "image": "https://sutherlandhouse.life/wp-content/uploads/2022/08/why-use-herbal-medicine.jpg",
+        "item_mass_unit": "50g",
+        "unit_price": 3.5
     },
     {
         "_id": "642c155b2c4774f05c36eeb9",
-        "name": "Ranitidine",
-        "category": "Tablet",
-        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Acid Reducer",
-        "price": 1.0
+        "name": "Herbal Digestive Capsule",
+        "generic_name": "Triphala",
+        "short_description": "Supports digestion and gut health.",
+        "company": "Nature's Remedy",
+        "category": "Herbal",
+        "image": "https://sutherlandhouse.life/wp-content/uploads/2022/08/why-use-herbal-medicine.jpg",
+        "item_mass_unit": "30 capsules",
+        "unit_price": 6.0
     },
     {
         "_id": "642c155b2c4774f05c36eeba",
-        "name": "Dextrose Saline",
-        "category": "Injection",
-        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Rehydration",
-        "price": 1.2
+        "name": "Herbal Immune Syrup",
+        "generic_name": "Tulsi & Ginger",
+        "short_description": "Boosts immunity and fights cold symptoms.",
+        "company": "Ayurvedic Essentials",
+        "category": "Herbal",
+        "image": "https://sutherlandhouse.life/wp-content/uploads/2022/08/why-use-herbal-medicine.jpg",
+        "item_mass_unit": "100ml",
+        "unit_price": 4.0
     },
     {
         "_id": "642c155b2c4774f05c36eebb",
-        "name": "Zinc Syrup",
-        "category": "Syrup",
-        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Supplement",
-        "price": 2.8
+        "name": "Herbal Pain Relief Oil",
+        "generic_name": "Eucalyptus Oil",
+        "short_description": "Relieves muscle and joint pain naturally.",
+        "company": "Nature's Touch",
+        "category": "Herbal",
+        "image": "https://sutherlandhouse.life/wp-content/uploads/2022/08/why-use-herbal-medicine.jpg",
+        "item_mass_unit": "50ml",
+        "unit_price": 5.0
     },
     {
         "_id": "642c155b2c4774f05c36eebc",
-        "name": "Metformin",
-        "category": "Tablet",
-        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Diabetes Management",
-        "price": 1.5
-    },
-    {
-        "_id": "642c155b2c4774f05c36eebd",
-        "name": "Iron Syrup",
-        "category": "Syrup",
-        "image": "https://media.istockphoto.com/id/1196964130/photo/amoxicillin-medication-as-international-nonproprietary-or-generic-name-concept-photo.jpg?s=612x612&w=0&k=20&c=KU_dlP_0qTJp9hYvV5yiMW1mvbXbN5yVyDDjUGrp_fs=",
-        "genre": "Supplement",
-        "price": 2.5
+        "name": "Herbal Sleep Aid",
+        "generic_name": "Ashwagandha",
+        "short_description": "Promotes restful sleep and reduces stress.",
+        "company": "Herbal Dreams",
+        "category": "Herbal",
+        "image": "https://sutherlandhouse.life/wp-content/uploads/2022/08/why-use-herbal-medicine.jpg",
+        "item_mass_unit": "60 tablets",
+        "unit_price": 7.0
     }
 ]

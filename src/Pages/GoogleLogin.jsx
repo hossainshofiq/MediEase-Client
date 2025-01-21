@@ -19,6 +19,7 @@ const GoogleLogin = () => {
                 const userInfo = {
                     email: result.user?.email,
                     name: result.user?.displayName,
+                    role: "user",
                     // photo: result.user?.photoURL
                 }
                 axiosPublic.post('/users', userInfo)
@@ -30,6 +31,7 @@ const GoogleLogin = () => {
                 // navigate('/');
             })
     }
+
     return (
         <div>
             <button onClick={handleGoogleLogin} className='btn w-full'><FaGoogle></FaGoogle> Google Login</button>
