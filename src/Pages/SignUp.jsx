@@ -132,8 +132,8 @@ const SignUp = () => {
                                 </div>
                                 <select {...register("role", { required: true })} defaultValue={"Select a Role"} name='role' className="select select-bordered">
                                     <option disabled>Select a Role</option>
-                                    <option>User</option>
-                                    <option>Seller</option>
+                                    <option>user</option>
+                                    <option>seller</option>
                                 </select>
                                 {errors.role && <span className='text-red-600'>Role is required</span>}
                             </label>

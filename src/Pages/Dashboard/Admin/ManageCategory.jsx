@@ -8,15 +8,21 @@ import { FaEdit, FaTrashAlt } from 'react-icons/fa';
 
 const ManageCategory = () => {
 
-    const [category, isLoading] = useCategory();
-    const axiosSecure = useAxiosSecure();
-    const axiosPublic = useAxiosPublic();
+    // const [category, isLoading] = useCategory();
+    // const axiosPublic = useAxiosPublic();
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [formData, setFormData] = useState({
-        categoryName: '',
-        categoryImage: ''
-    });
+    const axiosSecure = useAxiosSecure();
+    const { data: categories = [], refetch } = useQuery({
+        queryKey: ['categories'],
+        queryFn: async () => {
+            const res = await axiosSecure.get('/categories');
+            return res.data;
+        }
+    })
+
+    const handleAddCategory = () => {
+
+    }
 
     const handleUpdateCategory = (item) => {
         console.log(item);
@@ -50,33 +56,48 @@ const ManageCategory = () => {
         });
     }
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-    };
-
-    const handleAddCategory = (e) => {
-        e.preventDefault();
-
-        // Simulating a backend call
-        console.log('New Category:', formData);
-
-        // Close modal
-        setIsModalOpen(false);
-    };
-
     return (
         <div className='my-10'>
             <div className='flex justify-between items-center mb-5'>
                 <h2 className='text-3xl font-bold'>Manage Category</h2>
-                <button className='btn'>Add Category</button>
 
-                <button
-                    className='btn'
-                    onClick={() => setIsModalOpen(true)}
-                >
+                <button className='btn'>
                     Add Category
                 </button>
+
+
+                {/* Open the modal using document.getElementById('ID').showModal() method */}
+                <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>Add Category</button>
+                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                    <div className="modal-box">
+                        <h3 className="font-bold text-lg">Add Category</h3>
+
+                        <form>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Category Name</span>
+                                </label>
+                                <input type="text" placeholder="category name" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Image Upload</span>
+                                </label>
+                                <input type="url" placeholder="image upload" className="input input-bordered" required />
+                            </div>
+                            <div className="form-control mt-6">
+                                <button className="btn btn-primary">Add Category</button>
+                            </div>
+                        </form>
+
+                        <div className="modal-action">
+                            <form method="dialog">
+                                {/* if there is a button in form, it will close the modal */}
+                                <button className="btn btn-secondary">Close</button>
+                            </form>
+                        </div>
+                    </div>
+                </dialog>
             </div>
 
             <div className="overflow-x-auto border">
@@ -93,25 +114,25 @@ const ManageCategory = () => {
                     </thead>
                     <tbody>
                         {
-                            category.map((item, index) =>
-                                <tr key={item.category}>
+                            categories.map((category, index) =>
+                                <tr key={category.category}>
                                     <th>{index + 1}</th>
                                     <td>
                                         <div className="flex items-center gap-3">
                                             <div className="avatar">
                                                 <div className="mask mask-squircle h-12 w-12">
                                                     <img
-                                                        src={item.image}
+                                                        src={category.image}
                                                         alt="Avatar Tailwind CSS Component" />
                                                 </div>
                                             </div>
                                         </div>
                                     </td>
-                                    <td>{item.category}</td>
-                                    <td>{item.medicine_count}</td>
+                                    <td>{category.category}</td>
+                                    <td>{category.medicine_count}</td>
                                     <th className='flex gap-2 items-center'>
-                                        <button onClick={() => handleUpdateCategory(item)} className="btn btn-ghost btn-md text-green-600"><FaEdit></FaEdit></button>
-                                        <button onClick={() => handleDeleteCategory(item)} className="btn btn-ghost btn-md text-red-600"><FaTrashAlt></FaTrashAlt></button>
+                                        <button onClick={() => handleUpdateCategory(category)} className="btn btn-ghost btn-md text-green-600"><FaEdit></FaEdit></button>
+                                        <button onClick={() => handleDeleteCategory(category)} className="btn btn-ghost btn-md text-red-600"><FaTrashAlt></FaTrashAlt></button>
                                     </th>
                                 </tr>
                             )
@@ -120,7 +141,7 @@ const ManageCategory = () => {
                     </tbody>
                 </table>
             </div>
-            {isModalOpen && (
+            {/* {isModalOpen && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
                     <div className="bg-white p-5 rounded shadow-lg w-96">
                         <h3 className="text-2xl font-semibold mb-4">Add New Category</h3>
@@ -168,7 +189,7 @@ const ManageCategory = () => {
                         </form>
                     </div>
                 </div>
-            )}
+            )} */}
         </div>
     );
 };

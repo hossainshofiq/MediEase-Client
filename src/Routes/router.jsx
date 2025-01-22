@@ -13,6 +13,10 @@ import ManageUsers from '../Pages/Dashboard/Admin/ManageUsers';
 import ManageCategory from '../Pages/Dashboard/Admin/ManageCategory';
 import AdminRoute from './AdminRoute';
 import SpecificMedicine from '../Pages/Shared/SpecificMedicine/SpecificMedicine';
+import SellerRoute from './SellerRoute';
+import ManageMedicine from '../Pages/Dashboard/Seller/ManageMedicine';
+import AskAdvertisement from '../Pages/Dashboard/Seller/AskAdvertisement';
+import PaymentHistory from '../Pages/Dashboard/Seller/PaymentHistory';
 
 const router = createBrowserRouter([
     {
@@ -39,20 +43,20 @@ const router = createBrowserRouter([
                 path: 'cart',
                 element: <Cart></Cart>
             },
-            //
+            {
+                path: 'specificMedicine/:category',
+                element: <SpecificMedicine></SpecificMedicine>
+            },
+            // for checking private route
             {
                 path: 'secret',
                 element: <PrivateRoute>
                     <Secret></Secret>
                 </PrivateRoute>
             },
-            {
-                path: 'specificMedicine/:category',
-                element: <SpecificMedicine></SpecificMedicine>
-            }
         ]
     },
-    // dashboard
+    // conditional (isAdmin, isSeller, isUser) dashboard
     {
         path: 'dashboard',
         element: <PrivateRoute>
@@ -71,7 +75,28 @@ const router = createBrowserRouter([
                 element: <AdminRoute>
                     <ManageCategory></ManageCategory>
                 </AdminRoute>
+            },
+            // TO DO: seller dashboard routes
+            {
+                path: 'manageMedicine',
+                element: <SellerRoute>
+                    <ManageMedicine></ManageMedicine>
+                </SellerRoute>
+            },
+            {
+                path: 'paymentHistory',
+                element: <SellerRoute>
+                    <PaymentHistory></PaymentHistory>
+                </SellerRoute>
+            },
+            {
+                path: 'requestAdvertisement',
+                element: <SellerRoute>
+                    <AskAdvertisement></AskAdvertisement>
+                </SellerRoute>
             }
+
+            // TO DO: user dashboard routes
         ]
     }
 ])

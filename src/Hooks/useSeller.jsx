@@ -1,9 +1,30 @@
-import React from 'react';
-import useAxiosSecure from './useAxiosSecure';
-import useAuth from './useAuth';
-import { useQuery } from '@tanstack/react-query';
+// import useAxiosSecure from './useAxiosSecure';
+// import useAuth from './useAuth';
+// import { useQuery } from '@tanstack/react-query';
 
-const useSeller = () => {
+// const useSeller = () => {
+
+//     const { user } = useAuth();
+//     const axiosSecure = useAxiosSecure();
+    
+//     const { data: isSeller, isPending: isSellerLoading } = useQuery({
+//         queryKey: [user?.email, 'isSeller'],
+//         queryFn: async () => {
+//             const res = await axiosSecure.get(`/users/seller/${user.email}`);
+//             console.log(res.data);
+//             return res.data?.seller;
+//         }
+//     })
+//     return [isSeller, isSellerLoading];
+// };
+
+// export default useSeller;
+
+import { useQuery } from '@tanstack/react-query';
+import useAuth from './useAuth';
+import useAxiosSecure from './useAxiosSecure';
+
+const useAdmin = () => {
 
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
@@ -13,10 +34,10 @@ const useSeller = () => {
         queryFn: async () => {
             const res = await axiosSecure.get(`/users/seller/${user.email}`);
             console.log(res.data);
-            return res.data?.admin;
+            return res.data?.seller;
         }
     })
     return [isSeller, isSellerLoading];
 };
 
-export default useSeller;
+export default useAdmin;

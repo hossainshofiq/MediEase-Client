@@ -3,6 +3,7 @@ import React from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { FaPersonBooth, FaTrashAlt, FaUser, FaUsers } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { RiAdminFill } from 'react-icons/ri';
 
 const ManageUsers = () => {
 
@@ -27,7 +28,7 @@ const ManageUsers = () => {
         axiosSecure.patch(`/users/admin/${user._id}`)
             .then(res => {
                 console.log(res.data);
-                if (res.data.modifiedCount) {
+                if (res.data.modifiedCount > 0) {
                     refetch();
                     Swal.fire({
                         position: "center",
@@ -38,7 +39,44 @@ const ManageUsers = () => {
                     });
                 }
             })
+    }
 
+    const handleMakeSeller = (user) => {
+        console.log(user);
+
+        axiosSecure.patch(`/users/seller/${user._id}`)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: `${user.name} is a Seller Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
+    }
+
+    const handleMakeUser = (user) => {
+        console.log(user);
+
+        axiosSecure.patch(`/users/user/${user._id}`)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: `${user.name} is an User Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
+            })
     }
 
     const handleDeleteUser = (user) => {
@@ -72,7 +110,7 @@ const ManageUsers = () => {
     }
 
     return (
-        <div>
+        <div className='my-10'>
             <div className='flex justify-evenly my-5'>
                 <h2 className='text-3xl font-bold'>Manage Users</h2>
                 <h2 className='text-3xl font-bold'>Total Users: {users.length}</h2>
@@ -88,6 +126,7 @@ const ManageUsers = () => {
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
+                                {/* <th>Role</th> */}
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -102,11 +141,28 @@ const ManageUsers = () => {
                                             {
                                                 user.role === 'admin' ? "Admin" : <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost"><FaUsers className='text-red-600 text-lg'></FaUsers></button>
                                             }
+                                            {
+                                                user.role === 'seller' ? "Seller" : <button onClick={() => handleMakeSeller(user)} className="btn btn-ghost"><FaUsers className='text-red-600 text-lg'></FaUsers></button>
+                                            }
+                                            {
+                                                user.role === 'user' ? "User" : <button onClick={() => handleMakeUser(user)} className="btn btn-ghost"><FaUsers className='text-red-600 text-lg'></FaUsers></button>
+                                            }
                                         </td>
+                                        
+                                        {/* <button className='btn btn-ghost'><RiAdminFill className='text-green-600 text-lg'></RiAdminFill></button> */}
+
+                                        {/* <button className='btn btn-ghost'><FaUser className='text-red-600 text-lg'></FaUser></button> */}
+
+                                        {/* <button className='btn btn-ghost'><FaUser className='text-red-600 text-lg'></FaUser></button> */}
+
 
                                         {/* <td>
                                             <select className="select select-bordered w-full max-w-xs">
-                                                <option disabled selected>Who shot first?</option>
+                                                <option disabled selected>Select Role</option>
+                                                <option onSelect={() => handleMakeAdmin(user)}>
+
+                                                    Admin
+                                                </option>
                                                 <option>Seller</option>
                                                 <option>User</option>
                                             </select>
