@@ -4,6 +4,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
 
@@ -77,7 +78,15 @@ const Cart = () => {
             <div className='flex justify-evenly mb-5'>
                 <h3 className='text-3xl'>My Cart: ({cart.length})</h3>
                 <h3 className='text-3xl'>Subtotal: ${totalPrice}</h3>
-                <button className='btn'>Checkout</button>
+                {
+                    cart.length ? 
+                    <Link to="/checkout">
+                        <button className='btn'>Checkout</button>
+                    </Link> 
+                    : 
+                    <button disabled className='btn'>Checkout</button>
+                }
+                
                 <button onClick={() => handleClearCart(cart)} className='btn'>Clear Cart</button>
             </div>
 

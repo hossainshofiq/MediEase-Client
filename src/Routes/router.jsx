@@ -17,6 +17,8 @@ import SellerRoute from './SellerRoute';
 import ManageMedicine from '../Pages/Dashboard/Seller/ManageMedicine';
 import AskAdvertisement from '../Pages/Dashboard/Seller/AskAdvertisement';
 import PaymentHistory from '../Pages/Dashboard/Seller/PaymentHistory';
+import UpdateCategory from '../Pages/Dashboard/Admin/UpdateCategory';
+import Checkout from '../Pages/Dashboard/User/Checkout';
 
 const router = createBrowserRouter([
     {
@@ -54,6 +56,10 @@ const router = createBrowserRouter([
                     <Secret></Secret>
                 </PrivateRoute>
             },
+            {
+                path: 'checkout',
+                element: <Checkout></Checkout>
+            }
         ]
     },
     // conditional (isAdmin, isSeller, isUser) dashboard
@@ -63,7 +69,7 @@ const router = createBrowserRouter([
             <DashboardLayout></DashboardLayout>
         </PrivateRoute>,
         children: [
-            // admin dashboard routes
+            // TODO: admin dashboard routes
             {
                 path: 'manageUsers',
                 element: <AdminRoute>
@@ -76,7 +82,14 @@ const router = createBrowserRouter([
                     <ManageCategory></ManageCategory>
                 </AdminRoute>
             },
-            // TO DO: seller dashboard routes
+            {
+                path: 'updateMedicine/:id',
+                element: <AdminRoute>
+                    <UpdateCategory></UpdateCategory>
+                </AdminRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
+            },
+            // seller dashboard routes
             {
                 path: 'manageMedicine',
                 element: <SellerRoute>
@@ -94,9 +107,9 @@ const router = createBrowserRouter([
                 element: <SellerRoute>
                     <AskAdvertisement></AskAdvertisement>
                 </SellerRoute>
-            }
-
+            },
             // TO DO: user dashboard routes
+
         ]
     }
 ])

@@ -6,7 +6,7 @@ const useCategory = () => {
 
     const axiosPublic = useAxiosPublic();
 
-    const { data: category = [], isLoading } = useQuery({
+    const { data: category = [], isLoading, refetch } = useQuery({
         queryKey: ['category'],
         queryFn: async () => {
             const res = await axiosPublic.get('/categories');
@@ -14,7 +14,7 @@ const useCategory = () => {
         }
     })
 
-    return [category, isLoading]
+    return [category, isLoading, refetch]
 };
 
 export default useCategory;

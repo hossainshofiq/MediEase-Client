@@ -1,9 +1,10 @@
 import React from 'react';
+import SectionTitle from '../../../Components/SectionTitle';
 
 const Checkout = () => {
     return (
         <div>
-            <h1>Checkout</h1>
+            <SectionTitle heading="Checkout" subHeading="Please pay to buy"></SectionTitle>
         </div>
     );
 };

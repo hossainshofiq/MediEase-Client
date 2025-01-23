@@ -1,17 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useCategory from '../../../Hooks/useCategory';
-import { useQuery } from '@tanstack/react-query';
-import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
+import SectionTitle from '../../../Components/SectionTitle';
+import { useQuery } from '@tanstack/react-query';
+import Swal from 'sweetalert2';
+import { useForm } from 'react-hook-form';
+import { TbCategoryPlus } from 'react-icons/tb';
+import { Link } from 'react-router-dom';
+
+
+const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
+const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
 const ManageCategory = () => {
 
-    // const [category, isLoading] = useCategory();
-    // const axiosPublic = useAxiosPublic();
-
+    const [category, isLoading] = useCategory();
+    const { register, handleSubmit, reset } = useForm();
+    const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
+
     const { data: categories = [], refetch } = useQuery({
         queryKey: ['categories'],
         queryFn: async () => {
@@ -20,16 +29,48 @@ const ManageCategory = () => {
         }
     })
 
-    const handleAddCategory = () => {
 
+    const onSubmit = async (data) => {
+        console.log(data)
+
+        // image upload to imgbb and then get an url
+        const imageFile = { image: data.image[0] }
+        const res = await axiosPublic.post(image_hosting_api, imageFile, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        })
+
+        if (res.data.success) {
+            const manageCategory = {
+                category: data.category,
+                image: res.data.data.display_url
+            }
+
+            const categoryResponse = await axiosSecure.post('/categories', manageCategory);
+            console.log(categoryResponse.data);
+            if (categoryResponse.data.insertedId) {
+                reset();
+                // show a sweet alert
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: `${data.category} is added to the medicines.`,
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        }
+        console.log('with image url:', res.data);
     }
 
     const handleUpdateCategory = (item) => {
         console.log(item);
     }
 
+    // delete category
     const handleDeleteCategory = (item) => {
-        console.log(item);
+        // console.log(item);
 
         Swal.fire({
             title: "Are you sure?",
@@ -39,32 +80,31 @@ const ManageCategory = () => {
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`medicine/categories/${item.category}`)
-                    .then(res => {
-                        console.log(res.data);
-                        console.log(item.category);
-                    })
+                const res = await axiosSecure.delete(`/categories/${item._id}`);
+                // console.log(res.data);
+                if (res.data.deletedCount > 0) {
+                    refetch();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${item.category} has been deleted`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                }
 
-                // Swal.fire({
-                //     title: "Deleted!",
-                //     text: "Your file has been deleted.",
-                //     icon: "success"
-                // });
+
             }
         });
     }
 
     return (
         <div className='my-10'>
-            <div className='flex justify-between items-center mb-5'>
-                <h2 className='text-3xl font-bold'>Manage Category</h2>
+            <SectionTitle heading="Manage All Category" subHeading="Add---Update---Delete any Category"></SectionTitle>
 
-                <button className='btn'>
-                    Add Category
-                </button>
-
+            <div className='flex justify-end mb-5'>
 
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
                 <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>Add Category</button>
@@ -72,22 +112,42 @@ const ManageCategory = () => {
                     <div className="modal-box">
                         <h3 className="font-bold text-lg">Add Category</h3>
 
-                        <form>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Category Name</span>
+                        {/* react hook form */}
+                        <form onSubmit={handleSubmit(onSubmit)}>
+
+                            {/* <label className="form-control w-full my-4">
+                                <div className="label">
+                                    <span className="label-text">Medicine Category*</span>
+                                </div>
+
+                                <select defaultValue="Select a Category" {...register("category", { required: true })} className="select select-bordered w-full">
+                                    <option disabled value="Select a Category">Select a Category</option>
+                                    <option value="Tablet">Tablet</option>
+                                    <option value="Capsule">Capsule</option>
+                                    <option value="Syrup">Syrup</option>
+                                    <option value="Injection">Injection</option>
+                                    <option value="Herbal">Herbal</option>
+                                </select>
+                            </label> */}
+                            {/* category name */}
+                            <label className="form-control w-full">
+                                <div className="label">
+                                    <span className="label-text">Medicine Category*</span>
+                                </div>
+                                <input {...register("category", { required: true })} type="text" placeholder="Type here" className="input input-bordered w-full" />
+                            </label>
+
+                            {/* image upload */}
+                            <div className='my-4'>
+                                <label className="form-control w-full max-w-xs">
+                                    <div className="label">
+                                        <span className="label-text">Pick a Image</span>
+                                    </div>
+                                    <input {...register("image", { required: true })} type="file" className="file-input file-input-bordered w-full max-w-xs" />
                                 </label>
-                                <input type="text" placeholder="category name" className="input input-bordered" required />
                             </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Image Upload</span>
-                                </label>
-                                <input type="url" placeholder="image upload" className="input input-bordered" required />
-                            </div>
-                            <div className="form-control mt-6">
-                                <button className="btn btn-primary">Add Category</button>
-                            </div>
+
+                            <button className='btn btn-primary w-full'>Add Category <TbCategoryPlus className='text-xl ml-2'></TbCategoryPlus></button>
                         </form>
 
                         <div className="modal-action">
@@ -115,7 +175,7 @@ const ManageCategory = () => {
                     <tbody>
                         {
                             categories.map((category, index) =>
-                                <tr key={category.category}>
+                                <tr key={category._id}>
                                     <th>{index + 1}</th>
                                     <td>
                                         <div className="flex items-center gap-3">
@@ -131,65 +191,17 @@ const ManageCategory = () => {
                                     <td>{category.category}</td>
                                     <td>{category.medicine_count}</td>
                                     <th className='flex gap-2 items-center'>
-                                        <button onClick={() => handleUpdateCategory(category)} className="btn btn-ghost btn-md text-green-600"><FaEdit></FaEdit></button>
-                                        <button onClick={() => handleDeleteCategory(category)} className="btn btn-ghost btn-md text-red-600"><FaTrashAlt></FaTrashAlt></button>
+                                        <Link to={`/dashboard/updateMedicine/${category._id}`}>
+                                            <button onClick={() => handleUpdateCategory(category)} className="btn btn-ghost btn-md text-green-600"><FaEdit className='text-xl'></FaEdit></button>
+                                        </Link>
+                                        <button onClick={() => handleDeleteCategory(category)} className="btn btn-ghost btn-md text-red-600"><FaTrashAlt className='text-xl'></FaTrashAlt></button>
                                     </th>
                                 </tr>
                             )
                         }
-
                     </tbody>
                 </table>
             </div>
-            {/* {isModalOpen && (
-                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                    <div className="bg-white p-5 rounded shadow-lg w-96">
-                        <h3 className="text-2xl font-semibold mb-4">Add New Category</h3>
-                        <form onSubmit={handleAddCategory}>
-                            <div className="mb-3">
-                                <label className="block text-sm font-medium mb-1" htmlFor="categoryName">
-                                    Category Name
-                                </label>
-                                <input
-                                    type="text"
-                                    id="categoryName"
-                                    name="categoryName"
-                                    className="input input-bordered w-full"
-                                    value={formData.categoryName}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                            </div>
-                            <div className="mb-3">
-                                <label className="block text-sm font-medium mb-1" htmlFor="categoryImage">
-                                    Category Image URL
-                                </label>
-                                <input
-                                    type="url"
-                                    id="categoryImage"
-                                    name="categoryImage"
-                                    className="input input-bordered w-full"
-                                    value={formData.categoryImage}
-                                    onChange={handleInputChange}
-                                    required
-                                />
-                            </div>
-                            <div className="flex justify-end mt-4">
-                                <button
-                                    type="button"
-                                    className="btn btn-secondary mr-2"
-                                    onClick={() => setIsModalOpen(false)}
-                                >
-                                    Cancel
-                                </button>
-                                <button type="submit" className="btn btn-primary">
-                                    Add
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            )} */}
         </div>
     );
 };

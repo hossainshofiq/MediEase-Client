@@ -21,7 +21,7 @@ const useProduct = () => {
 
     const axiosPublic = useAxiosPublic();
 
-    const { data: product = [], isLoading } = useQuery({
+    const { data: product = [], isLoading, refetch } = useQuery({
         queryKey: ['product'],
         queryFn: async () => {
             const res = await axiosPublic.get('/medicines');
@@ -29,7 +29,7 @@ const useProduct = () => {
         }
     })
 
-    return [product, isLoading]
+    return [product, isLoading, refetch]
 };
 
 export default useProduct;
