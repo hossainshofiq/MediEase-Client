@@ -51,22 +51,23 @@ const ManageCategory = () => {
             console.log(categoryResponse.data);
             if (categoryResponse.data.insertedId) {
                 reset();
-                // show a sweet alert
+                refetch();
                 Swal.fire({
-                    position: "top-end",
+                    position: "center",
                     icon: "success",
                     title: `${data.category} is added to the medicines.`,
                     showConfirmButton: false,
                     timer: 1500
                 });
+                document.getElementById('my_modal_1').close()
             }
         }
         console.log('with image url:', res.data);
     }
 
-    const handleUpdateCategory = (item) => {
-        console.log(item);
-    }
+    // const handleUpdateCategory = (item) => {
+    //     console.log(item);
+    // }
 
     // delete category
     const handleDeleteCategory = (item) => {
@@ -94,8 +95,6 @@ const ManageCategory = () => {
                         timer: 1500
                     });
                 }
-
-
             }
         });
     }
@@ -107,28 +106,14 @@ const ManageCategory = () => {
             <div className='flex justify-end mb-5'>
 
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
-                <button className="btn" onClick={() => document.getElementById('my_modal_5').showModal()}>Add Category</button>
-                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>Add Category</button>
+                <dialog id="my_modal_1" className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
                         <h3 className="font-bold text-lg">Add Category</h3>
 
                         {/* react hook form */}
                         <form onSubmit={handleSubmit(onSubmit)}>
 
-                            {/* <label className="form-control w-full my-4">
-                                <div className="label">
-                                    <span className="label-text">Medicine Category*</span>
-                                </div>
-
-                                <select defaultValue="Select a Category" {...register("category", { required: true })} className="select select-bordered w-full">
-                                    <option disabled value="Select a Category">Select a Category</option>
-                                    <option value="Tablet">Tablet</option>
-                                    <option value="Capsule">Capsule</option>
-                                    <option value="Syrup">Syrup</option>
-                                    <option value="Injection">Injection</option>
-                                    <option value="Herbal">Herbal</option>
-                                </select>
-                            </label> */}
                             {/* category name */}
                             <label className="form-control w-full">
                                 <div className="label">
@@ -192,7 +177,7 @@ const ManageCategory = () => {
                                     <td>{category.medicine_count}</td>
                                     <th className='flex gap-2 items-center'>
                                         <Link to={`/dashboard/updateMedicine/${category._id}`}>
-                                            <button onClick={() => handleUpdateCategory(category)} className="btn btn-ghost btn-md text-green-600"><FaEdit className='text-xl'></FaEdit></button>
+                                            <button  className="btn btn-ghost btn-md text-green-600"><FaEdit className='text-xl'></FaEdit></button>
                                         </Link>
                                         <button onClick={() => handleDeleteCategory(category)} className="btn btn-ghost btn-md text-red-600"><FaTrashAlt className='text-xl'></FaTrashAlt></button>
                                     </th>
@@ -207,17 +192,3 @@ const ManageCategory = () => {
 };
 
 export default ManageCategory;
-
-// const [category, setCategory] = useState([]);
-
-// useEffect(() => {
-//     fetch('http://localhost:5000/medicine/categories')
-//         .then(res => res.json())
-//         .then(data => {
-//             console.log(data);
-//             // const sortedData = data.sort((a, b) => (a.category - b.category));
-//             setCategory(data)
-//         })
-// }, [])
-
-// const axiosSecure = useAxiosSecure();

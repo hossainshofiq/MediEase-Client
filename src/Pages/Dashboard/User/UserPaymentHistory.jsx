@@ -35,7 +35,7 @@ const UserPaymentHistory = () => {
                     <tbody>
                         {
                             payments.map((payment, index) =>
-                                <tr className='hover:bg-gray-200'>
+                                <tr key={payment._id} className='hover:bg-gray-200'>
                                     <th>{index + 1}</th>
                                     <td>${payment.price}</td>
                                     <td>{payment.transactionId}</td>

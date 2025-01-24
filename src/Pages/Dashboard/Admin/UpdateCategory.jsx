@@ -4,7 +4,7 @@ import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useCategory from '../../../Hooks/useCategory';
 import { useQuery } from '@tanstack/react-query';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { TbCategoryFilled, TbCategoryPlus } from 'react-icons/tb';
 import { MdOutlineSettingsInputComponent } from 'react-icons/md';
@@ -17,11 +17,12 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 const UpdateCategory = () => {
 
     const { _id, category, image } = useLoaderData();
-    console.log(category, image);
+    // console.log(category, image);
 
     const { register, handleSubmit, reset } = useForm();
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
+    const navigate = useNavigate();
 
     const onSubmit = async (data) => {
         console.log(data)
@@ -52,6 +53,7 @@ const UpdateCategory = () => {
                     showConfirmButton: false,
                     timer: 1500
                 });
+                navigate('/dashboard/manageCategory');
             }
         }
         console.log('with image url:', res.data);

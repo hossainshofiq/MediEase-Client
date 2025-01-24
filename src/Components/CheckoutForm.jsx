@@ -5,6 +5,8 @@ import useAxiosSecure from '../Hooks/useAxiosSecure';
 import useCart from '../Hooks/useCart';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import useAdmin from '../Hooks/useAdmin';
+import useSeller from '../Hooks/useSeller';
 
 const CheckoutForm = () => {
 
@@ -19,6 +21,9 @@ const CheckoutForm = () => {
     const totalPrice = cart.reduce((total, item) => total + item.unit_price, 0);
     const [transactionId, setTransactionId] = useState('');
     const navigate = useNavigate();
+
+    const [isAdmin] = useAdmin();
+    const [isSeller] = useSeller()
 
     useEffect(() => {
         if (totalPrice > 0) {
@@ -97,6 +102,12 @@ const CheckoutForm = () => {
                         timer: 1500
                     });
                     navigate('/invoice');
+
+                    // if (isSeller) {
+                    //     navigate('/')
+                    // } else {
+                    //     navigate('/invoice');
+                    // }
                 }
             }
         }

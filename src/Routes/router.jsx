@@ -21,6 +21,10 @@ import Checkout from '../Components/Checkout';
 import SellerPaymentHistory from '../Pages/Dashboard/Seller/SellerPaymentHistory';
 import UserPaymentHistory from '../Pages/Dashboard/User/UserPaymentHistory';
 import InvoicePage from '../Components/InvoicePage';
+import AdminHomePage from '../Pages/Dashboard/Admin/AdminHomePage';
+import SellerHomePage from '../Pages/Dashboard/Seller/SellerHomePage';
+import UserHome from '../Pages/Dashboard/User/UserHome';
+import ManageAdvertise from '../Pages/Dashboard/Admin/ManageAdvertise';
 
 const router = createBrowserRouter([
     {
@@ -77,6 +81,12 @@ const router = createBrowserRouter([
         children: [
             // TODO: admin dashboard routes
             {
+                path: 'adminHome',
+                element: <AdminRoute>
+                    <AdminHomePage></AdminHomePage>
+                </AdminRoute>
+            },
+            {
                 path: 'manageUsers',
                 element: <AdminRoute>
                     <ManageUsers></ManageUsers>
@@ -95,7 +105,19 @@ const router = createBrowserRouter([
                 </AdminRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
             },
+            {
+                path: 'manageAdvertisement',
+                element: <AdminRoute>
+                    <ManageAdvertise></ManageAdvertise>
+                </AdminRoute>
+            },
             // seller dashboard routes
+            {
+                path: 'sellerHome',
+                element: <SellerRoute>
+                    <SellerHomePage></SellerHomePage>
+                </SellerRoute>
+            },
             {
                 path: 'manageMedicine',
                 element: <SellerRoute>
@@ -118,6 +140,10 @@ const router = createBrowserRouter([
             {
                 path: 'userPaymentHistory',
                 element: <UserPaymentHistory></UserPaymentHistory>
+            },
+            {
+                path: 'userHome',
+                element: <UserHome></UserHome>
             }
         ]
     }

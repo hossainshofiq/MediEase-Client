@@ -87,7 +87,7 @@ const Shop = () => {
             <div className="overflow-x-auto">
                 <table className="table border">
                     {/* head */}
-                    <thead>
+                    <thead className='bg-green-300 text-black'>
                         <tr>
                             <th>#</th>
                             <th>Photo</th>
@@ -102,7 +102,7 @@ const Shop = () => {
                     <tbody>
                         {
                             product.map((item, index) =>
-                                <tr className='hover:bg-gray-200' key={item._id}>
+                                <tr key={item._id} className='hover:bg-gray-100'>
                                     <th>{index + 1}</th>
                                     <td>
                                         <div className="flex items-center gap-3">
@@ -123,6 +123,20 @@ const Shop = () => {
                                     <th className='flex gap-3'>
                                         <button onClick={() => handleAddToCart(item)} className="btn btn-primary btn-sm">Select</button>
                                         <button onClick={() => handleSee(item)} className="btn btn-primary btn-sm"><FaEye></FaEye></button>
+
+                                        {/* <button className="btn btn-primary btn-sm" onClick={() => document.getElementById('my_modal_1').showModal()}><FaEye></FaEye></button>
+                                        <dialog id="my_modal_1" className="modal">
+                                            <div className="modal-box">
+                                                <h3 className="font-bold text-lg">Hello!</h3>
+                                                <p className="py-4">Press ESC key or click the button below to close</p>
+                                                <div className="modal-action">
+                                                    <form method="dialog">
+                                                        <button className="btn">Close</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </dialog> */}
+
                                     </th>
                                 </tr>
                             )
@@ -140,8 +154,6 @@ const Shop = () => {
                             className="btn btn-sm btn-circle absolute right-2 top-2"
                             onClick={() => setSelectedMedicine(null)}
                         >
-                            {/* <FaDeleteLeft className='text-2xl text-red-600'></FaDeleteLeft> */}
-                            {/* <AiOutlineCloseCircle className='text-2xl text-red-600'></AiOutlineCloseCircle> */}
                             <MdOutlineCloseFullscreen className='text-2xl text-red-600'></MdOutlineCloseFullscreen>
                         </button>
                         <h2 className="text-lg font-bold">

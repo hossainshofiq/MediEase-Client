@@ -6,11 +6,16 @@ import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { Tooltip } from 'react-tooltip';
 import useCart from '../../Hooks/useCart';
+import useAdmin from '../../Hooks/useAdmin';
+import useSeller from '../../Hooks/useSeller';
 
 const Navbar = () => {
 
     const { user, logout } = useAuth();
     const [cart] = useCart();
+
+    const [isAdmin] = useAdmin();
+    const [isSeller] = useSeller();
 
     const handleLogout = () => {
         logout()
@@ -32,8 +37,8 @@ const Navbar = () => {
         <div className='lg:flex gap-2'>
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/shop">Shop</NavLink></li>
-            <li><NavLink to="/dashboard">Dashboard</NavLink></li>
             {/* for checking route */}
+            <li><NavLink to="/dashboard">Dashboard</NavLink></li>
             <li><NavLink to="/secret">Secret</NavLink></li>
 
             <li>
@@ -115,7 +120,20 @@ const Navbar = () => {
                                         {/* <span className="badge">New</span> */}
                                     </a>
                                 </li>
-                                <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+
+                                <li>
+                                    {
+                                        isAdmin ?
+                                            (<NavLink to="/dashboard/adminHome">Dashboard</NavLink>)
+                                            :
+                                            !isAdmin && isSeller ?
+                                                (<NavLink to="/dashboard/sellerHome">Dashboard</NavLink>)
+                                                :
+                                                (<NavLink to="/dashboard/userHome">Dashboard</NavLink>)
+                                    }
+                                </li>
+
+                                {/* <li><NavLink to="/dashboard">Dashboard</NavLink></li> */}
                                 <li><button onClick={handleLogout}>Logout</button></li>
                             </ul>
                         </div>

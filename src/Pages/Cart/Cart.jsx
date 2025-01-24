@@ -91,9 +91,9 @@ const Cart = () => {
             </div>
 
             <div className="overflow-x-auto border">
-                <table className="table">
+                <table className="table border">
                     {/* head */}
-                    <thead className='bg-green-200'>
+                    <thead className='bg-green-300 text-black'>
                         <tr>
                             <th>#</th>
                             <th>Photo</th>

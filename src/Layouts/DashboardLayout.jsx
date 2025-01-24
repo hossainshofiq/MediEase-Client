@@ -2,7 +2,7 @@ import React from 'react';
 import { FaCartPlus, FaHome, FaList, FaUsers } from 'react-icons/fa';
 import { FcSalesPerformance } from 'react-icons/fc';
 import { GiKnightBanner } from 'react-icons/gi';
-import { MdOutlinePayment } from 'react-icons/md';
+import { MdAdminPanelSettings, MdOutlinePayment } from 'react-icons/md';
 import { NavLink, Outlet } from 'react-router-dom';
 import useAdmin from '../Hooks/useAdmin';
 import Navbar from '../Pages/Shared/Navbar';
@@ -10,6 +10,7 @@ import { AiFillMedicineBox } from 'react-icons/ai';
 import { Helmet } from 'react-helmet-async';
 import useSeller from '../Hooks/useSeller';
 import useAuth from '../Hooks/useAuth';
+import { FaShopSlash } from 'react-icons/fa6';
 
 
 const DashboardLayout = () => {
@@ -153,28 +154,33 @@ const DashboardLayout = () => {
                             isAdmin ? (
                                 <>
                                     <li>
+                                        <NavLink to="/dashboard/adminHome">
+                                            <MdAdminPanelSettings></MdAdminPanelSettings> Admin Home
+                                        </NavLink>
+                                    </li>
+                                    <li>
                                         <NavLink to="/dashboard/manageUsers">
-                                            <FaUsers /> Manage Users
+                                            <FaUsers></FaUsers> Manage Users
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to="/dashboard/manageCategory">
-                                            <FaList /> Manage Category
+                                            <FaList></FaList> Manage Category
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to="/dashboard/paymentManagement">
-                                            <MdOutlinePayment /> Payment Management
+                                            <MdOutlinePayment></MdOutlinePayment> Payment Management
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to="/dashboard/salesReport">
-                                            <FcSalesPerformance /> Sales Report
+                                            <FcSalesPerformance></FcSalesPerformance> Sales Report
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/dashboard/manageBanner">
-                                            <GiKnightBanner /> Manage Banner Advertise
+                                        <NavLink to="/dashboard/manageAdvertisement">
+                                            <GiKnightBanner></GiKnightBanner> Manage Banner Advertise
                                         </NavLink>
                                     </li>
                                     <div className="divider"></div>
@@ -182,18 +188,23 @@ const DashboardLayout = () => {
                             ) : !isAdmin && isSeller ? (
                                 <>
                                     <li>
+                                        <NavLink to="/dashboard/sellerHome">
+                                            <FaShopSlash></FaShopSlash> Seller Home
+                                        </NavLink>
+                                    </li>
+                                    <li>
                                         <NavLink to="/dashboard/manageMedicine">
-                                            <AiFillMedicineBox /> Manage Medicines
+                                            <AiFillMedicineBox></AiFillMedicineBox> Manage Medicines
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to="/dashboard/sellerPaymentHistory">
-                                            <MdOutlinePayment /> Payment History
+                                            <MdOutlinePayment></MdOutlinePayment> Payment History
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to="/dashboard/requestAdvertisement">
-                                            <GiKnightBanner /> Ask For Advertisement
+                                            <GiKnightBanner></GiKnightBanner> Ask For Advertisement
                                         </NavLink>
                                     </li>
                                     <div className="divider"></div>
@@ -202,7 +213,7 @@ const DashboardLayout = () => {
                                 <>
                                     <li>
                                         <NavLink to="/dashboard/userPaymentHistory">
-                                            <GiKnightBanner /> Payment History
+                                            <MdOutlinePayment></MdOutlinePayment> Payment History
                                         </NavLink>
                                     </li>
                                     <div className='divider'></div>

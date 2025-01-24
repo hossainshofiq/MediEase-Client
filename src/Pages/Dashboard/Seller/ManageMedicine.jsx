@@ -46,12 +46,13 @@ const ManageMedicine = () => {
                 reset();
                 // show a sweet alert
                 Swal.fire({
-                    position: "top-end",
+                    position: "center",
                     icon: "success",
                     title: `${data.name} is added to the medicines.`,
                     showConfirmButton: false,
                     timer: 1500
                 });
+                document.getElementById('my_modal_1').close()
             }
         }
         console.log('with image url:', res.data);
@@ -63,8 +64,8 @@ const ManageMedicine = () => {
             <div className='flex justify-end mb-5'>
 
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
-                <button className="btn btn-success text-white" onClick={() => document.getElementById('my_modal_5').showModal()}>Add Medicine</button>
-                <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                <button className="btn btn-success text-white" onClick={() => document.getElementById('my_modal_1').showModal()}>Add Medicine</button>
+                <dialog id="my_modal_1" className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
                         <h3 className="font-bold text-lg">Add Medicine</h3>
 
@@ -156,7 +157,7 @@ const ManageMedicine = () => {
                                 <div className="label">
                                     <span className="label-text">Short Description</span>
                                 </div>
-                                <textarea {...register("short_description", { required: true, minLength: 10, maxLength: 50 })} className="textarea textarea-bordered h-24" placeholder="short description about medicine"></textarea>
+                                <textarea {...register("short_description", { required: true, minLength: 5, maxLength: 50 })} className="textarea textarea-bordered h-24" placeholder="short description about medicine"></textarea>
                             </label>
 
                             {/* image upload */}
@@ -174,7 +175,6 @@ const ManageMedicine = () => {
 
                         <div className="modal-action">
                             <form method="dialog">
-                                {/* if there is a button in form, it will close the modal */}
                                 <button className="btn btn-secondary">Close</button>
                             </form>
                         </div>
@@ -186,7 +186,7 @@ const ManageMedicine = () => {
             <div className="overflow-x-auto">
                 <table className="table border">
                     {/* head */}
-                    <thead>
+                    <thead className='bg-blue-500 text-white'>
                         <tr>
                             <th>#</th>
                             <th>Image</th>
@@ -201,7 +201,7 @@ const ManageMedicine = () => {
                     <tbody>
                         {
                             Product.map((item, index) =>
-                                <tr key={item._id}>
+                                <tr key={item._id} className='hover:bg-gray-100'>
                                     <th>{index + 1}</th>
                                     <td>
                                         <div className="flex items-center gap-3">
