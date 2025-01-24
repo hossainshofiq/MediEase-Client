@@ -187,7 +187,7 @@ const DashboardLayout = () => {
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to="/dashboard/paymentHistory">
+                                        <NavLink to="/dashboard/sellerPaymentHistory">
                                             <MdOutlinePayment /> Payment History
                                         </NavLink>
                                     </li>
@@ -201,7 +201,7 @@ const DashboardLayout = () => {
                             ) : (
                                 <>
                                     <li>
-                                        <NavLink to="/dashboard/paymentHistory">
+                                        <NavLink to="/dashboard/userPaymentHistory">
                                             <GiKnightBanner /> Payment History
                                         </NavLink>
                                     </li>

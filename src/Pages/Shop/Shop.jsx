@@ -74,7 +74,7 @@ const Shop = () => {
     }
 
     const handleSee = (item) => {
-        console.log(item._id);
+        // console.log(item._id);
         setSelectedMedicine(item);
 
     }

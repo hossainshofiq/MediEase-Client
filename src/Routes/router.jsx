@@ -16,9 +16,11 @@ import SpecificMedicine from '../Pages/Shared/SpecificMedicine/SpecificMedicine'
 import SellerRoute from './SellerRoute';
 import ManageMedicine from '../Pages/Dashboard/Seller/ManageMedicine';
 import AskAdvertisement from '../Pages/Dashboard/Seller/AskAdvertisement';
-import PaymentHistory from '../Pages/Dashboard/Seller/PaymentHistory';
 import UpdateCategory from '../Pages/Dashboard/Admin/UpdateCategory';
-import Checkout from '../Pages/Dashboard/User/Checkout';
+import Checkout from '../Components/Checkout';
+import SellerPaymentHistory from '../Pages/Dashboard/Seller/SellerPaymentHistory';
+import UserPaymentHistory from '../Pages/Dashboard/User/UserPaymentHistory';
+import InvoicePage from '../Components/InvoicePage';
 
 const router = createBrowserRouter([
     {
@@ -59,6 +61,10 @@ const router = createBrowserRouter([
             {
                 path: 'checkout',
                 element: <Checkout></Checkout>
+            },
+            {
+                path: '/invoice',
+                element: <InvoicePage></InvoicePage>
             }
         ]
     },
@@ -97,9 +103,9 @@ const router = createBrowserRouter([
                 </SellerRoute>
             },
             {
-                path: 'paymentHistory',
+                path: 'sellerPaymentHistory',
                 element: <SellerRoute>
-                    <PaymentHistory></PaymentHistory>
+                    <SellerPaymentHistory></SellerPaymentHistory>
                 </SellerRoute>
             },
             {
@@ -109,7 +115,10 @@ const router = createBrowserRouter([
                 </SellerRoute>
             },
             // TO DO: user dashboard routes
-
+            {
+                path: 'userPaymentHistory',
+                element: <UserPaymentHistory></UserPaymentHistory>
+            }
         ]
     }
 ])

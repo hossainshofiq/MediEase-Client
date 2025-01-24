@@ -97,7 +97,7 @@ const Navbar = () => {
                     user ?
                         <div className="dropdown dropdown-end">
                             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-12 h-12 border-2 border-black rounded-full">
+                                <div className="w-12 h-12 border-2 border-black rounded-full z-50">
                                     <img
                                         data-tooltip-id='my-tooltip'
                                         data-tooltip-content={user?.displayName}
