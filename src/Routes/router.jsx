@@ -25,6 +25,8 @@ import AdminHomePage from '../Pages/Dashboard/Admin/AdminHomePage';
 import SellerHomePage from '../Pages/Dashboard/Seller/SellerHomePage';
 import UserHome from '../Pages/Dashboard/User/UserHome';
 import ManageAdvertise from '../Pages/Dashboard/Admin/ManageAdvertise';
+import PaymentManagement from '../Pages/Dashboard/Admin/PaymentManagement';
+import SalesReport from '../Pages/Dashboard/Admin/SalesReport';
 
 const router = createBrowserRouter([
     {
@@ -54,13 +56,6 @@ const router = createBrowserRouter([
             {
                 path: 'specificMedicine/:category',
                 element: <SpecificMedicine></SpecificMedicine>
-            },
-            // for checking private route
-            {
-                path: 'secret',
-                element: <PrivateRoute>
-                    <Secret></Secret>
-                </PrivateRoute>
             },
             {
                 path: 'checkout',
@@ -104,6 +99,18 @@ const router = createBrowserRouter([
                     <UpdateCategory></UpdateCategory>
                 </AdminRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
+            },
+            {
+                path: 'paymentManagement',
+                element: <AdminRoute>
+                    <PaymentManagement></PaymentManagement>
+                </AdminRoute>
+            },
+            {
+                path: 'salesReport',
+                element: <AdminRoute>
+                    <SalesReport></SalesReport>
+                </AdminRoute>
             },
             {
                 path: 'manageAdvertisement',

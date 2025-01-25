@@ -37,7 +37,7 @@ const ManageMedicine = () => {
                 image: res.data.data.display_url,
                 item_mass_unit: data.item_mass_unit,
                 unit_price: parseFloat(data.unit_price),
-                discount_percentage: data.discount_percentage
+                discount_percentage: parseFloat(data.discount_percentage)
             }
             // post to database
             const medicineResponse = await axiosSecure.post('/medicines', manageMedicine)
@@ -149,7 +149,7 @@ const ManageMedicine = () => {
                                 <div className="label">
                                     <span className="label-text">Discount Percentage%*</span>
                                 </div>
-                                <input {...register("discount_percentage", { required: true })} type="number" placeholder="Type here" className="input input-bordered w-full" />
+                                <input {...register("discount_percentage")} type="number" placeholder="Type here" className="input input-bordered w-full" />
                             </label>
 
                             {/* short description */}

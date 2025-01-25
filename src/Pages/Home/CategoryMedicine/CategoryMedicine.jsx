@@ -1,5 +1,4 @@
 import React from 'react';
-import CategoryMedicineCard from './CategoryMedicineCard';
 import { Link } from 'react-router-dom';
 import useProduct from '../../../Hooks/useProduct';
 import useCategory from '../../../Hooks/useCategory';
@@ -11,16 +10,10 @@ const CategoryMedicine = ({ items, title }) => {
     const [category] = useCategory();
 
     const filteredProducts = product.filter(item => item.category === category);
-    // console.log(filteredProducts.length);
 
     return (
         <div>
             {/* <SectionTitle heading="Category Medicines" subHeading="Explore our category medicines"></SectionTitle> */}
-
-
-            {/* {
-                items.map(item => <CategoryMedicineCard key={item._id} item={item}></CategoryMedicineCard>)
-            } */}
 
             <div>
                 {

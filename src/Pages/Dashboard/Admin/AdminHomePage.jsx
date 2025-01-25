@@ -3,7 +3,7 @@ import useAuth from '../../../Hooks/useAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { MdPaid, MdPendingActions } from 'react-icons/md';
-import { FaDollarSign } from 'react-icons/fa';
+import { FaBriefcaseMedical, FaDollarSign } from 'react-icons/fa';
 
 const AdminHomePage = () => {
 
@@ -38,11 +38,11 @@ const AdminHomePage = () => {
 
                 <div className="stat">
                     <div className="stat-figure text-secondary">
-                        <MdPaid className='text-5xl'></MdPaid>
+                        <MdPendingActions className='text-5xl'></MdPendingActions>
                     </div>
                     <div className="stat-title">Paid Total</div>
-                    <div className="stat-value">4,200</div>
-                    <div className="stat-desc">↗︎ 400 (22%)</div>
+                    <div className="stat-value">{stats.paidStatus}</div>
+                    <div className="stat-desc">↘︎ 90 (14%)</div>
                 </div>
 
                 <div className="stat">
@@ -50,7 +50,7 @@ const AdminHomePage = () => {
                         <MdPendingActions className='text-5xl'></MdPendingActions>
                     </div>
                     <div className="stat-title">Pending Total</div>
-                    <div className="stat-value">1,200</div>
+                    <div className="stat-value">{stats.pendingStatus}</div>
                     <div className="stat-desc">↘︎ 90 (14%)</div>
                 </div>
             </div>

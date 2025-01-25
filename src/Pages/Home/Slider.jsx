@@ -6,6 +6,7 @@ import userAdvertisement from '../../Hooks/userAdvertisement';
 const Slider = () => {
 
     const [advertise] = userAdvertisement();
+    
     return (
 
         <div className=''>

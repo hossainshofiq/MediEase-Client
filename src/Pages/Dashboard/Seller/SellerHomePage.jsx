@@ -42,7 +42,7 @@ const SellerHomePage = () => {
                         <MdPaid className='text-5xl'></MdPaid>
                     </div>
                     <div className="stat-title">Paid Total</div>
-                    <div className="stat-value">4,200</div>
+                    <div className="stat-value">{stats.paidStatus}</div>
                     <div className="stat-desc">↗︎ 400 (22%)</div>
                 </div>
 
@@ -51,7 +51,7 @@ const SellerHomePage = () => {
                         <MdPendingActions className='text-5xl'></MdPendingActions>
                     </div>
                     <div className="stat-title">Pending Total</div>
-                    <div className="stat-value">{stats.status}</div>
+                    <div className="stat-value">{stats.pendingStatus}</div>
                     <div className="stat-desc">↘︎ 90 (14%)</div>
                 </div>
             </div>

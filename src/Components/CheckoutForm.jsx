@@ -4,9 +4,7 @@ import useAuth from '../Hooks/useAuth';
 import useAxiosSecure from '../Hooks/useAxiosSecure';
 import useCart from '../Hooks/useCart';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
-import useAdmin from '../Hooks/useAdmin';
-import useSeller from '../Hooks/useSeller';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const CheckoutForm = () => {
 
@@ -18,12 +16,11 @@ const CheckoutForm = () => {
     const axiosSecure = useAxiosSecure();
     const [clientSecret, setClientSecret] = useState('');
     const [cart, refetch] = useCart();
-    const totalPrice = cart.reduce((total, item) => total + item.unit_price, 0);
     const [transactionId, setTransactionId] = useState('');
     const navigate = useNavigate();
 
-    const [isAdmin] = useAdmin();
-    const [isSeller] = useSeller()
+    const totalPrice = cart.reduce((total, item) => total + item.unit_price, 0);
+
 
     useEffect(() => {
         if (totalPrice > 0) {
@@ -101,8 +98,10 @@ const CheckoutForm = () => {
                         showConfirmButton: false,
                         timer: 1500
                     });
+                    // comment
                     navigate('/invoice');
 
+                    // uncomment this
                     // if (isSeller) {
                     //     navigate('/')
                     // } else {
@@ -112,6 +111,7 @@ const CheckoutForm = () => {
             }
         }
     }
+
     return (
         // flex justify-center my-10
         <div className=''>
@@ -176,29 +176,15 @@ const CheckoutForm = () => {
                     }}
                 />
 
-                {/* <label className="form-control w-full max-w-xs">
-                    <div className="label">
-                        <span className="label-text">What is your name?</span>
-                    </div>
-                    <input type="text" defaultValue={user?.displayName} placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-                </label>
-
-                <label className="form-control w-full max-w-xs">
-                    <div className="label">
-                        <span className="label-text">What is your name?</span>
-                    </div>
-                    <input type="text" defaultValue={user?.displayName} placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-                </label> */}
-
-
                 <button className='btn btn-sm btn-primary my-5' type="submit" disabled={!stripe || !clientSecret}>
                     Pay
                 </button>
+                <p>{totalPrice}</p>
 
-                <p className='text-red-600 text-center'>{error}</p>
+                <p className='text-red-600 text-center my-5'>{error}</p>
 
                 {
-                    transactionId && <p className='text-green-600 text-center'>Your transaction ID: {transactionId} </p>
+                    transactionId && <p className='text-green-600 text-center my-5'>Your transaction ID: {transactionId} </p>
                 }
 
             </form>
