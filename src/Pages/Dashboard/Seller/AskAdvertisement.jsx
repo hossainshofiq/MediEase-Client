@@ -23,7 +23,8 @@ const AskAdvertisement = () => {
             medicine_name: data.name,
             description: data.description,
             image: data.image,
-            seller_email: user?.email
+            seller_email: user?.email,
+            status: "pending"
         };
 
         const response = await axiosSecure.post('/advertisements', advertisementData);
@@ -58,6 +59,7 @@ const AskAdvertisement = () => {
                             <img src={ad.image} alt="Advertisement" className="rounded-lg object-cover max-h-[400px] w-full" />
                             {/* <p className="text-sm mt-3">{ad.description}</p> */}
                             <p className="text-sm mt-3">{ad.medicine_name}</p>
+                            <p className="text-sm mt-3">{ad.status}</p>
                         </div>
                     ))}
                 </Carousel>

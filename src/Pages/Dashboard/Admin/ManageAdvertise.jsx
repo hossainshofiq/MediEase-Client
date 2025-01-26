@@ -1,10 +1,36 @@
 import React from 'react';
 import userAdvertisement from '../../../Hooks/userAdvertisement';
 import SectionTitle from '../../../Components/SectionTitle';
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const ManageAdvertise = () => {
 
-    const [advertise] = userAdvertisement();
+    const [advertise, isLoading, refetch] = userAdvertisement();
+
+
+    const handleToggle = async (ad) => {
+
+        const switchStatusDoc = {
+            status: ad.status === "pending" ? "active" : "pending"
+        }
+
+
+        const response = await axios.patch(
+            `http://localhost:5000/advertisements/${ad._id}`, switchStatusDoc
+        );
+
+        if (response.data.modifiedCount > 0) {
+            Swal.fire({
+                icon: 'success',
+                title: `Advertisement status updated to "${switchStatusDoc.status}"`,
+                showConfirmButton: false,
+                timer: 1500,
+            });
+            refetch();
+        }
+    };
+
 
     return (
         <div>
@@ -41,16 +67,17 @@ const ManageAdvertise = () => {
                                         </div>
                                     </td>
                                     <td>
-                                        Add medicine name
+                                        {ad.medicine_name}
                                     </td>
                                     <td>
                                         {ad.description}
                                     </td>
                                     <td>
-                                        {ad.description}
+                                        {ad.seller_email}
                                     </td>
                                     <th>
-                                        <input type="checkbox" className="toggle" defaultChecked />
+                                        <input type="checkbox" className="toggle" checked={ad.status === "active" ? true : false}
+                                            onChange={() => handleToggle(ad)} />
                                     </th>
                                 </tr>
                             )

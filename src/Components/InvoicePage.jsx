@@ -10,7 +10,7 @@ const InvoicePage = () => {
     return (
         <div className="p-10">
             <div ref={invoiceRef} className="bg-white border rounded-lg p-6 shadow-md">
-                
+
                 <div className="flex justify-between items-center mb-5">
                     <img
                         src={websiteLogo}
@@ -60,11 +60,10 @@ const InvoicePage = () => {
             </div>
 
             <div className="mt-5 text-center">
-                <button className="btn btn-primary px-4 py-2 text-white rounded"> Print / Download PDF</button>
+                <button className="btn btn-primary px-4 py-2 text-white rounded">Download Invoice PDF</button>
             </div>
         </div>
     );
 };
 
 export default InvoicePage;
-

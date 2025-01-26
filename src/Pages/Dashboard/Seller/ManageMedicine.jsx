@@ -6,7 +6,6 @@ import { GiMedicines } from 'react-icons/gi';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
-import useSeller from '../../../Hooks/useSeller'
 import useAuth from '../../../Hooks/useAuth';
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
