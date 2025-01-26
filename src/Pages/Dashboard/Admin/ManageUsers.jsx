@@ -135,7 +135,7 @@ const ManageUsers = () => {
                                             <th>{index + 1}</th>
                                             <td>{user.name}</td>
                                             <td>{user.email}</td>
-                                            <td>
+                                            {/* <td>
                                                 {
                                                     user.role === 'admin' ? "Admin" : <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost"><FaUsers className='text-red-600 text-lg'></FaUsers></button>
                                                 }
@@ -145,26 +145,40 @@ const ManageUsers = () => {
                                                 {
                                                     user.role === 'user' ? "User" : <button onClick={() => handleMakeUser(user)} className="btn btn-ghost"><FaUsers className='text-red-600 text-lg'></FaUsers></button>
                                                 }
+                                            </td> */}
+
+                                            <td className='flex gap-2 items-center'>
+                                                {user.role === 'admin' ? (
+                                                    "Admin"
+                                                ) : (
+                                                    <button
+                                                        onClick={() => handleMakeAdmin(user)}
+                                                        className="btn btn-ghost"
+                                                    >
+                                                        <FaUsers className="text-red-600 text-lg" />
+                                                    </button>
+                                                )}
+
+                                                {
+                                                    user.role === 'seller' ? "Seller" : <button
+                                                        onClick={() => handleMakeSeller(user)}
+                                                        className="btn btn-ghost"
+                                                        disabled={user.role === 'admin'}
+                                                    >
+                                                        <FaUsers className="text-red-600 text-lg" />
+                                                    </button>
+                                                }
+
+                                                {
+                                                    user.role === 'user' ? "User" : <button
+                                                        onClick={() => handleMakeUser(user)}
+                                                        className="btn btn-ghost"
+                                                        disabled={user.role === 'admin'}
+                                                    >
+                                                        <FaUsers className="text-red-600 text-lg" />
+                                                    </button>
+                                                }
                                             </td>
-
-                                            {/* <button className='btn btn-ghost'><RiAdminFill className='text-green-600 text-lg'></RiAdminFill></button> */}
-
-                                            {/* <button className='btn btn-ghost'><FaUser className='text-red-600 text-lg'></FaUser></button> */}
-
-                                            {/* <button className='btn btn-ghost'><FaUser className='text-red-600 text-lg'></FaUser></button> */}
-
-
-                                            {/* <td>
-                                            <select className="select select-bordered w-full max-w-xs">
-                                                <option disabled selected>Select Role</option>
-                                                <option onSelect={() => handleMakeAdmin(user)}>
-
-                                                    Admin
-                                                </option>
-                                                <option>Seller</option>
-                                                <option>User</option>
-                                            </select>
-                                        </td> */}
 
                                             <td>
                                                 <button onClick={() => handleDeleteUser(user)} className="btn btn-ghost"><FaTrashAlt className='text-red-600 text-lg'></FaTrashAlt></button>

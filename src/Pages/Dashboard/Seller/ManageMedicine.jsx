@@ -6,6 +6,8 @@ import { GiMedicines } from 'react-icons/gi';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import useSeller from '../../../Hooks/useSeller'
+import useAuth from '../../../Hooks/useAuth';
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
@@ -16,10 +18,11 @@ const ManageMedicine = () => {
     const { register, handleSubmit, reset } = useForm()
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
+    const { user } = useAuth();
 
     const onSubmit = async (data) => {
         console.log(data);
-        // image upload to imgbb and then get an url
+
         const imageFile = { image: data.image[0] }
         const res = await axiosPublic.post(image_hosting_api, imageFile, {
             headers: {
@@ -27,7 +30,6 @@ const ManageMedicine = () => {
             }
         })
         if (res.data.success) {
-            // now send the medicine data to the server with image url
             const manageMedicine = {
                 name: data.name,
                 generic_name: data.generic_name,
@@ -37,14 +39,13 @@ const ManageMedicine = () => {
                 image: res.data.data.display_url,
                 item_mass_unit: data.item_mass_unit,
                 unit_price: parseFloat(data.unit_price),
-                discount_percentage: parseFloat(data.discount_percentage)
+                discount_percentage: parseFloat(data.discount_percentage),
+                seller_email: user?.email
             }
-            // post to database
             const medicineResponse = await axiosSecure.post('/medicines', manageMedicine)
             console.log(medicineResponse.data);
             if (medicineResponse.data.insertedId) {
                 reset();
-                // show a sweet alert
                 Swal.fire({
                     position: "center",
                     icon: "success",

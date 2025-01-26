@@ -164,7 +164,7 @@ const PaymentManagement = () => {
                                             onClick={() => handleStatusPaid(payment._id)}
                                             className="btn btn-accent btn-sm"
                                         >
-                                            Accept
+                                            Accept Payment
                                         </button>
                                     ) : (
                                         <span className="text-green-500 font-semibold">Paid</span>

@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAuth from './useAuth';
 import useAxiosSecure from './useAxiosSecure';
 
-const useAdmin = () => {
+const useSeller = () => {
 
     const { user, loading } = useAuth();
     const axiosSecure = useAxiosSecure();
@@ -20,4 +20,4 @@ const useAdmin = () => {
     return [isSeller, isSellerLoading];
 };
 
-export default useAdmin;
+export default useSeller;

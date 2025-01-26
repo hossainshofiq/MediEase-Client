@@ -51,10 +51,10 @@ const CheckoutForm = () => {
         })
 
         if (error) {
-            console.log('Payment error:', error);
+            console.log('Payment error message:', error);
             setError(error.message);
         } else {
-            console.log('Payment Method:', paymentMethod);
+            console.log('Payment success message:', paymentMethod);
             setError('');
         }
 
@@ -81,7 +81,7 @@ const CheckoutForm = () => {
                     cartIds: cart.map(item => item._id),
                     medicineItemIds: cart.map(item => item.medicineId),
                     email: user?.email,
-                    price: totalPrice,
+                    price: parseFloat.totalPrice,
                     date: new Date(), //(momment js)
                     transactionId: paymentIntent.id,
                     status: 'pending',
@@ -99,7 +99,16 @@ const CheckoutForm = () => {
                         timer: 1500
                     });
                     // comment
-                    navigate('/invoice');
+                    navigate('/invoice', {
+                        state: {
+                            userName: user?.displayName,
+                            userEmail: user?.email,
+                            transactionId: paymentIntent.id,
+                            cart: cart,
+                            totalPrice: totalPrice.toFixed(2),
+                            date: new Date().toLocaleString(),
+                        }
+                    });
 
                     // uncomment this
                     // if (isSeller) {
@@ -179,7 +188,7 @@ const CheckoutForm = () => {
                 <button className='btn btn-sm btn-primary my-5' type="submit" disabled={!stripe || !clientSecret}>
                     Pay
                 </button>
-                <p>{totalPrice}</p>
+                <p>{totalPrice.toFixed(2)}</p>
 
                 <p className='text-red-600 text-center my-5'>{error}</p>
 
