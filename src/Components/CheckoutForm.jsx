@@ -74,6 +74,7 @@ const CheckoutForm = () => {
         } else {
             console.log('Payment intent', paymentIntent);
             if (paymentIntent.status === 'succeeded') {
+
                 console.log('Transaction id:', paymentIntent.id);
                 setTransactionId(paymentIntent.id)
 
@@ -81,8 +82,8 @@ const CheckoutForm = () => {
                     cartIds: cart.map(item => item._id),
                     medicineItemIds: cart.map(item => item.medicineId),
                     email: user?.email,
-                    price: parseFloat.totalPrice,
-                    date: new Date(), //(momment js)
+                    price: parseFloat(totalPrice),
+                    date: new Date().toLocaleString(),
                     transactionId: paymentIntent.id,
                     status: 'pending',
                 }

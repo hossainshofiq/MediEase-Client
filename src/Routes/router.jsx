@@ -5,7 +5,6 @@ import Home from '../Pages/Home/Home';
 import Login from '../Pages/Login';
 import SignUp from '../Pages/SignUp';
 import PrivateRoute from './PrivateRoute';
-import Secret from '../Pages/Shared/Secret';
 import Shop from '../Pages/Shop/Shop';
 import DashboardLayout from '../Layouts/DashboardLayout';
 import Cart from '../Pages/Cart/Cart';

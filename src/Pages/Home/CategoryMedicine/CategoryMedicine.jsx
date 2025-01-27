@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import useProduct from '../../../Hooks/useProduct';
 import useCategory from '../../../Hooks/useCategory';
@@ -10,6 +10,17 @@ const CategoryMedicine = ({ items, title }) => {
     const [category] = useCategory();
 
     const filteredProducts = product.filter(item => item.category === category);
+
+    const [cat, setCat] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/category-medicines')
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data);
+                setCat(data)
+            })
+    }, [])
 
     return (
         <div>
@@ -30,6 +41,7 @@ const CategoryMedicine = ({ items, title }) => {
                                     <p className="text-sm text-gray-500">
                                         Available Medicines: {item.medicine_count}
                                     </p>
+
                                     <h2 className="font-bold text-center bg-white text-gray-700 hover:bg-blue-500 hover:text-white py-2 rounded transition duration-200">
                                         {item.category}
                                     </h2>

@@ -37,9 +37,6 @@ const Navbar = () => {
         <div className='lg:flex gap-2'>
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/shop">Shop</NavLink></li>
-            {/* for checking route */}
-            {/* <li><NavLink to="/dashboard">Dashboard</NavLink></li>
-            <li><NavLink to="/secret">Secret</NavLink></li> */}
 
             <li>
                 <NavLink className="" to={'/cart'}>

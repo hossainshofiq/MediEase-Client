@@ -15,7 +15,7 @@ const SalesReport = () => {
         },
     });
 
-    const totalPrice = salesReport.reduce((total, item) => total + item.unit_price, 0);
+    const totalPrice = salesReport.reduce((total, item) => total + item.price, 0);
 
     return (
         <div>
@@ -34,12 +34,12 @@ const SalesReport = () => {
                     </thead>
                     <tbody>
                         {salesReport.map((report, index) => (
-                            <tr key={index}>
+                            <tr className='hover:bg-gray-100' key={index}>
                                 <th>{index + 1}</th>
                                 <td>{report.medicineName}</td>
                                 <td>{report.buyerEmail}</td>
                                 <td>{report.sellerEmail}</td>
-                                <td>${report.unit_price}</td>
+                                <td>${report.price}</td>
                             </tr>
                         ))}
                     </tbody>
