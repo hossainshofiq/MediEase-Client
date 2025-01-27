@@ -15,7 +15,7 @@ const Slider = () => {
                 {activeAdvertise.map((ad) => (
                     <div key={ad._id} className="text-center">
                         <img src={ad.image} alt="Advertisement" className="object-cover max-h-[500px] w-full" />
-                        <p className="text-sm mt-3">{ad.description}</p>
+                        <p className="text-md absolute right-0 mr-8 -mt-12 bg-slate-800 p-2 text-white rounded-md">{ad.medicine_name}</p>
                     </div>
                 ))}
             </Carousel>

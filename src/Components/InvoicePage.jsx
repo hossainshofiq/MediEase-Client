@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import websiteLogo from '../assets/Logo/Footer_logo.png'
+import { Helmet } from 'react-helmet-async';
 
 const InvoicePage = () => {
     const location = useLocation();
@@ -9,6 +10,10 @@ const InvoicePage = () => {
 
     return (
         <div className="p-10">
+            <Helmet>
+                <title>MediEase | Invoice</title>
+            </Helmet>
+
             <div ref={invoiceRef} className="bg-white border rounded-lg p-6 shadow-md">
 
                 <div className="flex justify-between items-center mb-5">

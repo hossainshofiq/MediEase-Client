@@ -26,7 +26,7 @@ const DiscountedProducts = () => {
     return (
         <div>
             <SectionTitle heading="Discounted product" subHeading="Grab it fast"></SectionTitle>
-            <h1 className='font-semibold text-2xl'>Discounted Medicines: {filteredDiscountedMedicines.length}</h1>
+            {/* <h1 className='font-semibold text-2xl'>Discounted Medicines: {filteredDiscountedMedicines.length}</h1> */}
             <Swiper
                 slidesPerView={3}
                 spaceBetween={30}
@@ -43,7 +43,7 @@ const DiscountedProducts = () => {
                             src={medicine.image}
                             alt={medicine.name || 'Discounted Product'}
                         />
-                        <h4 className="text-xl md:text-2xl lg:text-3xl font-bold uppercase text-center pb-6 lg:pb-8 text-black">
+                        <h4 className="text-xl p-1 rounded-md font-bold bg-slate-900 text-white absolute right-0 mr-8 -mt-12">
                             {medicine.discount_percentage}%
                         </h4>
                     </SwiperSlide>

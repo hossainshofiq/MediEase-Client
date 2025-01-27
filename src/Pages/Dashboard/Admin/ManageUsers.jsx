@@ -19,11 +19,11 @@ const ManageUsers = () => {
     })
 
     const handleMakeAdmin = (user) => {
-        console.log(user);
+        // console.log(user);
 
         axiosSecure.patch(`/users/admin/${user._id}`)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.modifiedCount > 0) {
                     refetch();
                     Swal.fire({
@@ -38,11 +38,11 @@ const ManageUsers = () => {
     }
 
     const handleMakeSeller = (user) => {
-        console.log(user);
+        // console.log(user);
 
         axiosSecure.patch(`/users/seller/${user._id}`)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.modifiedCount > 0) {
                     refetch();
                     Swal.fire({
@@ -57,11 +57,11 @@ const ManageUsers = () => {
     }
 
     const handleMakeUser = (user) => {
-        console.log(user);
+        // console.log(user);
 
         axiosSecure.patch(`/users/user/${user._id}`)
             .then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 if (res.data.modifiedCount > 0) {
                     refetch();
                     Swal.fire({
@@ -76,7 +76,7 @@ const ManageUsers = () => {
     }
 
     const handleDeleteUser = (user) => {
-        console.log(user);
+        // console.log(user);
 
         Swal.fire({
             title: "Are you sure?",
@@ -91,7 +91,7 @@ const ManageUsers = () => {
 
                 axiosSecure.delete(`/users/${user._id}`)
                     .then(res => {
-                        console.log(res.data);
+                        // console.log(res.data);
                         if (res.data.deletedCount > 0) {
                             refetch();
                             Swal.fire({

@@ -17,7 +17,7 @@ const AskAdvertisement = () => {
     const { user } = useAuth();
 
     const onSubmit = async (data) => {
-        console.log(data);
+        // console.log(data);
 
         const advertisementData = {
             medicine_name: data.name,
@@ -57,7 +57,6 @@ const AskAdvertisement = () => {
                     {advertise.map((ad) => (
                         <div key={ad._id} className="text-center">
                             <img src={ad.image} alt="Advertisement" className="rounded-lg object-cover max-h-[400px] w-full" />
-                            {/* <p className="text-sm mt-3">{ad.description}</p> */}
                             <p className="text-sm mt-3">{ad.medicine_name}</p>
                             <p className="text-sm mt-3">{ad.status}</p>
                         </div>

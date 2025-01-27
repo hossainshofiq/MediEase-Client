@@ -14,7 +14,7 @@ const Login = () => {
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
-    console.log(location);
+    // console.log(location);
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -22,12 +22,12 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        // console.log(email, password);
 
         login(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                // console.log(user);
                 form.reset();
                 Swal.fire({
                     position: "center",

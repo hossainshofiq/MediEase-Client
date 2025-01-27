@@ -18,12 +18,12 @@ const SpecificMedicine = () => {
     const axiosSecure = useAxiosSecure();
     const [, refetch] = useCart();
 
-    console.log(category);
+    // console.log(category);
 
     const filteredProducts = product.filter(item => item.category === category);
     const [selectedMedicine, setSelectedMedicine] = useState(null);
 
-    console.log(filteredProducts.length);
+    // console.log(filteredProducts.length);
 
     const handleAddToCart = (item) => {
         const { image, name, company, unit_price, _id } = item;
@@ -42,7 +42,7 @@ const SpecificMedicine = () => {
             }
             axiosSecure.post('/carts', cartMedicine)
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     if (res.data.insertedId) {
                         Swal.fire({
                             position: "center",
@@ -74,7 +74,7 @@ const SpecificMedicine = () => {
     }
 
     const handleSee = (item) => {
-        console.log(item);
+        // console.log(item);
         setSelectedMedicine(item);
     }
 

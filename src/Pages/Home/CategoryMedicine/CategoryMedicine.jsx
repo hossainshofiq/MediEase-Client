@@ -9,18 +9,18 @@ const CategoryMedicine = ({ items, title }) => {
     const [product] = useProduct();
     const [category] = useCategory();
 
-    const filteredProducts = product.filter(item => item.category === category);
+    // const filteredProducts = product.filter(item => item.category === category);
 
-    const [cat, setCat] = useState([]);
+    // const [cat, setCat] = useState([]);
 
-    useEffect(() => {
-        fetch('http://localhost:5000/category-medicines')
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data);
-                setCat(data)
-            })
-    }, [])
+    // useEffect(() => {
+    //     fetch('http://localhost:5000/category-medicines')
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             // console.log(data);
+    //             setCat(data)
+    //         })
+    // }, [])
 
     return (
         <div>

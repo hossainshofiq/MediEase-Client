@@ -25,7 +25,7 @@ const UpdateCategory = () => {
     const navigate = useNavigate();
 
     const onSubmit = async (data) => {
-        console.log(data)
+        // console.log(data)
 
         // image upload to imgbb and then get an url
         const imageFile = { image: data.image[0] }
@@ -42,10 +42,9 @@ const UpdateCategory = () => {
             }
 
             const categoryResponse = await axiosSecure.patch(`/categories/${_id}`, manageCategory);
-            console.log(categoryResponse.data);
+            // console.log(categoryResponse.data);
             if (categoryResponse.data.modifiedCount > 0) {
                 // reset();
-                // show a sweet alert
                 Swal.fire({
                     position: "center",
                     icon: "success",
@@ -56,20 +55,8 @@ const UpdateCategory = () => {
                 navigate('/dashboard/manageCategory');
             }
         }
-        console.log('with image url:', res.data);
+        // console.log('with image url:', res.data);
     }
-
-    // const axiosPublic = useAxiosPublic();
-    // const axiosSecure = useAxiosSecure();
-    // const specificCategory = useCategory();
-
-    // const { data: category = [], refetch } = useQuery({
-    //     queryKey: ['categories'],
-    //     queryFn: async () => {
-    //         const res = await axiosSecure.get(`/categories/${category._id}`);
-    //         return res.data;
-    //     }
-    // })
 
     return (
         <div>

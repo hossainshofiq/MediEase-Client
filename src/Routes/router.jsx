@@ -26,6 +26,7 @@ import UserHome from '../Pages/Dashboard/User/UserHome';
 import ManageAdvertise from '../Pages/Dashboard/Admin/ManageAdvertise';
 import PaymentManagement from '../Pages/Dashboard/Admin/PaymentManagement';
 import SalesReport from '../Pages/Dashboard/Admin/SalesReport';
+import ErrorPage from '../Pages/ErrorPage';
 
 const router = createBrowserRouter([
     {
@@ -152,7 +153,11 @@ const router = createBrowserRouter([
                 element: <UserHome></UserHome>
             }
         ]
-    }
+    },
+    // {
+    //     path: '*',
+    //     element: <ErrorPage></ErrorPage>
+    // }
 ])
 
 export default router;

@@ -3,10 +3,12 @@ import userAdvertisement from '../../../Hooks/userAdvertisement';
 import SectionTitle from '../../../Components/SectionTitle';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 
 const ManageAdvertise = () => {
 
     const [advertise, isLoading, refetch] = userAdvertisement();
+    const axiosSecure = useAxiosSecure();
 
 
     const handleToggle = async (ad) => {
@@ -16,7 +18,7 @@ const ManageAdvertise = () => {
         }
 
 
-        const response = await axios.patch(
+        const response = await axiosSecure.patch(
             `http://localhost:5000/advertisements/${ad._id}`, switchStatusDoc
         );
 

@@ -15,26 +15,24 @@ const GoogleLogin = () => {
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
                 const userInfo = {
                     email: result.user?.email,
                     name: result.user?.displayName,
                     role: "user",
-                    // photo: result.user?.photoURL
                 }
                 axiosPublic.post('/users', userInfo)
                     .then(res => {
-                        console.log(res.data);
+                        // console.log(res.data);
                         navigate(from, { replace: true });
                     })
-                // const userInfo 
-                // navigate('/');
+
             })
     }
 
     return (
         <div>
-            <button onClick={handleGoogleLogin} className='btn w-full'><FaGoogle></FaGoogle> Google Login</button>
+            <button onClick={handleGoogleLogin} className='btn w-full'><FaGoogle></FaGoogle>Google</button>
         </div>
     );
 };

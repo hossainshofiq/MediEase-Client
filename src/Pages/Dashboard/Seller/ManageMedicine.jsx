@@ -20,7 +20,7 @@ const ManageMedicine = () => {
     const { user } = useAuth();
 
     const onSubmit = async (data) => {
-        console.log(data);
+        // console.log(data);
 
         const imageFile = { image: data.image[0] }
         const res = await axiosPublic.post(image_hosting_api, imageFile, {
@@ -42,7 +42,7 @@ const ManageMedicine = () => {
                 seller_email: user?.email
             }
             const medicineResponse = await axiosSecure.post('/medicines', manageMedicine)
-            console.log(medicineResponse.data);
+            // console.log(medicineResponse.data);
             if (medicineResponse.data.insertedId) {
                 reset();
                 Swal.fire({
@@ -55,7 +55,7 @@ const ManageMedicine = () => {
                 document.getElementById('my_modal_1').close()
             }
         }
-        console.log('with image url:', res.data);
+        // console.log('with image url:', res.data);
     }
 
     return (

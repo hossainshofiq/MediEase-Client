@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SectionTitle from './../../Components/SectionTitle';
-import { FaEye } from 'react-icons/fa';
+import { FaEye, FaSearchDollar } from 'react-icons/fa';
 import useProduct from '../../Hooks/useProduct';
 import { Helmet } from 'react-helmet-async';
 import useAuth from '../../Hooks/useAuth';
@@ -8,20 +8,16 @@ import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
 import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useCart from '../../Hooks/useCart';
-import { FaDeleteLeft } from 'react-icons/fa6';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { MdOutlineCloseFullscreen } from 'react-icons/md';
 
 const Shop = () => {
 
-    const [product] = useProduct();
+    const [product, isLoading] = useProduct();
     const { user } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
     const axiosSecure = useAxiosSecure();
     const [, refetch] = useCart();
-
-    //
     const [selectedMedicine, setSelectedMedicine] = useState(null);
 
     const handleAddToCart = (item) => {
@@ -42,7 +38,7 @@ const Shop = () => {
             }
             axiosSecure.post('/carts', cartMedicine)
                 .then(res => {
-                    console.log(res.data);
+                    // console.log(res.data);
                     if (res.data.insertedId) {
                         Swal.fire({
                             position: "center",
@@ -76,15 +72,26 @@ const Shop = () => {
     const handleSee = (item) => {
         // console.log(item._id);
         setSelectedMedicine(item);
-
     }
+
     return (
         <div>
             <Helmet>
                 <title>MediEase | Shop</title>
             </Helmet>
             <SectionTitle heading="All Medicine" subHeading="Ready to buy"></SectionTitle>
-            <div className="overflow-x-auto">
+
+            <div className='flex justify-between items-center'>
+                <label className="input input-bordered flex items-center gap-2 w-1/4">
+                    <FaSearchDollar></FaSearchDollar>
+                    <input type="text" className="grow" placeholder="Search" />
+                </label>
+                <div>
+                    <button className='btn btn-success text-white'>Sort by price</button>
+                </div>
+            </div>
+
+            <div className="overflow-x-auto my-10">
                 <table className="table border">
                     {/* head */}
                     <thead className='bg-green-300 text-black'>
@@ -100,6 +107,7 @@ const Shop = () => {
                         </tr>
                     </thead>
                     <tbody>
+
                         {
                             product.map((item, index) =>
                                 <tr key={item._id} className='hover:bg-gray-100'>
@@ -123,20 +131,6 @@ const Shop = () => {
                                     <th className='flex gap-3'>
                                         <button onClick={() => handleAddToCart(item)} className="btn btn-primary btn-sm">Select</button>
                                         <button onClick={() => handleSee(item)} className="btn btn-primary btn-sm"><FaEye></FaEye></button>
-
-                                        {/* <button className="btn btn-primary btn-sm" onClick={() => document.getElementById('my_modal_1').showModal()}><FaEye></FaEye></button>
-                                        <dialog id="my_modal_1" className="modal">
-                                            <div className="modal-box">
-                                                <h3 className="font-bold text-lg">Hello!</h3>
-                                                <p className="py-4">Press ESC key or click the button below to close</p>
-                                                <div className="modal-action">
-                                                    <form method="dialog">
-                                                        <button className="btn">Close</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </dialog> */}
-
                                     </th>
                                 </tr>
                             )

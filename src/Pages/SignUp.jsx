@@ -19,19 +19,19 @@ const SignUp = () => {
     const navigate = useNavigate();
     const from = location.state?.from?.pathname || '/';
 
-    console.log(location);
+    // console.log(location);
 
     const onSubmit = (data) => {
-        console.log(data)
+        // console.log(data)
 
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+                // console.log(loggedUser);
 
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        console.log('user profile info updated');
+                        // console.log('user profile info updated');
                         // create user registration send to database
                         const userInfo = {
                             name: data.name,
@@ -41,7 +41,7 @@ const SignUp = () => {
                         axiosPublic.post('/users', userInfo)
                             .then(res => {
                                 if (res.data.insertedId) {
-                                    console.log("user added to the database");
+                                    // console.log("user added to the database");
                                     reset();
                                     Swal.fire({
                                         position: "center",
@@ -50,22 +50,13 @@ const SignUp = () => {
                                         showConfirmButton: false,
                                         timer: 1500
                                     });
-                                    // navigate('/');
-
-                                    // logout()
-                                    //     .then(() => {
-                                    //         navigate('/login')
-                                    //     })
-                                    //     .catch(error => {
-                                    //         console.log(error);
-                                    //     })
-
+            
                                     navigate(from, { replace: true });
                                 }
                             })
                     })
                     .catch(error => {
-                        console.log(error);
+                        // console.log(error);
                     })
             })
     }

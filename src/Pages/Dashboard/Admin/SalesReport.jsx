@@ -10,7 +10,7 @@ const SalesReport = () => {
         queryKey: ['salesReport'],
         queryFn: async () => {
             const res = await axiosSecure.get('/sellsInfo');
-            console.log(res.data);
+            // console.log(res.data);
             return res.data;
         },
     });
@@ -44,7 +44,7 @@ const SalesReport = () => {
                         ))}
                     </tbody>
                 </table>
-                <h1 className='text-xl font-bold text-right my-5'>Total Price: {totalPrice.toFixed(2)}</h1>
+                <h1 className='text-xl font-bold text-right my-3 border-t'>Total Price: {totalPrice.toFixed(2)}</h1>
             </div>
         </div>
     );

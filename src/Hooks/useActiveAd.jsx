@@ -10,7 +10,7 @@ const useActiveAd = () => {
         queryKey: ['activeAdvertise'],
         queryFn: async () => {
             const res = await axiosSecure.get('/activeAdvertisements');
-            console.log(res.data);
+            // console.log(res.data);
             return res.data;
         }
     })

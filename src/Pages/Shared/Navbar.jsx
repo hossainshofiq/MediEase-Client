@@ -29,7 +29,7 @@ const Navbar = () => {
                 });
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
     }
 
@@ -83,10 +83,10 @@ const Navbar = () => {
                         {navOptions}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">
+                <Link to="/" className="btn btn-ghost text-xl">
                     <img src={logo} alt="" />
                     MediEase
-                </a>
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">

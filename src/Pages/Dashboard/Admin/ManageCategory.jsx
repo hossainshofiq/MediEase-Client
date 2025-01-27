@@ -31,7 +31,7 @@ const ManageCategory = () => {
 
 
     const onSubmit = async (data) => {
-        console.log(data)
+        // console.log(data)
 
         // image upload to imgbb and then get an url
         const imageFile = { image: data.image[0] }
@@ -48,7 +48,7 @@ const ManageCategory = () => {
             }
 
             const categoryResponse = await axiosSecure.post('/categories', manageCategory);
-            console.log(categoryResponse.data);
+            // console.log(categoryResponse.data);
             if (categoryResponse.data.insertedId) {
                 reset();
                 refetch();
@@ -62,12 +62,8 @@ const ManageCategory = () => {
                 document.getElementById('my_modal_1').close()
             }
         }
-        console.log('with image url:', res.data);
+        // console.log('with image url:', res.data);
     }
-
-    // const handleUpdateCategory = (item) => {
-    //     console.log(item);
-    // }
 
     // delete category
     const handleDeleteCategory = (item) => {
@@ -88,7 +84,7 @@ const ManageCategory = () => {
                 if (res.data.deletedCount > 0) {
                     refetch();
                     Swal.fire({
-                        position: "top-end",
+                        position: "center",
                         icon: "success",
                         title: `${item.category} has been deleted`,
                         showConfirmButton: false,
@@ -132,7 +128,7 @@ const ManageCategory = () => {
                                 </label>
                             </div>
 
-                            <button className='btn btn-primary w-full'>Add Category <TbCategoryPlus className='text-xl ml-2'></TbCategoryPlus></button>
+                            <button className='btn btn-primary w-full'>Add Category<TbCategoryPlus className='text-xl ml-2'></TbCategoryPlus></button>
                         </form>
 
                         <div className="modal-action">

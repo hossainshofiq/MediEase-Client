@@ -4,12 +4,24 @@ import { Helmet } from 'react-helmet-async';
 import DiscountedProducts from './DiscountedProducts';
 import CategoryMedicine from './CategoryMedicine/CategoryMedicine';
 import useCategory from '../../Hooks/useCategory';
+import WhyChooseUs from './ExtraSection1/WhyChooseUs';
+import OurServices from './ExtraSection2/OurServices';
 
 const Home = () => {
 
     const [category] = useCategory();
+    console.log(category);
+
+    // const uniqueItems = category.filter((value, index, self) => 
+    //     index === self.findIndex((t) => (
+    //       t.category === value.category
+    //     ))
+    //   );
+      
+    //   console.log(uniqueItems);
 
     const tablets = category.filter(item => item.category === 'Tablet');
+    // console.log(tablets);
     const capsules = category.filter(item => item.category === 'Capsule');
     const syrups = category.filter(item => item.category === 'Syrup');
     const injections = category.filter(item => item.category === 'Injection');
@@ -34,6 +46,10 @@ const Home = () => {
             </section>
 
             <DiscountedProducts></DiscountedProducts>
+
+            <OurServices></OurServices>
+
+            <WhyChooseUs></WhyChooseUs>
         </div>
     );
 };
