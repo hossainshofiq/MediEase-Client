@@ -1,206 +1,166 @@
-import React, { useEffect, useState } from 'react';
-import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import useAuth from '../Hooks/useAuth';
-import useAxiosSecure from '../Hooks/useAxiosSecure';
-import useCart from '../Hooks/useCart';
-import Swal from 'sweetalert2';
-import { useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
+import useAuth from "../Hooks/useAuth";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
+import useCart from "../Hooks/useCart";
+import Swal from "sweetalert2";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const CheckoutForm = () => {
-
     const { user } = useAuth();
     const stripe = useStripe();
     const elements = useElements();
-    const [error, setError] = useState('');
-
-    const axiosSecure = useAxiosSecure();
-    const [clientSecret, setClientSecret] = useState('');
+    const [error, setError] = useState("");
+    const [clientSecret, setClientSecret] = useState("");
     const [cart, refetch] = useCart();
-    const [transactionId, setTransactionId] = useState('');
+    const [transactionId, setTransactionId] = useState("");
     const navigate = useNavigate();
+    const axiosSecure = useAxiosSecure();
 
-    const totalPrice = cart.reduce((total, item) => total + item.unit_price, 0);
-
+    const location = useLocation();
+    const totalPrice = location.state?.totalPrice || 0;
 
     useEffect(() => {
         if (totalPrice > 0) {
-            axiosSecure.post('/create-payment-intent', { price: totalPrice })
-                .then(res => {
-                    // console.log(res.data.clientSecret);
-                    setClientSecret(res.data.clientSecret)
-                })
+            axiosSecure
+                .post("/create-payment-intent", { price: totalPrice })
+                .then((res) => {
+                    setClientSecret(res.data.clientSecret);
+                });
         }
-    }, [axiosSecure, totalPrice])
+    }, [totalPrice]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         if (!stripe || !elements) {
-            return
+            return;
         }
 
         const card = elements.getElement(CardElement);
 
         if (card === null) {
-            return
+            return;
         }
 
         const { error, paymentMethod } = await stripe.createPaymentMethod({
-            type: 'card',
-            card
-        })
+            type: "card",
+            card,
+        });
 
         if (error) {
-            // console.log('Payment error message:', error);
             setError(error.message);
         } else {
-            // console.log('Payment success message:', paymentMethod);
-            setError('');
+            setError("");
         }
 
-        // confirm payment
-        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
-            payment_method: {
-                card: card,
-                billing_details: {
-                    email: user?.email || 'Anonymous',
-                    name: user?.displayName || 'Anonymous'
-                }
+        const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(
+            clientSecret,
+            {
+                payment_method: {
+                    card: card,
+                    billing_details: {
+                        email: user?.email || "Anonymous",
+                        name: user?.displayName || "Anonymous",
+                    },
+                },
             }
-        })
+        );
 
         if (confirmError) {
-            // console.log('Confirm error:');
-        } else {
-            // console.log('Payment intent', paymentIntent);
-            if (paymentIntent.status === 'succeeded') {
+            setError(confirmError.message);
+        } else if (paymentIntent?.status === "succeeded") {
+            setTransactionId(paymentIntent.id);
 
-                // console.log('Transaction id:', paymentIntent.id);
-                setTransactionId(paymentIntent.id)
+            const payment = {
+                cartIds: cart.map((item) => item._id),
+                medicineItemIds: cart.map((item) => item.medicineId),
+                email: user?.email,
+                price: parseFloat(totalPrice),
+                date: new Date().toLocaleString(),
+                transactionId: paymentIntent.id,
+                status: "pending",
+            };
 
-                const payment = {
-                    cartIds: cart.map(item => item._id),
-                    medicineItemIds: cart.map(item => item.medicineId),
-                    email: user?.email,
-                    price: parseFloat(totalPrice),
-                    date: new Date().toLocaleString(),
-                    transactionId: paymentIntent.id,
-                    status: 'pending',
-                }
+            const res = await axiosSecure.post("/payments", payment);
+            refetch();
 
-                const res = await axiosSecure.post('/payments', payment);
-                // console.log('Payment saved', res.data);
-                refetch();
-                if (res.data?.paymentResult?.insertedId) {
-                    Swal.fire({
-                        position: "center",
-                        icon: "success",
-                        title: "Your payment is completed",
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                    // comment
-                    navigate('/invoice', {
-                        state: {
-                            userName: user?.displayName,
-                            userEmail: user?.email,
-                            transactionId: paymentIntent.id,
-                            cart: cart,
-                            totalPrice: totalPrice.toFixed(2),
-                            date: new Date().toLocaleString(),
-                        }
-                    });
+            if (res.data?.paymentResult?.insertedId) {
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Your payment is completed",
+                    showConfirmButton: false,
+                    timer: 1500,
+                });
 
-                    // uncomment this
-                    // if (isSeller) {
-                    //     navigate('/')
-                    // } else {
-                    //     navigate('/invoice');
-                    // }
-                }
+                navigate("/invoice", {
+                    state: {
+                        userName: user?.displayName,
+                        userEmail: user?.email,
+                        transactionId: paymentIntent.id,
+                        cart: cart,
+                        totalPrice: totalPrice.toFixed(2),
+                        date: new Date().toLocaleString(),
+                    },
+                });
             }
         }
-    }
+    };
 
     return (
-        // flex justify-center my-10
-        <div className=''>
-
-            {/* <div className="card bg-base-100 border w-96 p-2">
-                <div className="card-body">
-                    <form className='' onSubmit={handleSubmit}>
+        <div className="flex justify-center items-center py-10">
+            <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-lg border">
+                <h2 className="text-2xl font-bold text-center mb-6">Checkout</h2>
+                <form onSubmit={handleSubmit}>
+                    <div className="mb-4">
                         <CardElement
                             options={{
                                 style: {
                                     base: {
-                                        fontSize: '16px',
-                                        color: '#424770',
-                                        '::placeholder': {
-                                            color: '#aab7c4',
+                                        fontSize: "16px",
+                                        color: "#424770",
+                                        "::placeholder": {
+                                            color: "#aab7c4",
                                         },
                                     },
                                     invalid: {
-                                        color: '#9e2146',
+                                        color: "#9e2146",
                                     },
                                 },
                             }}
+                            className="p-3 border border-gray-300 rounded-md focus:ring focus:ring-blue-500"
                         />
+                    </div>
 
-                        <label className="form-control w-full">
-                            <div className="label">
-                                <span className="label-text">What is your name?</span>
-                            </div>
-                            <input type="text" defaultValue={user?.displayName} placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-                        </label>
+                    <div className="text-center my-4">
+                        <p className="text-lg font-semibold">
+                            Total Price: ${totalPrice.toFixed(2)}
+                        </p>
+                    </div>
 
-                        <label className="form-control w-full">
-                            <div className="label">
-                                <span className="label-text">What is your name?</span>
-                            </div>
-                            <input type="text" defaultValue={user?.displayName} placeholder="Type here" className="input input-bordered w-full max-w-xs" />
-                        </label>
-                        <button className='btn btn-sm btn-primary my-5' type="submit" disabled={!stripe}>
-                            Pay
-                        </button>
+                    {error && <p className="text-red-600 text-center mb-4">{error}</p>}
 
-                    </form>
-                </div>
-            </div> */}
+                    {transactionId && (
+                        <p className="text-green-600 text-center mb-4">
+                            Transaction ID: {transactionId}
+                        </p>
+                    )}
 
 
-            <form className='' onSubmit={handleSubmit}>
-                <CardElement
-                    options={{
-                        style: {
-                            base: {
-                                fontSize: '16px',
-                                color: '#424770',
-                                '::placeholder': {
-                                    color: '#aab7c4',
-                                },
-                            },
-                            invalid: {
-                                color: '#9e2146',
-                            },
-                        },
-                    }}
-                />
+                    <button
+                        type="submit"
+                        disabled={!stripe || !clientSecret}
+                        className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
+                    >
+                        Pay
+                    </button>
 
-                <button className='btn btn-sm btn-primary my-5' type="submit" disabled={!stripe || !clientSecret}>
-                    Pay
-                </button>
-                <p>{totalPrice.toFixed(2)}</p>
-
-                <p className='text-red-600 text-center my-5'>{error}</p>
-
-                {
-                    transactionId && <p className='text-green-600 text-center my-5'>Your transaction ID: {transactionId} </p>
-                }
-
-            </form>
+                </form>
+            </div>
         </div>
-
     );
 };
 
 export default CheckoutForm;
+

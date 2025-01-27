@@ -30,17 +30,17 @@ const OurServices = () => {
         {
             name: 'John Doe',
             feedback: 'The delivery was super fast, and the medicines were authentic. Highly recommend this platform!',
-            image: 'https://via.placeholder.com/100',
+            image: 'https://i0.wp.com/icrtcst24.rvscollege.ac.in/wp-content/uploads/2014/10/speaker-2-v2.jpg?fit=768%2C768&ssl=1',
         },
         {
             name: 'Emily Smith',
             feedback: 'Their customer service is top-notch. They guided me with my prescription and ensured everything was smooth.',
-            image: 'https://via.placeholder.com/100',
+            image: 'https://pbs.twimg.com/profile_images/1631145337728692229/JpV6AlUL_400x400.jpg',
         },
         {
             name: 'Michael Brown',
             feedback: 'Wide range of medicines and reasonable prices. I found all the items I needed in one place!',
-            image: 'https://via.placeholder.com/100',
+            image: 'https://m.media-amazon.com/images/M/MV5BMmQwNjEyNGYtOTAwYi00N2Q5LTk5YzYtZjA1YTRlYzZlYzIzXkEyXkFqcGc@._V1_.jpg',
         },
     ];
 
@@ -74,7 +74,7 @@ const OurServices = () => {
                             <img
                                 src={testimonial.image}
                                 alt={`${testimonial.name}'s photo`}
-                                className="w-20 h-20 rounded-full border-2 border-blue-500"
+                                className="w-20 h-20 rounded-full border-2 border-blue-500 object-cover"
                             />
                             <FaQuoteLeft className="text-blue-500 text-3xl absolute -top-2 -left-2" />
                         </div>

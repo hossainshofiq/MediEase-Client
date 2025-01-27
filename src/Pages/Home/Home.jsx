@@ -6,18 +6,19 @@ import CategoryMedicine from './CategoryMedicine/CategoryMedicine';
 import useCategory from '../../Hooks/useCategory';
 import WhyChooseUs from './ExtraSection1/WhyChooseUs';
 import OurServices from './ExtraSection2/OurServices';
+import SectionTitle from '../../Components/SectionTitle';
 
 const Home = () => {
 
     const [category] = useCategory();
-    console.log(category);
+    // console.log(category);
 
     // const uniqueItems = category.filter((value, index, self) => 
     //     index === self.findIndex((t) => (
     //       t.category === value.category
     //     ))
     //   );
-      
+
     //   console.log(uniqueItems);
 
     const tablets = category.filter(item => item.category === 'Tablet');
@@ -36,14 +37,20 @@ const Home = () => {
 
             <Slider></Slider>
 
-            <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10'>
-                <CategoryMedicine items={tablets} title="Tablet"></CategoryMedicine>
-                <CategoryMedicine items={capsules} title="Capsule"></CategoryMedicine>
-                <CategoryMedicine items={syrups} title="Syrup"></CategoryMedicine>
-                <CategoryMedicine items={injections} title="Injection"></CategoryMedicine>
-                <CategoryMedicine items={creams} title="Cream"></CategoryMedicine>
-                <CategoryMedicine items={herbals} title="Herbal"></CategoryMedicine>
-            </section>
+            <div>
+                <SectionTitle heading="Category Medicines" subHeading="Explore our category medicines"></SectionTitle>
+
+                <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-10'>
+                    <CategoryMedicine items={tablets} title="Tablet"></CategoryMedicine>
+                    <CategoryMedicine items={capsules} title="Capsule"></CategoryMedicine>
+                    <CategoryMedicine items={syrups} title="Syrup"></CategoryMedicine>
+                    <CategoryMedicine items={injections} title="Injection"></CategoryMedicine>
+                    <CategoryMedicine items={creams} title="Cream"></CategoryMedicine>
+                    <CategoryMedicine items={herbals} title="Herbal"></CategoryMedicine>
+                </section>
+            </div>
+
+
 
             <DiscountedProducts></DiscountedProducts>
 

@@ -14,6 +14,7 @@ const Checkout = () => {
             <Helmet>
                 <title>MediEase | Checkout</title>
             </Helmet>
+            
             <SectionTitle heading="Checkout" subHeading="Please pay to buy"></SectionTitle>
 
             <div>
