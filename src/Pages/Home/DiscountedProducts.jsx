@@ -6,9 +6,11 @@ import 'swiper/css/pagination';
 import SectionTitle from '../../Components/SectionTitle';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import { useQuery } from '@tanstack/react-query';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const DiscountedProducts = () => {
     const axiosPublic = useAxiosPublic();
+    const axiosSecure = useAxiosSecure();
 
     const { data: discountedMedicine = [], isLoading } = useQuery({
         queryKey: ['discounted_medicines'],
