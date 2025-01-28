@@ -16,6 +16,7 @@
     "axios": "^1.7.9",
     "firebase": "^11.1.0",
     "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.10.2",
     "json2csv": "^6.0.0-alpha.2",
     "jspdf": "^2.5.2",
     "localforage": "^1.10.0",

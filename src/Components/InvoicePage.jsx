@@ -7,6 +7,7 @@ const InvoicePage = () => {
     const location = useLocation();
     const { transactionId, cart, totalPrice, date, userName, userEmail } = location.state || {};
     const invoiceRef = useRef();
+    
 
     return (
         <div className="p-10">

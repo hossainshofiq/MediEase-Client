@@ -94,7 +94,28 @@ const Shop = () => {
         setFilteredMedicines(filtered);
     };
 
- 
+    // sort by price
+    const [medicines, setMedicines] = useState(product);
+    const [flag, setFlag] = useState(true);
+    const [bool, setBool] = useState(true);
+
+    const handleSortByPrice = () => {
+        setFlag(false);
+
+        // let sortedData;
+        if (bool) {
+            const sortedData = product.sort((a, b) => a.unit_price - b.unit_price);
+            setMedicines(sortedData);
+        }
+
+        else {
+            const sortedData = product.sort((a, b) => b.unit_price - a.unit_price);
+            setMedicines(sortedData);
+        }
+        setBool(!bool);
+
+        // console.log(sortedData);
+    }
 
     return (
         <div>
@@ -111,9 +132,14 @@ const Shop = () => {
                     <input type="text" className="grow" placeholder="Search" value={searchText} onChange={handleSearch} />
                 </label>
                 <div>
-                    <button className='btn btn-success text-white'>Sort by price</button>
+                    {/* <button className='btn btn-success text-white'>Sort by price</button> */}
 
-                    
+                    <button
+                        onClick={handleSortByPrice}
+                        className='btn btn-success hover:bg-blue-700 text-white'>
+                        Sort By Price
+                        {flag ? '' : bool ? <FaArrowUp /> : <FaArrowDown />}
+                    </button>
                 </div>
             </div>
             {/*  */}
@@ -217,31 +243,3 @@ const Shop = () => {
 };
 
 export default Shop;
-
-{/* {
-                            product.map((item, index) =>
-                                <tr key={item._id} className='hover:bg-gray-100'>
-                                    <th>{index + 1}</th>
-                                    <td>
-                                        <div className="flex items-center gap-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle h-12 w-12">
-                                                    <img
-                                                        src={item.image}
-                                                        alt="Avatar Tailwind CSS Component" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>{item.name}</td>
-                                    <td>{item.category}</td>
-                                    <td>{item.company}</td>
-                                    <td>{item.generic_name}</td>
-                                    <td>${item.unit_price}</td>
-                                    <th className='flex gap-3'>
-                                        <button onClick={() => handleAddToCart(item)} className="btn btn-primary btn-sm">Select</button>
-                                        <button onClick={() => handleSee(item)} className="btn btn-primary btn-sm"><FaEye></FaEye></button>
-                                    </th>
-                                </tr>
-                            )
-                        } */}
