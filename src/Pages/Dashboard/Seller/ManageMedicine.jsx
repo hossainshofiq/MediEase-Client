@@ -104,6 +104,7 @@ const ManageMedicine = () => {
                                         <option value="Syrup">Syrup</option>
                                         <option value="Injection">Injection</option>
                                         <option value="Herbal">Herbal</option>
+                                        <option value="Others">Others</option>
                                     </select>
                                 </label>
 

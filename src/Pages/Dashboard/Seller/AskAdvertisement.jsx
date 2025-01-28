@@ -57,8 +57,8 @@ const AskAdvertisement = () => {
                     {advertise.map((ad) => (
                         <div key={ad._id} className="text-center">
                             <img src={ad.image} alt="Advertisement" className="rounded-lg object-cover max-h-[400px] w-full" />
-                            <p className="text-sm mt-3">{ad.medicine_name}</p>
-                            <p className="text-sm mt-3">{ad.status}</p>
+                            {/* <p className="text-sm mt-3">{ad.medicine_name}</p> */}
+                            <p className="text-sm absolute right-0 mr-8 -mt-24 bg-slate-800 p-2 text-white rounded-md">{ad.status}</p>
                         </div>
                     ))}
                 </Carousel>
@@ -90,7 +90,7 @@ const AskAdvertisement = () => {
                             <div className='my-4'>
                                 <label className="form-control w-full">
                                     <div className="label">
-                                        <span className="label-text">Image URL*</span>
+                                        <span className="label-text">Slider Image URL*</span>
                                     </div>
                                     <input {...register("image", { required: true })} type="url" className="input input-bordered w-full" />
                                 </label>
@@ -99,7 +99,7 @@ const AskAdvertisement = () => {
                             <div className='my-4'>
                                 <label className="form-control w-full">
                                     <div className="label">
-                                        <span className="label-text">Description*</span>
+                                        <span className="label-text">Medicine Description*</span>
                                     </div>
                                     <textarea {...register("description", { required: true })} className="textarea input-bordered w-full" placeholder="Write description here"></textarea>
                                 </label>

@@ -58,6 +58,7 @@ const Navbar = () => {
             </li>
         </div>
     </>
+
     return (
         // <div className="navbar fixed z-50 bg-black bg-opacity-30 text-white max-w-screen-xl mx-auto">
         <div className="navbar bg-green-300 max-w-screen-xl mx-auto">
@@ -98,23 +99,29 @@ const Navbar = () => {
                 {
                     user ?
                         <div className="dropdown dropdown-end">
-                            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-                                <div className="w-12 h-12 border-2 border-black rounded-full z-50">
-                                    <img
-                                        data-tooltip-id='my-tooltip'
-                                        data-tooltip-content={user?.displayName}
-                                        src={user?.photoURL}
-                                        alt="User Avatar" />
-                                    <Tooltip id='my-tooltip'></Tooltip>
+                            <div className="flex items-center gap-2">
+                                <span className="text-sm font-bold">
+                                    {isAdmin ? "Admin" : isSeller ? "Seller" : "User"}
+                                </span>
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar flex">
+                                    <div className="w-12 h-12 border-2 border-black rounded-full z-50">
+                                        <img
+                                            data-tooltip-id="my-tooltip"
+                                            data-tooltip-content={user?.displayName}
+                                            src={user?.photoURL}
+                                            alt="User Avatar" />
+                                        <Tooltip id="my-tooltip"></Tooltip>
+                                    </div>
                                 </div>
+
                             </div>
+
                             <ul
                                 tabIndex={0}
                                 className="menu menu-sm dropdown-content bg-gray-600 text-white rounded-box z-[1] mt-3 w-52 p-2 shadow">
                                 <li>
                                     <a className="justify-between">
                                         Update Profile
-                                        {/* <span className="badge">New</span> */}
                                     </a>
                                 </li>
 
@@ -143,27 +150,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-{/* <li>
-    <div className="flex-none">
-        <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="btn btn-circle">
-                <div className="indicator">
-                    <FaCartPlus className='text-2xl'></FaCartPlus>
-                    <span className="badge badge-xs indicator-item">+0</span>
-                </div>
-            </div>
-            <div
-                tabIndex={0}
-                className="card card-compact dropdown-content bg-base-100 z-[1] mt-3 w-52 shadow">
-                <div className="card-body">
-                    <span className="text-lg font-bold">8 Items</span>
-                    <span className="text-info">Subtotal: $999</span>
-                    <div className="card-actions">
-                        <button className="btn btn-primary btn-block">View cart</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</li> */}

@@ -65,7 +65,7 @@ const InvoicePage = () => {
             </div>
 
             <div className="mt-5 text-center">
-                <button className="btn btn-primary px-4 py-2 text-white rounded">Download Invoice PDF</button>
+                <button className="btn btn-primary px-4 py-2 text-white rounded">Print</button>
             </div>
         </div>
     );

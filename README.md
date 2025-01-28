@@ -1,11 +1,11 @@
 # MediCare Multi-Vendor Platform
 
 ## Admin Credentials
-- **Username:** 
-- **Password:** 
+- **Email: shofiq@gmail.com** 
+- **Password: Shofiq1@** 
 
 ## Live Site URL
-[(https://mediease-d61c8.web.app/)]
+[https://mediease-d61c8.web.app/]
 
 ## Features
 

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import SectionTitle from './../../Components/SectionTitle';
-import { FaEye, FaSearchDollar } from 'react-icons/fa';
+import { FaArrowDown, FaArrowUp, FaEye, FaSearch } from 'react-icons/fa';
 import useProduct from '../../Hooks/useProduct';
 import { Helmet } from 'react-helmet-async';
 import useAuth from '../../Hooks/useAuth';
@@ -73,23 +73,50 @@ const Shop = () => {
         // console.log(item._id);
         setSelectedMedicine(item);
     }
+    // search by medicine name
+    const [searchText, setSearchText] = useState('');
+    const [filteredMedicines, setFilteredMedicines] = useState(product);
+
+    useEffect(() => {
+        setFilteredMedicines(product)
+    }, [product])
+
+    const handleSearch = (event) => {
+        const text = event.target.value.toLowerCase();
+        setSearchText(text);
+
+        const filtered = product.filter(pro =>
+            pro.name.toLowerCase().includes(text) ||
+            pro.generic_name.toLowerCase().includes(text) ||
+            pro.company.toLowerCase().includes(text)
+        );
+
+        setFilteredMedicines(filtered);
+    };
+
+ 
 
     return (
         <div>
             <Helmet>
                 <title>MediEase | Shop</title>
             </Helmet>
+
             <SectionTitle heading="All Medicine" subHeading="Ready to buy"></SectionTitle>
 
+            {/* challenge part */}
             <div className='flex justify-between items-center'>
                 <label className="input input-bordered flex items-center gap-2 w-1/4">
-                    <FaSearchDollar></FaSearchDollar>
-                    <input type="text" className="grow" placeholder="Search" />
+                    <FaSearch className='text-xl'></FaSearch>
+                    <input type="text" className="grow" placeholder="Search" value={searchText} onChange={handleSearch} />
                 </label>
                 <div>
                     <button className='btn btn-success text-white'>Sort by price</button>
+
+                    
                 </div>
             </div>
+            {/*  */}
 
             <div className="overflow-x-auto my-10">
                 <table className="table border">
@@ -109,31 +136,41 @@ const Shop = () => {
                     <tbody>
 
                         {
-                            product.map((item, index) =>
-                                <tr key={item._id} className='hover:bg-gray-100'>
-                                    <th>{index + 1}</th>
-                                    <td>
-                                        <div className="flex items-center gap-3">
-                                            <div className="avatar">
-                                                <div className="mask mask-squircle h-12 w-12">
-                                                    <img
-                                                        src={item.image}
-                                                        alt="Avatar Tailwind CSS Component" />
+                            filteredMedicines?.length > 0 ?
+                                (
+                                    filteredMedicines.map((item, index) =>
+                                        <tr key={item._id} className='hover:bg-gray-100'>
+                                            <th>{index + 1}</th>
+                                            <td>
+                                                <div className="flex items-center gap-3">
+                                                    <div className="avatar">
+                                                        <div className="mask mask-squircle h-12 w-12">
+                                                            <img
+                                                                src={item.image}
+                                                                alt="Avatar Tailwind CSS Component" />
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>{item.name}</td>
-                                    <td>{item.category}</td>
-                                    <td>{item.company}</td>
-                                    <td>{item.generic_name}</td>
-                                    <td>${item.unit_price}</td>
-                                    <th className='flex gap-3'>
-                                        <button onClick={() => handleAddToCart(item)} className="btn btn-primary btn-sm">Select</button>
-                                        <button onClick={() => handleSee(item)} className="btn btn-primary btn-sm"><FaEye></FaEye></button>
-                                    </th>
-                                </tr>
-                            )
+                                            </td>
+                                            <td>{item.name}</td>
+                                            <td>{item.category}</td>
+                                            <td>{item.company}</td>
+                                            <td>{item.generic_name}</td>
+                                            <td>${item.unit_price}</td>
+                                            <th className='flex gap-3'>
+                                                <button onClick={() => handleAddToCart(item)} className="btn btn-primary btn-sm">Select</button>
+                                                <button onClick={() => handleSee(item)} className="btn btn-primary btn-sm"><FaEye></FaEye></button>
+                                            </th>
+                                        </tr>
+                                    )
+                                ) : (
+                                    <tr className="text-center col-span-full">
+                                        <td className="text-2xl font-semibold text-gray-700">
+                                            No medicines found for "{searchText}"
+                                        </td>
+                                        <td className="text-gray-500">Try searching with a different Medicine name.</td>
+                                    </tr>
+                                )
                         }
 
                     </tbody>
@@ -180,3 +217,31 @@ const Shop = () => {
 };
 
 export default Shop;
+
+{/* {
+                            product.map((item, index) =>
+                                <tr key={item._id} className='hover:bg-gray-100'>
+                                    <th>{index + 1}</th>
+                                    <td>
+                                        <div className="flex items-center gap-3">
+                                            <div className="avatar">
+                                                <div className="mask mask-squircle h-12 w-12">
+                                                    <img
+                                                        src={item.image}
+                                                        alt="Avatar Tailwind CSS Component" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>{item.name}</td>
+                                    <td>{item.category}</td>
+                                    <td>{item.company}</td>
+                                    <td>{item.generic_name}</td>
+                                    <td>${item.unit_price}</td>
+                                    <th className='flex gap-3'>
+                                        <button onClick={() => handleAddToCart(item)} className="btn btn-primary btn-sm">Select</button>
+                                        <button onClick={() => handleSee(item)} className="btn btn-primary btn-sm"><FaEye></FaEye></button>
+                                    </th>
+                                </tr>
+                            )
+                        } */}

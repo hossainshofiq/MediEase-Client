@@ -54,7 +54,7 @@ const router = createBrowserRouter([
                 element: <Cart></Cart>
             },
             {
-                path: 'specificMedicine/:category',
+                path: 'category/:category',
                 element: <SpecificMedicine></SpecificMedicine>
             },
             {
@@ -154,10 +154,10 @@ const router = createBrowserRouter([
             }
         ]
     },
-    // {
-    //     path: '*',
-    //     element: <ErrorPage></ErrorPage>
-    // }
+    {
+        path: '*',
+        element: <ErrorPage></ErrorPage>
+    }
 ])
 
 export default router;

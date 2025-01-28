@@ -7,6 +7,7 @@ import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useCart from '../../../Hooks/useCart';
 import Swal from 'sweetalert2';
 import { MdOutlineCloseFullscreen } from 'react-icons/md';
+import SectionTitle from '../../../Components/SectionTitle';
 
 const SpecificMedicine = () => {
 
@@ -17,21 +18,18 @@ const SpecificMedicine = () => {
     const navigate = useNavigate();
     const axiosSecure = useAxiosSecure();
     const [, refetch] = useCart();
-
-    // console.log(category);
-
     const filteredProducts = product.filter(item => item.category === category);
     const [selectedMedicine, setSelectedMedicine] = useState(null);
 
+    // console.log(category);
     // console.log(filteredProducts.length);
+
 
     const handleAddToCart = (item) => {
         const { image, name, company, unit_price, _id } = item;
         // console.log(item, user.email);
         if (user && user?.email) {
-            // send cart item to the database
             // console.log(user.email, item);
-
             const cartMedicine = {
                 medicineId: _id,
                 email: user.email,
@@ -80,7 +78,10 @@ const SpecificMedicine = () => {
 
     return (
         <div className='my-10'>
-            <h1 className='text-3xl font-semibold mb-5'>All information of: {category} </h1>
+
+<SectionTitle heading="Category Medicine" subHeading="Find your best medicine"></SectionTitle>
+
+            <h1 className='text-3xl font-semibold mb-5 text-center'>All information of: <span className='font-bold text-blue-600'>{category}</span> </h1>
 
             <div className="overflow-x-auto">
                 <table className="table border">
@@ -126,7 +127,7 @@ const SpecificMedicine = () => {
                         ) : (
                             <tr>
                                 <td colSpan="5" className="text-center">
-                                    No items found in this category.
+                                    No medicines found in this category.
                                 </td>
                             </tr>
                         )}
