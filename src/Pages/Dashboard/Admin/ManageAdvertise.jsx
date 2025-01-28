@@ -19,7 +19,7 @@ const ManageAdvertise = () => {
 
 
         const response = await axiosSecure.patch(
-            `http://localhost:5000/advertisements/${ad._id}`, switchStatusDoc
+            `https://mediease-server-side.vercel.app/advertisements/${ad._id}`, switchStatusDoc
         );
 
         if (response.data.modifiedCount > 0) {

@@ -6,7 +6,7 @@ import { MdPendingActions } from 'react-icons/md';
 import { FaDollarSign } from 'react-icons/fa';
 import { FcPaid } from 'react-icons/fc';
 
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, PieChart, Pie, Legend, Sector, ResponsiveContainer } from 'recharts';
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
@@ -137,6 +137,7 @@ const AdminHomePage = () => {
                                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                             ))}
                         </Pie>
+                        <Legend></Legend>
                     </PieChart>
                 </div>
             </div>
