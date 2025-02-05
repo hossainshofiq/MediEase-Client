@@ -7,6 +7,12 @@
 ## Live Site URL
 [https://mediease-d61c8.web.app/]
 
+## Contact Information
+
+You can reach me at the following contact number:
+
+**Phone Number:** +8801689819951
+
 
 ## Project Overview
 - This is a MERN stack-based multi-vendor e-commerce platform for selling medicines and healthcare products. It features user authentication, product management, cart functionality, secure checkout, and role-based dashboards for users, sellers, and admins.
