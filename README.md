@@ -12,7 +12,7 @@
 - This is a MERN stack-based multi-vendor e-commerce platform for selling medicines and healthcare products. It features user authentication, product management, cart functionality, secure checkout, and role-based dashboards for users, sellers, and admins.
 
 ## MediEase
-- ![MediEase Screenshot](/src/assets/banner_screenshot.jpg)
+![MediEase Screenshot](/src/assets/banner_screenshot.jpg)
 
 ## Technology Stack
 
