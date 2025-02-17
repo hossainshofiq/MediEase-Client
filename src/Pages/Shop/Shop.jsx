@@ -118,12 +118,14 @@ const Shop = () => {
     }
 
     return (
-        <div>
+        <div className='w-11/12 mx-auto'>
             <Helmet>
                 <title>MediEase | Shop</title>
             </Helmet>
 
-            <SectionTitle heading="All Medicine" subHeading="Ready to buy"></SectionTitle>
+            <div className=" mt-20 mb-5">
+                <SectionTitle heading="All Medicines" subHeading="Your One-Stop Destination for All Medicines"></SectionTitle>
+            </div>
 
             {/* challenge part */}
             <div className='flex justify-between items-center'>
@@ -144,9 +146,36 @@ const Shop = () => {
             </div>
             {/*  */}
 
+            {/* <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-10'>
+                {
+                    filteredMedicines?.length > 0 ? (
+                        filteredMedicines.map(item =>
+                            <div className="card card-compact bg-base-100 shadow-xl">
+                                <figure>
+                                    <img
+                                        src={item.image}
+                                        alt="Shoes" />
+                                </figure>
+                                <div className="card-body">
+                                    <h2 className="card-title">{item.category}</h2>
+                                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                                    <div className="card-actions justify-end">
+                                        <button className="btn btn-primary">Buy Now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    ) : (
+                        <div>
+                            <h2>No medicines found for "{searchText}"</h2>
+                            <p>Try searching with a different Medicine name.</p>
+                        </div>
+                    )
+                }
+            </div> */}
+
             <div className="overflow-x-auto my-10">
                 <table className="table border">
-                    {/* head */}
                     <thead className='bg-green-300 text-black'>
                         <tr>
                             <th>#</th>

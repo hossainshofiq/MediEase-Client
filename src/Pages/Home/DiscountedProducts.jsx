@@ -26,9 +26,8 @@ const DiscountedProducts = () => {
     );
 
     return (
-        <div>
-            <SectionTitle heading="Discounted product" subHeading="Grab it fast"></SectionTitle>
-            {/* <h1 className='font-semibold text-2xl'>Discounted Medicines: {filteredDiscountedMedicines.length}</h1> */}
+        <div className='w-11/12 mx-auto my-10'>
+            <SectionTitle heading="Discounted product" subHeading="Best Deals—Hurry Before Stock Runs Out!"></SectionTitle>
             <Swiper
                 slidesPerView={3}
                 spaceBetween={30}
@@ -41,11 +40,12 @@ const DiscountedProducts = () => {
                 {filteredDiscountedMedicines.map((medicine, index) => (
                     <SwiperSlide key={index}>
                         <img
-                            className="object-cover max-w-full max-h-[300px] border border-black"
+                            // className="object-cover max-w-full max-h-[300px] border border-black"
+                            className='max-w-full max-h-[300px] lg:w-full lg:h-96 border object-cover'
                             src={medicine.image}
                             alt={medicine.name || 'Discounted Product'}
                         />
-                        <h4 className="text-xl p-1 rounded-md font-bold bg-slate-900 text-white absolute right-0 mr-8 -mt-12">
+                        <h4 className="text-xs md:text-md lg:text-xl p-1 rounded-md font-bold bg-slate-900 text-white absolute right-0 mr-4 -mt-24 md:mr-4 md:-mt-16 lg:mr-12 lg:-mt-16">
                             {medicine.discount_percentage}%
                         </h4>
                     </SwiperSlide>

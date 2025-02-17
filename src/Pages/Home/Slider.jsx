@@ -7,10 +7,10 @@ import useActiveAd from '../../Hooks/useActiveAd';
 const Slider = () => {
 
     const [activeAdvertise] = useActiveAd();
-    
+
     return (
 
-        <div className=''>
+        <div className='mt-[68px] '>
             <Carousel autoPlay={Boolean} interval={3000} infiniteLoop={true} showStatus={false}>
                 {activeAdvertise.map((ad) => (
                     <div key={ad._id} className="text-center">

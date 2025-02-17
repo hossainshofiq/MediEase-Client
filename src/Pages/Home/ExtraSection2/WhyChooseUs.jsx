@@ -32,10 +32,10 @@ const WhyChooseUs = () => {
     ];
 
     return (
-        <div className="bg-white py-10 px-4 sm:px-6 md:px-10 lg:px-16">
-            <SectionTitle heading="Why Choose Us" subHeading="Provide best and authentic medicines" />
+        <div className="w-11/12 mx-auto my-10">
+            <SectionTitle heading="Why Choose Us" subHeading="Quality, Reliability, and Care in Every Order"></SectionTitle>
 
-            <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-10 lg:gap-16">
+            <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-10 lg:gap-16 mt-8">
                 {/* Left Section - Features */}
                 <div className="flex-1 w-full">
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">

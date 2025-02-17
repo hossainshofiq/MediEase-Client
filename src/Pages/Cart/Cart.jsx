@@ -182,6 +182,7 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import useAuth from '../../Hooks/useAuth';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import SectionTitle from '../../Components/SectionTitle';
 
 const Cart = () => {
     const { user } = useAuth();
@@ -274,10 +275,15 @@ const Cart = () => {
     };
 
     return (
-        <div className="my-10">
+        <div className="w-11/12 mx-auto my-10">
             <Helmet>
                 <title>MediEase | Cart</title>
             </Helmet>
+
+<div className='mt-20 mb-5'>
+<SectionTitle heading="Pay for buy" subHeading="Secure and Convenient Payment for Your Purchases"></SectionTitle>
+</div>
+
             <div className="flex justify-between mb-5">
                 <h3 className="text-3xl">My Cart: ({cartItems.length})</h3>
                 <h3 className="text-3xl">Subtotal: ${totalPrice.toFixed(2)}</h3>

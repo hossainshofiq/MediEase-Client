@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../../assets/Logo/Footer_logo.png'
+import { FaFacebook, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 
 const Footer = () => {
     return (
@@ -34,12 +35,26 @@ const Footer = () => {
                     <a className="link link-hover">Return & Refund Policy</a>
                     <a className="link link-hover">FAQs</a>
                 </nav>
-                <nav>
+                {/* <nav>
                     <h6 className="footer-title">Legal</h6>
                     <a className="link link-hover">Terms & Conditions</a>
                     <a className="link link-hover">Privacy Policy</a>
                     <a className="link link-hover">Cookie Policy</a>
                     <a className="link link-hover">Licenses</a>
+                </nav> */}
+                <nav>
+                    <h6 className="footer-title">Social</h6>
+                    <div className="grid grid-flow-col gap-2 lg:gap-4">
+                        <a href='https://www.facebook.com/A.H.Shofiq/' target='blank' className='hover:cursor-pointer text-3xl'>
+                            <FaFacebook className='text-blue-600'></FaFacebook>
+                        </a>
+                        <a className='hover:cursor-pointer text-3xl'>
+                            <FaLinkedinIn className='text-blue-600'></FaLinkedinIn>
+                        </a>
+                        <a target='blank' className='hover:cursor-pointer text-3xl'>
+                            <FaGithub ></FaGithub>
+                        </a>
+                    </div>
                 </nav>
             </div>
             <div className="footer footer-center bg-base-300 text-base-content p-4">

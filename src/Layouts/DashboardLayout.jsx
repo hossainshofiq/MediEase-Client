@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaCartPlus, FaHome, FaList, FaUsers } from 'react-icons/fa';
 import { FcSalesPerformance } from 'react-icons/fc';
-import { GiKnightBanner } from 'react-icons/gi';
+import { GiEntryDoor, GiKnightBanner } from 'react-icons/gi';
 import { MdAdminPanelSettings, MdOutlinePayment } from 'react-icons/md';
 import { NavLink, Outlet } from 'react-router-dom';
 import useAdmin from '../Hooks/useAdmin';
@@ -41,7 +41,8 @@ const DashboardLayout = () => {
                         htmlFor="my-drawer-2"
                         className="btn btn-primary drawer-button lg:hidden fixed top-4 left-4 z-50"
                     >
-                        Open drawer
+                        {/* Open drawer */}
+                        <GiEntryDoor className='text-3xl'></GiEntryDoor>
                     </label>
                     <div className="mt-8 lg:mt-0 w-full">
                         {/* <div>Welcome, {user.displayName} </div> */}
@@ -53,7 +54,7 @@ const DashboardLayout = () => {
 
                     <ul className="menu bg-green-300 text-base-content min-h-screen w-64 lg:w-80 p-4">
                         <div className='ml-5  my-5'>
-                            <h1 className='text-3xl font-semibold'>MediEase</h1>
+                            <h1 className='text-3xl font-bold'>MediEase</h1>
                             <h5 className='text-xl font-semibold'>Health Care Products</h5>
                         </div>
                         <div className='divider'></div>

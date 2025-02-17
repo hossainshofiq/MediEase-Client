@@ -27,6 +27,8 @@ import ManageAdvertise from '../Pages/Dashboard/Admin/ManageAdvertise';
 import PaymentManagement from '../Pages/Dashboard/Admin/PaymentManagement';
 import SalesReport from '../Pages/Dashboard/Admin/SalesReport';
 import ErrorPage from '../Pages/ErrorPage';
+import About from '../Pages/About';
+import Faq from '../Pages/FAQ';
 
 const router = createBrowserRouter([
     {
@@ -64,6 +66,15 @@ const router = createBrowserRouter([
             {
                 path: '/invoice',
                 element: <InvoicePage></InvoicePage>
+            },
+            //
+            {
+                path: '/about',
+                element: <About></About>
+            },
+            {
+                path: '/faq',
+                element: <Faq></Faq>
             }
         ]
     },
@@ -74,7 +85,7 @@ const router = createBrowserRouter([
             <DashboardLayout></DashboardLayout>
         </PrivateRoute>,
         children: [
-            // TODO: admin dashboard routes
+            // admin dashboard routes
             {
                 path: 'adminHome',
                 element: <AdminRoute>
@@ -143,7 +154,7 @@ const router = createBrowserRouter([
                     <AskAdvertisement></AskAdvertisement>
                 </SellerRoute>
             },
-            // TO DO: user dashboard routes
+            // user dashboard routes
             {
                 path: 'userPaymentHistory',
                 element: <UserPaymentHistory></UserPaymentHistory>

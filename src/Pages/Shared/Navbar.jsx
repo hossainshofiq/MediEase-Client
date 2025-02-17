@@ -34,8 +34,8 @@ const Navbar = () => {
     }
 
     const navOptions = <>
-        <div className='lg:flex gap-2'>
-            <li><NavLink to="/">Home</NavLink></li>
+        <div className='lg:flex font-semibold gap-2'>
+            {/* <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/shop">Shop</NavLink></li>
 
             <li>
@@ -45,23 +45,42 @@ const Navbar = () => {
                         <div className="badge badge-secondary">+{cart.length}</div>
                     </button>
                 </NavLink>
-            </li>
+            </li> */}
+            {
+                user ? <>
+                    <li><NavLink to="/">Home</NavLink></li>
+                    <li><NavLink to="/shop">Shop</NavLink></li>
 
-            <li>
-                <details className="dropdown">
-                    <summary className="">Languages</summary>
-                    <ul className="menu dropdown-content bg-gray-500 text-white rounded-box z-[50] p-2">
-                        <li><a>English</a></li>
-                        <li><a>Bangla</a></li>
-                    </ul>
-                </details>
-            </li>
+                    <li>
+                        <NavLink className="" to={'/cart'}>
+                            <button className="flex gap-2">
+                                <FaShoppingCart className='text-lg'></FaShoppingCart>
+                                <div className="badge badge-secondary">+{cart.length}</div>
+                            </button>
+                        </NavLink>
+                    </li>
+                    <li><NavLink to="/about">About Us</NavLink></li>
+                    <li><NavLink to="/faq">FAQ</NavLink></li>
+                </> : <>
+                    <li><NavLink to="/">Home</NavLink></li>
+                    <li><NavLink to="/shop">Shop</NavLink></li>
+
+                    <li>
+                        <NavLink className="" to={'/cart'}>
+                            <button className="flex gap-2">
+                                <FaShoppingCart className='text-lg'></FaShoppingCart>
+                                <div className="badge badge-secondary">+{cart.length}</div>
+                            </button>
+                        </NavLink>
+                    </li>
+                </>
+            }
         </div>
     </>
-
     return (
         // <div className="navbar fixed z-50 bg-black bg-opacity-30 text-white max-w-screen-xl mx-auto">
-        <div className="navbar bg-green-300 max-w-screen-xl mx-auto">
+        // <div className="navbar bg-green-300 fixed top-0 z-50 px-2 md:px-12 lg:px-20">
+        <div className="navbar bg-primary text-white px-2 md:px-12 lg:px-20 fixed top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -80,7 +99,7 @@ const Navbar = () => {
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[50] mt-3 w-52 p-2 shadow">
+                        className="menu menu-sm dropdown-content bg-primary rounded-box z-[50] mt-3 w-52 p-2 shadow">
                         {navOptions}
                     </ul>
                 </div>
