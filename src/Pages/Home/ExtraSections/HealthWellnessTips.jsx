@@ -32,7 +32,7 @@ const HealthWellnessTips = () => {
   return (
     <section className="py-10">
       <div className="w-11/12 mx-auto text-center">
-        <SectionTitle heading="Health & Wellness Tips" subHeading="Stay informed with expert health advice and wellness tips."></SectionTitle>
+        <SectionTitle heading="Health & Wellness Tips" subHeading="Stay informed with expert health advice and wellness tips"></SectionTitle>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 pt-10">
           {healthTips.map((tip) => (

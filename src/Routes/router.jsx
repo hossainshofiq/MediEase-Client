@@ -29,6 +29,7 @@ import SalesReport from '../Pages/Dashboard/Admin/SalesReport';
 import ErrorPage from '../Pages/ErrorPage';
 import About from '../Pages/About';
 import Faq from '../Pages/FAQ';
+import ContactUs from '../Pages/Home/ExtraSections/ContactUs';
 
 const router = createBrowserRouter([
     {
@@ -75,6 +76,10 @@ const router = createBrowserRouter([
             {
                 path: '/faq',
                 element: <Faq></Faq>
+            },
+            {
+                path: '/contact',
+                element: <ContactUs></ContactUs>
             }
         ]
     },

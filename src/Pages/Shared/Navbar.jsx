@@ -70,7 +70,7 @@ const Navbar = () => {
                             </button>
                         </NavLink>
                     </li>
-                    <li><NavLink to="/about">About Us</NavLink></li>
+                    <li><NavLink to="/contact">Contact us</NavLink></li>
                     <li><NavLink to="/faq">FAQ</NavLink></li>
                 </> : <>
                     <li><NavLink to="/">Home</NavLink></li>
@@ -84,13 +84,12 @@ const Navbar = () => {
                             </button>
                         </NavLink>
                     </li>
+                    <li><NavLink to="/about">About Us</NavLink></li>
                 </>
             }
         </div>
     </>
     return (
-        // <div className="navbar fixed z-50 bg-black bg-opacity-30 text-white max-w-screen-xl mx-auto">
-        // <div className="navbar bg-green-300 fixed top-0 z-50 px-2 md:px-12 lg:px-20">
         <div className="navbar bg-primary text-white px-2 md:px-12 lg:px-20 fixed top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">

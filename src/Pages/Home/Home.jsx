@@ -38,24 +38,23 @@ const Home = () => {
                 <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-10'>
                     {
                         uniqueItems.map(unique =>
-                            <Link to={`category/${unique.category}`} key={unique._id}>
-                                <div className="card card-compact bg-base-100 border shadow-md hover:shadow-xl transition duration-300">
-                                    <figure>
-                                        <img
-                                            className="w-full h-52 object-cover"
-                                            src={unique.image}
-                                            alt={unique?.category} />
-                                    </figure>
-                                    <div className="card-body">
-                                        <h2 className="card-title">{unique.category}</h2>
-                                        <p className='line-clamp-2'>{unique.short_description}</p>
-                                        <div className="card-actions justify-center">
-                                            {/* <h3 className='font-bold text-blue-600 bg-base-300 w-full text-center py-2 rounded-md'>{unique.category}</h3> */}
-                                            <button className="btn btn-primary w-full font-bold py-2 rounded-md transition duration-200">See More</button>
-                                        </div>
+                            <div key={unique._id} className="card card-compact bg-base-100 border shadow-md hover:shadow-xl transition duration-300">
+                                <figure>
+                                    <img
+                                        className="w-full h-52 object-cover"
+                                        src={unique.image}
+                                        alt={unique?.category} />
+                                </figure>
+                                <div className="card-body">
+                                    <h2 className="card-title">{unique.category}</h2>
+                                    <p className='line-clamp-2'>{unique.short_description}</p>
+                                    <div className="card-actions w-full">
+                                        <Link to={`category/${unique.category}`} className='w-full'>
+                                            <button className="btn btn-primary w-full font-bold rounded-md transition duration-200">See More</button>
+                                        </Link>
                                     </div>
                                 </div>
-                            </Link>
+                            </div>
                         )
                     }
                 </section>

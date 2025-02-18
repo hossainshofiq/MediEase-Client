@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import useProduct from '../../../Hooks/useProduct';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { FaCartPlus, FaEye } from 'react-icons/fa';
 import useAuth from '../../../Hooks/useAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
@@ -8,6 +8,7 @@ import useCart from '../../../Hooks/useCart';
 import Swal from 'sweetalert2';
 import { MdOutlineCloseFullscreen } from 'react-icons/md';
 import SectionTitle from '../../../Components/SectionTitle';
+import { FaArrowLeft } from 'react-icons/fa6';
 
 const SpecificMedicine = () => {
 
@@ -73,13 +74,17 @@ const SpecificMedicine = () => {
     }
 
     return (
-        <div className='my-10'>
+        <div className='w-11/12 mx-auto my-10'>
 
             <div className='mt-20'>
-                <SectionTitle heading="Category Medicine" subHeading="Your Health, Our Priority – Choose the Best Medicine"></SectionTitle>
+                <SectionTitle heading="Category Medicine" subHeading="Your Health, Our Priority Choose the Best Medicine"></SectionTitle>
             </div>
 
-            <h1 className='text-3xl font-semibold my-5 text-center'>All information of : <span className='font-bold text-blue-600'>{category}</span> </h1>
+            <div className='flex justify-between items-center my-6'>
+                <h1 className='text-3xl font-semibold text-center'>All information of : <span className='font-bold text-blue-600'>{category}</span> </h1>
+
+                <Link to="/"><button className='btn btn-outline'><FaArrowLeft></FaArrowLeft> Back to Home</button></Link>
+            </div>
 
             <div className="overflow-x-auto">
                 <table className="table border">
@@ -120,11 +125,11 @@ const SpecificMedicine = () => {
                                         <button
                                             onClick={() => handleAddToCart(item)}
                                             className="btn btn-primary btn-sm flex items-center gap-1"
-                                        ><FaCartPlus></FaCartPlus> Add </button>
+                                        ><FaCartPlus></FaCartPlus></button>
                                         <button
                                             onClick={() => handleSee(item)}
                                             className="btn btn-outline btn-primary btn-sm flex items-center gap-1"
-                                        ><FaEye></FaEye> View </button>
+                                        ><FaEye></FaEye></button>
 
                                     </td>
                                 </tr>

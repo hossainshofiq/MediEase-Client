@@ -243,17 +243,18 @@ const Cart = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 cartItems.forEach((item) =>
-                    axiosSecure.delete(`/carts/${item._id}`).then((res) => {
-                        if (res.data.deletedCount > 0) {
-                            refetch();
-                            setCartItems([]);
-                            Swal.fire(
-                                'Cleared!',
-                                'Your cart is now empty.',
-                                'success'
-                            );
-                        }
-                    })
+                    axiosSecure.delete(`/carts/${item._id}`)
+                        .then((res) => {
+                            if (res.data.deletedCount > 0) {
+                                refetch();
+                                setCartItems([]);
+                                Swal.fire(
+                                    'Cleared!',
+                                    'Your cart is now empty.',
+                                    'success'
+                                );
+                            }
+                        })
                 );
             }
         });
@@ -280,15 +281,15 @@ const Cart = () => {
                 <title>MediEase | Cart</title>
             </Helmet>
 
-<div className='mt-20 mb-5'>
-<SectionTitle heading="Pay for buy" subHeading="Secure and Convenient Payment for Your Purchases"></SectionTitle>
-</div>
+            <div className='mt-20 mb-5'>
+                <SectionTitle heading="Pay for buy" subHeading="Secure and Convenient Payment for Your Purchases"></SectionTitle>
+            </div>
 
             <div className="flex justify-between mb-5">
                 <h3 className="text-3xl">My Cart: ({cartItems.length})</h3>
                 <h3 className="text-3xl">Subtotal: ${totalPrice.toFixed(2)}</h3>
                 {cartItems.length ? (
-                    <Link to="/checkout" state={{totalPrice}}>
+                    <Link to="/checkout" state={{ totalPrice }}>
                         <button className="btn btn-outline">Checkout</button>
                     </Link>
                 ) : (

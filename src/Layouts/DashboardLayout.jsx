@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCartPlus, FaHome, FaList, FaUsers } from 'react-icons/fa';
+import { FaCartPlus, FaHome, FaList, FaUser, FaUsers } from 'react-icons/fa';
 import { FcSalesPerformance } from 'react-icons/fc';
 import { GiEntryDoor, GiKnightBanner } from 'react-icons/gi';
 import { MdAdminPanelSettings, MdOutlinePayment } from 'react-icons/md';
@@ -61,6 +61,11 @@ const DashboardLayout = () => {
                         {
                             isAdmin ? (
                                 <>
+                                    <li>
+                                        <NavLink to="/dashboard/profile">
+                                            <FaUser></FaUser> Profile
+                                        </NavLink>
+                                    </li>
                                     <li>
                                         <NavLink to="/dashboard/adminHome">
                                             <MdAdminPanelSettings></MdAdminPanelSettings> Admin Home

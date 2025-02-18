@@ -10,7 +10,7 @@ const Slider = () => {
 
     return (
 
-        <div className='mt-[68px] '>
+        <div className='mt-[64px] lg:mt-[68px] '>
             <Carousel autoPlay={Boolean} interval={3000} infiniteLoop={true} showStatus={false}>
                 {activeAdvertise.map((ad) => (
                     <div key={ad._id} className="text-center">

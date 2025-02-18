@@ -150,7 +150,7 @@ const Shop = () => {
                 {
                     filteredMedicines?.length > 0 ? (
                         filteredMedicines.map(item =>
-                            <div className="card shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+                            <div key={item._id} className="card shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
                                 <figure className="bg-gray-100 p-4">
                                     <img
                                         src={item.image}
