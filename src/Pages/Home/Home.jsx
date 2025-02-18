@@ -38,7 +38,7 @@ const Home = () => {
                 <section className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-10'>
                     {
                         uniqueItems.map(unique =>
-                            <div key={unique._id} className="card card-compact bg-base-100 border shadow-md hover:shadow-xl transition duration-300">
+                            <div key={unique._id} className="card card-compact bg-base-100 rounded-md border shadow-md hover:shadow-xl transition duration-300">
                                 <figure>
                                     <img
                                         className="w-full h-52 object-cover"

@@ -181,12 +181,12 @@ const Navbar = () => {
                                 <li>
                                     {
                                         isAdmin ?
-                                            (<NavLink to="/dashboard/adminHome">Dashboard</NavLink>)
+                                            (<NavLink to="/dashboard/adminProfile">Dashboard</NavLink>)
                                             :
                                             !isAdmin && isSeller ?
-                                                (<NavLink to="/dashboard/sellerHome">Dashboard</NavLink>)
+                                                (<NavLink to="/dashboard/sellerProfile">Dashboard</NavLink>)
                                                 :
-                                                (<NavLink to="/dashboard/userHome">Dashboard</NavLink>)
+                                                (<NavLink to="/dashboard/userProfile">Dashboard</NavLink>)
                                     }
                                 </li>
 

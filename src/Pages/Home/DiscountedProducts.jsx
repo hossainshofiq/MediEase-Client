@@ -40,8 +40,7 @@ const DiscountedProducts = () => {
                 {filteredDiscountedMedicines.map((medicine, index) => (
                     <SwiperSlide key={index}>
                         <img
-                            // className="object-cover max-w-full max-h-[300px] border border-black"
-                            className='max-w-full max-h-[300px] lg:w-full lg:h-96 border object-cover'
+                            className='max-w-full max-h-[300px] lg:w-full lg:h-96 rounded-md border object-cover'
                             src={medicine.image}
                             alt={medicine.name || 'Discounted Product'}
                         />

@@ -22,7 +22,6 @@ import UserPaymentHistory from '../Pages/Dashboard/User/UserPaymentHistory';
 import InvoicePage from '../Components/InvoicePage';
 import AdminHomePage from '../Pages/Dashboard/Admin/AdminHomePage';
 import SellerHomePage from '../Pages/Dashboard/Seller/SellerHomePage';
-import UserHome from '../Pages/Dashboard/User/UserHome';
 import ManageAdvertise from '../Pages/Dashboard/Admin/ManageAdvertise';
 import PaymentManagement from '../Pages/Dashboard/Admin/PaymentManagement';
 import SalesReport from '../Pages/Dashboard/Admin/SalesReport';
@@ -30,6 +29,9 @@ import ErrorPage from '../Pages/ErrorPage';
 import About from '../Pages/About';
 import Faq from '../Pages/FAQ';
 import ContactUs from '../Pages/Home/ExtraSections/ContactUs';
+import AdminProfile from '../Pages/Dashboard/Admin/AdminProfile';
+import SellerProfile from '../Pages/Dashboard/Seller/SellerProfile';
+import UserProfile from '../Pages/Dashboard/User/UserProfile';
 
 const router = createBrowserRouter([
     {
@@ -92,6 +94,12 @@ const router = createBrowserRouter([
         children: [
             // admin dashboard routes
             {
+                path: 'adminProfile',
+                element: <AdminRoute>
+                    <AdminProfile></AdminProfile>
+                </AdminRoute>
+            },
+            {
                 path: 'adminHome',
                 element: <AdminRoute>
                     <AdminHomePage></AdminHomePage>
@@ -136,6 +144,12 @@ const router = createBrowserRouter([
             },
             // seller dashboard routes
             {
+                path: 'sellerProfile',
+                element: <SellerRoute>
+                    <SellerProfile></SellerProfile>
+                </SellerRoute>
+            },
+            {
                 path: 'sellerHome',
                 element: <SellerRoute>
                     <SellerHomePage></SellerHomePage>
@@ -161,13 +175,13 @@ const router = createBrowserRouter([
             },
             // user dashboard routes
             {
+                path: 'userProfile',
+                element: <UserProfile></UserProfile>
+            },
+            {
                 path: 'userPaymentHistory',
                 element: <UserPaymentHistory></UserPaymentHistory>
             },
-            {
-                path: 'userHome',
-                element: <UserHome></UserHome>
-            }
         ]
     },
     {

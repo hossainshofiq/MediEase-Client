@@ -62,7 +62,7 @@ const DashboardLayout = () => {
                             isAdmin ? (
                                 <>
                                     <li>
-                                        <NavLink to="/dashboard/profile">
+                                        <NavLink to="/dashboard/adminProfile">
                                             <FaUser></FaUser> Profile
                                         </NavLink>
                                     </li>
@@ -101,6 +101,11 @@ const DashboardLayout = () => {
                             ) : !isAdmin && isSeller ? (
                                 <>
                                     <li>
+                                        <NavLink to="/dashboard/sellerProfile">
+                                            <FaUser></FaUser> Profile
+                                        </NavLink>
+                                    </li>
+                                    <li>
                                         <NavLink to="/dashboard/sellerHome">
                                             <FaShopSlash></FaShopSlash> Seller Home
                                         </NavLink>
@@ -125,6 +130,11 @@ const DashboardLayout = () => {
                             ) : (
                                 <>
                                     <li>
+                                        <NavLink to="/dashboard/userProfile">
+                                            <FaUser></FaUser> Profile
+                                        </NavLink>
+                                    </li>
+                                    <li>
                                         <NavLink to="/dashboard/userPaymentHistory">
                                             <MdOutlinePayment></MdOutlinePayment> Payment History
                                         </NavLink>
@@ -147,10 +157,7 @@ const DashboardLayout = () => {
                     </ul>
                 </div>
             </div>
-
-
         </>
-
     );
 };
 

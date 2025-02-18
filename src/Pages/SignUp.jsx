@@ -69,7 +69,7 @@ const SignUp = () => {
             <div className="hero mt-20">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <Lottie className='w-96' animationData={signUpLottie} loop={true} ></Lottie>
+                        <Lottie animationData={signUpLottie} loop={true} ></Lottie>
                     </div>
                     <div className="card w-full max-w-lg shrink-0 border shadow-xl">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
