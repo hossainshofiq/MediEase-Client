@@ -64,7 +64,7 @@ const AskAdvertisement = () => {
                 </Carousel>
 
                 <button
-                    className="btn btn-accent text-white"
+                    className="btn btn-primary"
                     onClick={() => {
                         document.getElementById('my_modal_1').showModal();
                         document.getElementById('main-content').setAttribute('inert', '');

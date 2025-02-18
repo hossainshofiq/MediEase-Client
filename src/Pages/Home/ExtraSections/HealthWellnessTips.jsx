@@ -36,11 +36,11 @@ const HealthWellnessTips = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 pt-10">
           {healthTips.map((tip) => (
-            <div key={tip.id} className="bg-white overflow-hidden border rounded-md shadow-md hover:shadow-xl transition duration-300">
+            <div key={tip.id} className="overflow-hidden border rounded-md shadow-md hover:shadow-xl transition duration-300">
               <img src={tip.image} alt={tip.title} className="w-full h-40 object-cover" />
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-700">{tip.title}</h3>
-                <p className="text-sm text-gray-600 mt-2">{tip.description}</p>
+                <h3 className="text-lg font-semibold">{tip.title}</h3>
+                <p className="text-sm mt-2">{tip.description}</p>
               </div>
             </div>
           ))}

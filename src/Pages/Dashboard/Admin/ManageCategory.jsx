@@ -103,7 +103,7 @@ const ManageCategory = () => {
             <div className='flex justify-end mb-5'>
 
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
-                <button className="btn" onClick={() => document.getElementById('my_modal_1').showModal()}>Add Category</button>
+                <button className="btn btn-primary" onClick={() => document.getElementById('my_modal_1').showModal()}>Add Category</button>
                 <dialog id="my_modal_1" className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
                         <h3 className="font-bold text-lg">Add Category</h3>
@@ -153,7 +153,7 @@ const ManageCategory = () => {
             <div className="overflow-x-auto border">
                 <table className="table">
                     {/* head */}
-                    <thead>
+                    <thead className='bg-primary text-white'>
                         <tr>
                             <th>#</th>
                             <th>Image</th>
@@ -165,7 +165,7 @@ const ManageCategory = () => {
                     <tbody>
                         {
                             categories.map((category, index) =>
-                                <tr key={category._id}>
+                                <tr key={category._id} className='hover:bg-gray-100 hover:text-black'>
                                     <th>{index + 1}</th>
                                     <td>
                                         <div className="flex items-center gap-3">

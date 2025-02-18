@@ -64,7 +64,7 @@ const ManageMedicine = () => {
             <div className='flex justify-end mb-5'>
 
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
-                <button className="btn btn-success text-white" onClick={() => document.getElementById('my_modal_1').showModal()}>Add Medicine</button>
+                <button className="btn btn-primary" onClick={() => document.getElementById('my_modal_1').showModal()}>Add Medicine</button>
                 <dialog id="my_modal_1" className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
                         <h3 className="font-bold text-lg">Add Medicine</h3>
@@ -187,7 +187,7 @@ const ManageMedicine = () => {
             <div className="overflow-x-auto">
                 <table className="table border">
                     {/* head */}
-                    <thead className='bg-blue-500 text-white'>
+                    <thead className='bg-primary text-white'>
                         <tr>
                             <th>#</th>
                             <th>Image</th>
@@ -202,7 +202,7 @@ const ManageMedicine = () => {
                     <tbody>
                         {
                             Product.map((item, index) =>
-                                <tr key={item._id} className='hover:bg-gray-100'>
+                                <tr key={item._id} className='hover:bg-gray-100 hover:text-black'>
                                     <th>{index + 1}</th>
                                     <td>
                                         <div className="flex items-center gap-3">

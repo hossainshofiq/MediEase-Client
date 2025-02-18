@@ -42,7 +42,7 @@ const ManageAdvertise = () => {
             <div className="overflow-x-auto my-10">
                 <table className="table border">
                     {/* head */}
-                    <thead className='bg-blue-600 text-white'>
+                    <thead className='bg-primary text-white'>
                         <tr>
                             <th>#</th>
                             <th>Image</th>
@@ -55,7 +55,7 @@ const ManageAdvertise = () => {
                     <tbody>
                         {
                             advertise.map((ad, index) =>
-                                <tr key={ad._id} className='hover:bg-gray-100'>
+                                <tr key={ad._id} className='hover:bg-gray-100 hover:text-black'>
                                     <th>{index + 1}</th>
                                     <td>
                                         <div className="flex items-center gap-3">

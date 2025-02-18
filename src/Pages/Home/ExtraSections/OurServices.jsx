@@ -111,8 +111,8 @@ const OurServices = () => {
                         className="p-6 text-center border rounded-md shadow-md hover:shadow-xl transition duration-300"
                     >
                         <div className="p-4 bg-base-200 rounded-full inline-block mb-4">{service.icon}</div>
-                        <h4 className="text-lg font-semibold text-gray-800">{service.title}</h4>
-                        <p className="text-sm text-gray-600 mt-2">{service.description}</p>
+                        <h4 className="text-lg font-semibold">{service.title}</h4>
+                        <p className="text-sm mt-2">{service.description}</p>
                     </div>
                 ))}
             </div>

@@ -15,7 +15,7 @@ const InvoicePage = () => {
                 <title>MediEase | Invoice</title>
             </Helmet>
 
-            <div ref={invoiceRef} className="bg-white border rounded-lg p-6 shadow-md">
+            <div ref={invoiceRef} className="border rounded-lg p-6 shadow-md">
 
                 <div className="flex justify-between items-center mb-5">
                     <img
@@ -44,7 +44,7 @@ const InvoicePage = () => {
                 <h2 className="text-xl font-bold mb-3">Purchase Details</h2>
                 <table className="table-auto w-full mb-5 border-collapse border border-gray-300">
                     <thead>
-                        <tr className="bg-gray-100">
+                        <tr className="">
                             <th className="border border-gray-300 p-2 text-left">#</th>
                             <th className="border border-gray-300 p-2 text-left">Item Name</th>
                             <th className="border border-gray-300 p-2 text-left">Unit Price</th>

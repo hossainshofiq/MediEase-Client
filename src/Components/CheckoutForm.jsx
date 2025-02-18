@@ -110,7 +110,7 @@ const CheckoutForm = () => {
 
     return (
         <div className="flex justify-center items-center py-10">
-            <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-lg border">
+            <div className="shadow-lg rounded-lg p-6 w-full max-w-lg border">
                 <h2 className="text-2xl font-bold text-center mb-6">Checkout</h2>
                 <form onSubmit={handleSubmit}>
                     <div className="mb-4">

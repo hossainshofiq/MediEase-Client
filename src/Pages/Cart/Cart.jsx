@@ -300,7 +300,7 @@ const Cart = () => {
 
             <div className="overflow-x-auto border">
                 <table className="table border">
-                    <thead className="bg-green-300 text-black">
+                    <thead className="bg-primary text-white">
                         <tr>
                             <th>#</th>
                             <th>Photo</th>
@@ -314,7 +314,7 @@ const Cart = () => {
                     </thead>
                     <tbody>
                         {cartItems.map((item, index) => (
-                            <tr className="hover:bg-gray-100" key={item._id}>
+                            <tr className="hover:bg-gray-100 hover:text-black" key={item._id}>
                                 <th>{index + 1}</th>
                                 <td>
                                     <div className="flex items-center gap-3">
@@ -342,7 +342,7 @@ const Cart = () => {
 
                                         <input
                                             value={item.quantity || 1}
-                                            className="input input-sm input-bordered text-center w-12"
+                                            className="input input-sm input-bordered text-center w-12 bg-primary text-white"
                                             type="text"
                                             readOnly
                                         />

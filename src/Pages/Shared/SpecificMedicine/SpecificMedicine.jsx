@@ -84,7 +84,7 @@ const SpecificMedicine = () => {
             <div className="overflow-x-auto">
                 <table className="table border">
                     {/* head */}
-                    <thead>
+                    <thead className='bg-primary text-white'>
                         <tr>
                             <th>#</th>
                             <th>Image</th>
@@ -98,7 +98,7 @@ const SpecificMedicine = () => {
                     <tbody>
                         {filteredProducts.length > 0 ? (
                             filteredProducts.map((item, index) => (
-                                <tr className='hover:bg-gray-200' key={item._id}>
+                                <tr className='hover:bg-gray-200 hover:text-black' key={item._id}>
                                     <th>{index + 1}</th>
                                     <td>
                                         <div className="flex items-center gap-3">

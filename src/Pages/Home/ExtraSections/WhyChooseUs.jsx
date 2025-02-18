@@ -44,10 +44,10 @@ const WhyChooseUs = () => {
                                 key={index}
                                 className="flex items-start gap-4 p-4 border rounded-md shadow-md hover:shadow-xl transition duration-300"
                             >
-                                <div className="p-3 bg-gray-100 rounded-full">{feature.icon}</div>
+                                <div className="p-3 bg-gray-200 rounded-full ">{feature.icon}</div>
                                 <div>
                                     <h4 className="text-base md:text-lg font-semibold">{feature.title}</h4>
-                                    <p className="text-sm text-gray-600">{feature.description}</p>
+                                    <p className="text-sm">{feature.description}</p>
                                 </div>
                             </div>
                         ))}

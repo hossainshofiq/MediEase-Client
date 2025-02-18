@@ -23,7 +23,7 @@ const SalesReport = () => {
 
             <div className="overflow-x-auto border my-10">
                 <table className="table border">
-                    <thead className='bg-blue-500 text-white'>
+                    <thead className='bg-primary text-white'>
                         <tr>
                             <th>#</th>
                             <th>Medicine Name</th>
@@ -34,7 +34,7 @@ const SalesReport = () => {
                     </thead>
                     <tbody>
                         {salesReport.map((report, index) => (
-                            <tr className='hover:bg-gray-100' key={index}>
+                            <tr key={index} className='hover:bg-gray-100 hover:text-black'>
                                 <th>{index + 1}</th>
                                 <td>{report.medicineName}</td>
                                 <td>{report.buyerEmail}</td>

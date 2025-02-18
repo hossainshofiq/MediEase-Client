@@ -28,7 +28,7 @@ const SellerPaymentHistory = () => {
             <div className="overflow-x-auto">
                 <table className="table border">
                     <thead>
-                        <tr className='bg-blue-500 text-white'>
+                        <tr className='bg-primary text-white'>
                             <th>#</th>
                             <th>Price</th>
                             <th>User</th>
@@ -39,7 +39,7 @@ const SellerPaymentHistory = () => {
                     <tbody>
                         {
                             payments.map((payment, index) =>
-                                <tr key={payment._id} className='hover:bg-gray-100'>
+                                <tr key={payment._id} className='hover:bg-gray-100 hover:text-black'>
                                     <th>{index + 1}</th>
                                     <td>${payment.price}</td>
                                     <td>{payment.email}</td>

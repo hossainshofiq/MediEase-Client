@@ -30,7 +30,7 @@ const PaymentManagement = () => {
     };
 
     return (
-        <div>
+        <div className='mt-20'>
             <SectionTitle
                 heading="Payment Management System"
                 subHeading="All payments here; you can accept to be paid"
@@ -38,7 +38,7 @@ const PaymentManagement = () => {
 
             <div className="overflow-x-auto border my-10">
                 <table className="table">
-                    <thead>
+                    <thead className='bg-primary text-white'>
                         <tr>
                             <th>#</th>
                             <th>Price</th>
@@ -50,7 +50,7 @@ const PaymentManagement = () => {
                     </thead>
                     <tbody>
                         {payments.map((payment, index) => (
-                            <tr key={payment._id}>
+                            <tr key={payment._id} className='hover:bg-gray-100 hover:text-black'>
                                 <th>{index + 1}</th>
                                 <td>{payment.price}</td>
                                 <td>{payment.email}</td>

@@ -72,7 +72,7 @@ const SellerHomePage = () => {
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div className="stat card shadow border bg-white p-5 rounded-lg">
+                <div className="stat card shadow border p-5 rounded-lg">
                     <div className="stat-figure text-secondary">
                         <FaDollarSign className='text-4xl' />
                     </div>
@@ -81,7 +81,7 @@ const SellerHomePage = () => {
                     <div className="stat-desc">Jan 1st - Feb 1st</div>
                 </div>
 
-                <div className="stat card shadow border bg-white p-5 rounded-lg">
+                <div className="stat card shadow border p-5 rounded-lg">
                     <div className="stat-figure text-secondary">
                         <FcPaid className='text-5xl' />
                     </div>
@@ -90,7 +90,7 @@ const SellerHomePage = () => {
                     <div className="stat-desc">↗︎ 400 (22%)</div>
                 </div>
 
-                <div className="stat card shadow border bg-white p-5 rounded-lg">
+                <div className="stat card shadow border p-5 rounded-lg">
                     <div className="stat-figure text-secondary">
                         <MdPendingActions className='text-5xl' />
                     </div>

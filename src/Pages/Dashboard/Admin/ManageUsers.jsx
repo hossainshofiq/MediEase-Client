@@ -119,7 +119,7 @@ const ManageUsers = () => {
                         <table className="table border">
                             {/* head */}
                             <thead>
-                                <tr className='bg-blue-500 text-white'>
+                                <tr className='bg-primary text-white'>
                                     <th>#</th>
                                     <th>Name</th>
                                     <th>Email</th>
@@ -131,7 +131,7 @@ const ManageUsers = () => {
                             <tbody>
                                 {
                                     users.map((user, index) =>
-                                        <tr key={user._id} className='hover:bg-gray-100'>
+                                        <tr key={user._id} className='hover:bg-gray-100 hover:text-black'>
                                             <th>{index + 1}</th>
                                             <td>{user.name}</td>
                                             <td>{user.email}</td>

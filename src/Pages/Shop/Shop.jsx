@@ -150,7 +150,7 @@ const Shop = () => {
                 {
                     filteredMedicines?.length > 0 ? (
                         filteredMedicines.map(item =>
-                            <div className="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+                            <div className="card shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
                                 <figure className="bg-gray-100 p-4">
                                     <img
                                         src={item.image}
@@ -160,7 +160,7 @@ const Shop = () => {
                                 </figure>
                                 <div className="p-4">
                                     <div className='flex justify-between items-center'>
-                                        <h2 className="text-lg font-semibold text-gray-800">{item.name}</h2>
+                                        <h2 className="text-lg font-semibold">{item.name}</h2>
                                         {/* <p className="text-sm text-gray-600">{item.category}</p> */}
                                         {/* <p className="text-sm text-gray-500">{item.company}</p> */}
                                         {/* <p className="text-sm font-medium text-gray-700">{item.generic_name}</p> */}

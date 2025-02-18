@@ -56,11 +56,11 @@ const CustomersReviews = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-8">
                     {(showAll ? reviews : reviews.slice(0, 4)).map((review, id) => (
                         <div key={id} className="shadow-lg rounded-md border p-6 text-left transition-transform transform hover:-translate-y-2" >
-                            <p className="text-gray-700 italic">"{review.review}"</p>
+                            <p className="italic">"{review.review}"</p>
                             <div className="mt-4 flex items-center">
                                 <img src={review.image} alt={review.name} className="w-12 h-12 object-contain rounded-full mr-4" />
                                 <div>
-                                    <h4 className="text-sm font-bold text-gray-800">{review.name}</h4>
+                                    <h4 className="text-sm font-bold">{review.name}</h4>
                                 </div>
                             </div>
                         </div>
