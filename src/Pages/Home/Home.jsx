@@ -3,13 +3,13 @@ import Slider from './Slider';
 import { Helmet } from 'react-helmet-async';
 import DiscountedProducts from './DiscountedProducts';
 import useCategory from '../../Hooks/useCategory';
-import WhyChooseUs from './ExtraSection2/WhyChooseUs';
-import OurServices from './ExtraSection1/OurServices';
 import SectionTitle from '../../Components/SectionTitle';
 import { Link } from 'react-router-dom';
-import FeaturedBrandsSellers from './FeaturedBrandsSellers';
-import CustomersReviews from './CustomersReviews';
-import HealthWellnessTips from './HealthWellnessTips';
+import OurServices from './ExtraSections/OurServices';
+import WhyChooseUs from './ExtraSections/WhyChooseUs';
+import CustomersReviews from './ExtraSections/CustomersReviews';
+import FeaturedBrandsSellers from './ExtraSections/FeaturedBrandsSellers';
+import HealthWellnessTips from './ExtraSections/HealthWellnessTips';
 
 const Home = () => {
 

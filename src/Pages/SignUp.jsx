@@ -66,12 +66,12 @@ const SignUp = () => {
             <Helmet>
                 <title>MediEase | Sign Up</title>
             </Helmet>
-            <div className="hero bg-base-200 min-h-screen">
+            <div className="hero mt-20">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <Lottie className='' animationData={signUpLottie} loop={true} ></Lottie>
+                        <Lottie className='w-96' animationData={signUpLottie} loop={true} ></Lottie>
                     </div>
-                    <div className="card bg-base-100 w-full max-w-lg shrink-0 border shadow-2xl">
+                    <div className="card w-full max-w-lg shrink-0 border shadow-xl">
                         <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                             <h1 className="text-5xl font-bold text-center mb-5">SignUp now!</h1>
                             {/* name */}

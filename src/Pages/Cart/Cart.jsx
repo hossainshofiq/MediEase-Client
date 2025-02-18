@@ -289,10 +289,10 @@ const Cart = () => {
                 <h3 className="text-3xl">Subtotal: ${totalPrice.toFixed(2)}</h3>
                 {cartItems.length ? (
                     <Link to="/checkout" state={{totalPrice}}>
-                        <button className="btn">Checkout</button>
+                        <button className="btn btn-outline">Checkout</button>
                     </Link>
                 ) : (
-                    <button disabled className="btn">
+                    <button disabled className="btn btn-outline">
                         Checkout
                     </button>
                 )}
@@ -373,7 +373,7 @@ const Cart = () => {
             <div className="flex justify-end mt-5">
                 <button
                     onClick={handleClearCart}
-                    className="btn"
+                    className="btn btn-outline"
                     disabled={cartItems.length === 0}
                 >
                     Clear Cart

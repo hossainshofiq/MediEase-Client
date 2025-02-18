@@ -10,7 +10,7 @@ const InvoicePage = () => {
     
 
     return (
-        <div className="p-10">
+        <div className="p-10 mt-20">
             <Helmet>
                 <title>MediEase | Invoice</title>
             </Helmet>
@@ -65,9 +65,9 @@ const InvoicePage = () => {
                 </div>
             </div>
 
-            <div className="mt-5 text-center">
+            {/* <div className="mt-5 text-center">
                 <button className="btn btn-primary px-4 py-2 text-white rounded">Print</button>
-            </div>
+            </div> */}
         </div>
     );
 };

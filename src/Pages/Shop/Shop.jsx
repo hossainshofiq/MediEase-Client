@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SectionTitle from './../../Components/SectionTitle';
-import { FaArrowDown, FaArrowUp, FaEye, FaSearch } from 'react-icons/fa';
+import { FaArrowDown, FaArrowUp, FaCartPlus, FaEye, FaSearch } from 'react-icons/fa';
 import useProduct from '../../Hooks/useProduct';
 import { Helmet } from 'react-helmet-async';
 import useAuth from '../../Hooks/useAuth';
@@ -138,7 +138,7 @@ const Shop = () => {
 
                     <button
                         onClick={handleSortByPrice}
-                        className='btn btn-success hover:bg-blue-700 text-white'>
+                        className='btn btn-primary'>
                         Sort By Price
                         {flag ? '' : bool ? <FaArrowUp /> : <FaArrowDown />}
                     </button>
@@ -146,35 +146,50 @@ const Shop = () => {
             </div>
             {/*  */}
 
-            {/* <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-10'>
                 {
                     filteredMedicines?.length > 0 ? (
                         filteredMedicines.map(item =>
-                            <div className="card card-compact bg-base-100 shadow-xl">
-                                <figure>
+                            <div className="card bg-white shadow-lg rounded-lg overflow-hidden transition-transform transform hover:scale-105">
+                                <figure className="bg-gray-100 p-4">
                                     <img
                                         src={item.image}
-                                        alt="Shoes" />
+                                        alt={item.name}
+                                        className="w-full h-40 object-contain"
+                                    />
                                 </figure>
-                                <div className="card-body">
-                                    <h2 className="card-title">{item.category}</h2>
-                                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                                    <div className="card-actions justify-end">
-                                        <button className="btn btn-primary">Buy Now</button>
+                                <div className="p-4">
+                                    <div className='flex justify-between items-center'>
+                                        <h2 className="text-lg font-semibold text-gray-800">{item.name}</h2>
+                                        {/* <p className="text-sm text-gray-600">{item.category}</p> */}
+                                        {/* <p className="text-sm text-gray-500">{item.company}</p> */}
+                                        {/* <p className="text-sm font-medium text-gray-700">{item.generic_name}</p> */}
+                                        <p className="text-lg font-bold text-primary">${item.unit_price}</p>
+                                    </div>
+                                    <div className="flex justify-between items-center gap-2 mt-4">
+                                        <button
+                                            onClick={() => handleAddToCart(item)}
+                                            className="btn btn-primary btn-sm flex items-center gap-1"
+                                        ><FaCartPlus></FaCartPlus> Add </button>
+                                        <button
+                                            onClick={() => handleSee(item)}
+                                            className="btn btn-outline btn-primary btn-sm flex items-center gap-1"
+                                        ><FaEye></FaEye> View </button>
                                     </div>
                                 </div>
                             </div>
+
                         )
                     ) : (
-                        <div>
-                            <h2>No medicines found for "{searchText}"</h2>
+                        <div className=''>
+                            <h2 className='font-semibold text-2xl text-center'>No medicines found for <span className='text-blue-600'>"{searchText}"</span></h2>
                             <p>Try searching with a different Medicine name.</p>
                         </div>
                     )
                 }
-            </div> */}
+            </div>
 
-            <div className="overflow-x-auto my-10">
+            {/* <div className="overflow-x-auto my-10">
                 <table className="table border">
                     <thead className='bg-green-300 text-black'>
                         <tr>
@@ -230,7 +245,7 @@ const Shop = () => {
 
                     </tbody>
                 </table>
-            </div>
+            </div> */}
 
             {/* Modal */}
             {selectedMedicine && (

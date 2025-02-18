@@ -109,7 +109,7 @@ const router = createBrowserRouter([
                 element: <AdminRoute>
                     <UpdateCategory></UpdateCategory>
                 </AdminRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/categories/${params.id}`)
+                loader: ({ params }) => fetch(`https://mediease-server-side.vercel.app/categories/${params.id}`)
             },
             {
                 path: 'paymentManagement',

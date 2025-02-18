@@ -21,7 +21,7 @@ const SalesReport = () => {
         <div>
             <SectionTitle heading="All Sales Report" subHeading="Manage your company sales report"></SectionTitle>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto border my-10">
                 <table className="table border">
                     <thead className='bg-blue-500 text-white'>
                         <tr>

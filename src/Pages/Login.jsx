@@ -45,12 +45,12 @@ const Login = () => {
             <Helmet>
                 <title>MediEase | Login</title>
             </Helmet>
-            <div className="hero bg-base-200 min-h-screen">
+            <div className="hero mt-20">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <Lottie animationData={loginLottie} loop={true} ></Lottie>
+                        <Lottie className='w-96' animationData={loginLottie} loop={true} ></Lottie>
                     </div>
-                    <div className="card bg-base-100 w-full max-w-lg shrink-0 border shadow-2xl">
+                    <div className="card bg-base-100 w-full max-w-lg shrink-0 border shadow-xl">
                         <form onSubmit={handleLogin} className="card-body">
 
                             <h1 className="text-5xl font-bold text-center mb-5">Login now!</h1>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useProduct from '../../../Hooks/useProduct';
 import { useLocation, useNavigate, useParams } from 'react-router-dom';
-import { FaEye } from 'react-icons/fa';
+import { FaCartPlus, FaEye } from 'react-icons/fa';
 import useAuth from '../../../Hooks/useAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import useCart from '../../../Hooks/useCart';
@@ -20,10 +20,6 @@ const SpecificMedicine = () => {
     const [, refetch] = useCart();
     const filteredProducts = product.filter(item => item.category === category);
     const [selectedMedicine, setSelectedMedicine] = useState(null);
-
-    // console.log(category);
-    // console.log(filteredProducts.length);
-
 
     const handleAddToCart = (item) => {
         const { image, name, company, unit_price, _id } = item;
@@ -79,9 +75,11 @@ const SpecificMedicine = () => {
     return (
         <div className='my-10'>
 
-<SectionTitle heading="Category Medicine" subHeading="Find your best medicine"></SectionTitle>
+            <div className='mt-20'>
+                <SectionTitle heading="Category Medicine" subHeading="Your Health, Our Priority – Choose the Best Medicine"></SectionTitle>
+            </div>
 
-            <h1 className='text-3xl font-semibold mb-5 text-center'>All information of: <span className='font-bold text-blue-600'>{category}</span> </h1>
+            <h1 className='text-3xl font-semibold my-5 text-center'>All information of : <span className='font-bold text-blue-600'>{category}</span> </h1>
 
             <div className="overflow-x-auto">
                 <table className="table border">
@@ -119,8 +117,15 @@ const SpecificMedicine = () => {
                                     <td>{item.company}</td>
                                     <td>${item.unit_price}</td>
                                     <td className='flex gap-2'>
-                                        <button onClick={() => handleAddToCart(item)} className="btn btn-primary btn-sm">Select</button>
-                                        <button onClick={() => handleSee(item)} className="btn btn-primary btn-sm"><FaEye></FaEye></button>
+                                        <button
+                                            onClick={() => handleAddToCart(item)}
+                                            className="btn btn-primary btn-sm flex items-center gap-1"
+                                        ><FaCartPlus></FaCartPlus> Add </button>
+                                        <button
+                                            onClick={() => handleSee(item)}
+                                            className="btn btn-outline btn-primary btn-sm flex items-center gap-1"
+                                        ><FaEye></FaEye> View </button>
+
                                     </td>
                                 </tr>
                             ))

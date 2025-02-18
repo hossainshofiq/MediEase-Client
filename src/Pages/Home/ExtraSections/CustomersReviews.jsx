@@ -1,57 +1,5 @@
-// import React from 'react';
-// import { FaQuoteLeft } from 'react-icons/fa';
-// import SectionTitle from '../../Components/SectionTitle';
-
-// const CustomersReviews = () => {
-
-//     const reviews = [
-//         {
-//             name: 'John Doe',
-//             feedback: 'The delivery was super fast, and the medicines were authentic. Highly recommend this platform!',
-//             image: 'https://i0.wp.com/icrtcst24.rvscollege.ac.in/wp-content/uploads/2014/10/speaker-2-v2.jpg?fit=768%2C768&ssl=1',
-//         },
-//         {
-//             name: 'Emily Smith',
-//             feedback: 'Their customer service is top-notch. They guided me with my prescription and ensured everything was smooth.',
-//             image: 'https://pbs.twimg.com/profile_images/1631145337728692229/JpV6AlUL_400x400.jpg',
-//         },
-//         {
-//             name: 'Michael Brown',
-//             feedback: 'Wide range of medicines and reasonable prices. I found all the items I needed in one place!',
-//             image: 'https://m.media-amazon.com/images/M/MV5BMmQwNjEyNGYtOTAwYi00N2Q5LTk5YzYtZjA1YTRlYzZlYzIzXkEyXkFqcGc@._V1_.jpg',
-//         },
-//     ];
-
-//     return (
-//         <div className='my-10'>
-//              <SectionTitle heading="Customers Reviews" subHeading="Hear What Our Happy Customers Say About Us!"></SectionTitle>
-//             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-//                 {reviews.map((review, index) => (
-//                     <div
-//                         key={index}
-//                         className="p-6 border rounded-md shadow-lg bg-white hover:shadow-xl transition duration-300 flex flex-col items-center text-center"
-//                     >
-//                         <div className="relative mb-4">
-//                             <img
-//                                 src={review.image}
-//                                 alt={`${review.name}'s photo`}
-//                                 className="w-20 h-20 rounded-full border-2 border-blue-500 object-cover"
-//                             />
-//                             <FaQuoteLeft className="text-blue-500 text-3xl absolute -top-2 -left-2"></FaQuoteLeft>
-//                         </div>
-//                         <p className="text-sm text-gray-600 italic">"{review.feedback}"</p>
-//                         <h4 className="text-lg font-semibold mt-4">{review.name}</h4>
-//                     </div>
-//                 ))}
-//             </div>
-//         </div>
-//     );
-// };
-
-// export default CustomersReviews;
-
 import React, { useState } from "react";
-import SectionTitle from "../../Components/SectionTitle";
+import SectionTitle from "../../../Components/SectionTitle";
 
 const reviews = [
     {
@@ -105,7 +53,7 @@ const CustomersReviews = () => {
         <div className="py-10">
             <div className="w-11/12 mx-auto text-center">
                 <SectionTitle heading="Customers Reviews" subHeading="Hear What Our Happy Customers Say About Us!"></SectionTitle>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-8">
                     {(showAll ? reviews : reviews.slice(0, 4)).map((review, id) => (
                         <div key={id} className="shadow-lg rounded-md border p-6 text-left transition-transform transform hover:-translate-y-2" >
                             <p className="text-gray-700 italic">"{review.review}"</p>

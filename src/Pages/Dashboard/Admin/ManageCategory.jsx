@@ -44,6 +44,7 @@ const ManageCategory = () => {
         if (res.data.success) {
             const manageCategory = {
                 category: data.category,
+                short_description: data.short_description,
                 image: res.data.data.display_url
             }
 
@@ -118,11 +119,19 @@ const ManageCategory = () => {
                                 <input {...register("category", { required: true })} type="text" placeholder="Type here" className="input input-bordered w-full" />
                             </label>
 
+                            {/* short description */}
+                            <label className="form-control">
+                                <div className="label">
+                                    <span className="label-text">Short Description*</span>
+                                </div>
+                                <textarea {...register("short_description", { required: true })} className="textarea textarea-bordered h-24" placeholder="Short description here"></textarea>
+                            </label>
+
                             {/* image upload */}
                             <div className='my-4'>
                                 <label className="form-control w-full max-w-xs">
                                     <div className="label">
-                                        <span className="label-text">Pick a Image</span>
+                                        <span className="label-text">Pick a Image*</span>
                                     </div>
                                     <input {...register("image", { required: true })} type="file" className="file-input file-input-bordered w-full max-w-xs" />
                                 </label>
@@ -173,7 +182,7 @@ const ManageCategory = () => {
                                     <td>{category.medicine_count}</td>
                                     <th className='flex gap-2 items-center'>
                                         <Link to={`/dashboard/updateMedicine/${category._id}`}>
-                                            <button  className="btn btn-ghost btn-md text-green-600"><FaEdit className='text-xl'></FaEdit></button>
+                                            <button className="btn btn-ghost btn-md text-green-600"><FaEdit className='text-xl'></FaEdit></button>
                                         </Link>
                                         <button onClick={() => handleDeleteCategory(category)} className="btn btn-ghost btn-md text-red-600"><FaTrashAlt className='text-xl'></FaTrashAlt></button>
                                     </th>

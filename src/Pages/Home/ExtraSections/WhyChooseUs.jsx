@@ -38,11 +38,11 @@ const WhyChooseUs = () => {
             <div className="flex flex-col-reverse lg:flex-row items-center justify-center gap-10 lg:gap-16 mt-8">
                 {/* Left Section - Features */}
                 <div className="flex-1 w-full">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-5">
                         {features.map((feature, index) => (
                             <div
                                 key={index}
-                                className="flex items-start gap-4 p-4 border rounded-lg shadow-lg hover:shadow-xl transition duration-300"
+                                className="flex items-start gap-4 p-4 border rounded-md shadow-md hover:shadow-xl transition duration-300"
                             >
                                 <div className="p-3 bg-gray-100 rounded-full">{feature.icon}</div>
                                 <div>

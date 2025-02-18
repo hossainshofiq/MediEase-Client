@@ -1,5 +1,5 @@
 import React from "react";
-import SectionTitle from "../../Components/SectionTitle";
+import SectionTitle from "../../../Components/SectionTitle";
 
 const brands = [
     { id: 1, name: "Beximco Pharma", logo: "https://www.tbsnews.net/sites/default/files/styles/big_2/public/images/2023/12/28/beximco-logo-tbs.jpg" },
@@ -12,7 +12,7 @@ const brands = [
 const sellers = [
     { id: 1, name: "Lazz Pharma", logo: "https://www.contactdetails.info/admin/managebussinesscards/bussinesscardlogos/450932blob" },
     { id: 2, name: "Healthcare Pharma", logo: "https://www.tbsnews.net/sites/default/files/styles/author/public/organization/logo/healthcare_pharmaceuticals_limited.png" },
-    { id: 3, name: "Arogya Pharmacy", logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmJM46fjPty9xld8HbjWGvsw_5jIajlMXxxw&s" },
+    { id: 3, name: "Arogya Pharmacy", logo: "https://e-cab.net/public//img/company_logo/1682828910LOGO.jpeg" },
     { id: 4, name: "Unimart Pharmacy", logo: "https://is3-ssl.mzstatic.com/image/thumb/Purple113/v4/ba/e7/b2/bae7b241-e402-32fc-73f9-8d8a16638134/AppIcon-0-0-1x_U007emarketing-0-0-0-10-0-0-sRGB-0-0-0-GLES2_U002c0-512MB-85-220-0-0.png/256x256bb.jpg" },
 ];
 
@@ -26,7 +26,7 @@ const FeaturedBrandsSellers = () => {
                 <div className="mt-6">
                     <div className="mb-6">
                         <h3 className="text-xl font-medium mb-4">Top Brands</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
                             {brands.map((brand) => (
                                 <div key={brand.id} className="p-4 bg-white shadow rounded-md border">
                                     <img src={brand.logo} alt={brand.name} className="h-16 mx-auto mb-2" />
@@ -38,7 +38,7 @@ const FeaturedBrandsSellers = () => {
 
                     <div>
                         <h3 className="text-xl font-medium mb-4">Trusted Sellers</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
                             {sellers.map((seller) => (
                                 <div key={seller.id} className="p-4 bg-white shadow rounded-md border">
                                     <img src={seller.logo} alt={seller.name} className="h-16 mx-auto mb-2" />

@@ -151,7 +151,7 @@ const CheckoutForm = () => {
                     <button
                         type="submit"
                         disabled={!stripe || !clientSecret}
-                        className="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-600 transition disabled:bg-gray-400 disabled:cursor-not-allowed"
+                        className="btn btn-primary w-full font-bold py-2 px-4 rounded-md transition disabled:bg-gray-400 disabled:cursor-not-allowed"
                     >
                         Pay
                     </button>

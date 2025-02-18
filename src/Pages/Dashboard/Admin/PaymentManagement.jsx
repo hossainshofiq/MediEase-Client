@@ -36,7 +36,7 @@ const PaymentManagement = () => {
                 subHeading="All payments here; you can accept to be paid"
             ></SectionTitle>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto border my-10">
                 <table className="table">
                     <thead>
                         <tr>

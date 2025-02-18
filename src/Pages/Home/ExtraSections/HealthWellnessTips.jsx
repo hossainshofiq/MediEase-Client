@@ -1,5 +1,5 @@
 import React from "react";
-import SectionTitle from "../../Components/SectionTitle";
+import SectionTitle from "../../../Components/SectionTitle";
 
 const healthTips = [
   {
@@ -34,14 +34,13 @@ const HealthWellnessTips = () => {
       <div className="w-11/12 mx-auto text-center">
         <SectionTitle heading="Health & Wellness Tips" subHeading="Stay informed with expert health advice and wellness tips."></SectionTitle>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 pt-10">
           {healthTips.map((tip) => (
-            <div key={tip.id} className="bg-white shadow-lg rounded-md border overflow-hidden">
+            <div key={tip.id} className="bg-white overflow-hidden border rounded-md shadow-md hover:shadow-xl transition duration-300">
               <img src={tip.image} alt={tip.title} className="w-full h-40 object-cover" />
               <div className="p-4">
                 <h3 className="text-lg font-semibold text-gray-700">{tip.title}</h3>
                 <p className="text-sm text-gray-600 mt-2">{tip.description}</p>
-                {/* <button className="mt-3 text-blue-600 font-medium hover:underline">Read More</button> */}
               </div>
             </div>
           ))}

@@ -14,8 +14,10 @@ const Checkout = () => {
             <Helmet>
                 <title>MediEase | Checkout</title>
             </Helmet>
-            
-            <SectionTitle heading="Checkout" subHeading="Please pay to buy"></SectionTitle>
+
+            <div className='mt-20'>
+                <SectionTitle heading="Checkout" subHeading="Please pay to buy"></SectionTitle>
+            </div>
 
             <div>
                 <Elements stripe={stripePromise}>

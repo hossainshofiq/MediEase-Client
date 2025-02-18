@@ -32,7 +32,7 @@ const GoogleLogin = () => {
 
     return (
         <div>
-            <button onClick={handleGoogleLogin} className='btn w-full'><FaGoogle></FaGoogle>Google</button>
+            <button onClick={handleGoogleLogin} className='btn btn-primary w-full'><FaGoogle></FaGoogle>Google</button>
         </div>
     );
 };
