@@ -10,7 +10,6 @@ import { useForm } from 'react-hook-form';
 import { TbCategoryPlus } from 'react-icons/tb';
 import { Link } from 'react-router-dom';
 
-
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
@@ -28,7 +27,6 @@ const ManageCategory = () => {
             return res.data;
         }
     })
-
 
     const onSubmit = async (data) => {
         // console.log(data)
@@ -98,7 +96,7 @@ const ManageCategory = () => {
 
     return (
         <div className='my-10'>
-            <SectionTitle heading="Manage All Category" subHeading="Add---Update---Delete any Category"></SectionTitle>
+            <SectionTitle heading="Manage All Category" subHeading="Effortlessly Add, Edit, and Delete Categories"></SectionTitle>
 
             <div className='flex justify-end mb-5'>
 

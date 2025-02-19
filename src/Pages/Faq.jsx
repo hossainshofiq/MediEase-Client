@@ -7,13 +7,11 @@ const Faq = () => {
                 <div className="absolute inset-0 bg-black bg-opacity-30"></div>
                 <div className="flex flex-col gap-2">
                     <h1 className="relative text-2xl md:text-3xl lg:text-4xl font-bold">FAQ</h1>
-                    <p className="font-semibold bg-gray-400 px-3 py-1 rounded-md text-black">MadeEase / FAQ</p>
+                    <p className="font-semibold bg-gray-300 px-3 py-1 rounded-md text-black">MadeEase / FAQ</p>
                 </div>
             </div>
 
-            <div className='w-11/12 mx-auto mt-6 pb-8 space-y-1'>
-                {/* <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center py-6">FAQ</h3> */}
-
+            <div className='w-11/12 mx-auto my-10 space-y-1'>
                 <div className="collapse collapse-arrow bg-base-100 border border-base-300">
                     <input type="radio" name="my-accordion-2" defaultChecked />
                     <div className="collapse-title font-semibold">What is MadeEase?</div>

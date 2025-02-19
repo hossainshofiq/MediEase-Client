@@ -86,11 +86,11 @@ const DashboardLayout = () => {
                                             <MdOutlinePayment></MdOutlinePayment> Payment Management
                                         </NavLink>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <NavLink to="/dashboard/salesReport">
                                             <FcSalesPerformance></FcSalesPerformance> Sales Report
                                         </NavLink>
-                                    </li>
+                                    </li> */}
                                     <li>
                                         <NavLink to="/dashboard/manageAdvertisement">
                                             <GiKnightBanner></GiKnightBanner> Manage Banner Advertise

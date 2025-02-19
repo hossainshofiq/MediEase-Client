@@ -73,7 +73,8 @@ const Shop = () => {
         // console.log(item._id);
         setSelectedMedicine(item);
     }
-    // search by medicine name
+
+    // search by medicine name, generic_name,company
     const [searchText, setSearchText] = useState('');
     const [filteredMedicines, setFilteredMedicines] = useState(product);
 
@@ -134,8 +135,6 @@ const Shop = () => {
                     <input type="text" className="grow" placeholder="Search" value={searchText} onChange={handleSearch} />
                 </label>
                 <div>
-                    {/* <button className='btn btn-success text-white'>Sort by price</button> */}
-
                     <button
                         onClick={handleSortByPrice}
                         className='btn btn-primary'>
@@ -144,9 +143,11 @@ const Shop = () => {
                     </button>
                 </div>
             </div>
-            {/*  */}
 
+            {/* all medicines card/table format */}
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 my-10'>
+
+
                 {
                     filteredMedicines?.length > 0 ? (
                         filteredMedicines.map(item =>
@@ -187,6 +188,7 @@ const Shop = () => {
                         </div>
                     )
                 }
+
             </div>
 
             {/* <div className="overflow-x-auto my-10">

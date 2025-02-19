@@ -11,7 +11,7 @@ import useSeller from '../../Hooks/useSeller';
 
 const Navbar = () => {
 
-    const { user, logout } = useAuth();
+    const { user, logout, loading } = useAuth();
     const [cart] = useCart();
 
     const [isAdmin] = useAdmin();
@@ -70,8 +70,9 @@ const Navbar = () => {
                             </button>
                         </NavLink>
                     </li>
-                    <li><NavLink to="/contact">Contact us</NavLink></li>
+                    <li><NavLink to="/about">About Us</NavLink></li>
                     <li><NavLink to="/faq">FAQ</NavLink></li>
+                    <li><NavLink to="/contact">Contact us</NavLink></li>
                 </> : <>
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/shop">Shop</NavLink></li>
@@ -153,20 +154,28 @@ const Navbar = () => {
                     user ?
                         <div className="dropdown dropdown-end">
                             <div className="flex items-center gap-2">
-                                <span className="text-sm font-bold">
-                                    {isAdmin ? "Admin" : isSeller ? "Seller" : "User"}
-                                </span>
-                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar flex">
-                                    <div className="w-12 h-12 border-2 border-black rounded-full z-50">
-                                        <img
-                                            data-tooltip-id="my-tooltip"
-                                            data-tooltip-content={user?.displayName}
-                                            src={user?.photoURL}
-                                            alt="User Avatar" />
-                                        <Tooltip id="my-tooltip"></Tooltip>
-                                    </div>
-                                </div>
+                                {
+                                    loading ? <span className="loading loading-ring loading-lg"></span>
+                                        :
+                                        <span className="text-sm font-bold">
+                                            {isAdmin ? "Admin" : isSeller ? "Seller" : "User"}
+                                        </span>
+                                }
 
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar flex">
+                                    {
+                                        loading ? <span className="loading loading-ring loading-lg"></span>
+                                            :
+                                            <div className="w-12 h-12 border-2 border-black rounded-full z-50">
+                                                <img
+                                                    data-tooltip-id="my-tooltip"
+                                                    data-tooltip-content={user?.displayName}
+                                                    src={user?.photoURL}
+                                                    alt="User Avatar" />
+                                                <Tooltip id="my-tooltip"></Tooltip>
+                                            </div>
+                                    }
+                                </div>
                             </div>
 
                             <ul

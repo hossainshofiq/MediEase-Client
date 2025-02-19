@@ -7,12 +7,12 @@ const About = () => {
                 <div className="absolute inset-0 bg-black bg-opacity-30"></div>
                 <div className="flex flex-col gap-2">
                     <h1 className="relative text-2xl md:text-3xl lg:text-4xl font-bold">About</h1>
-                    <p className="font-semibold bg-gray-400 px-3 py-1 rounded-md text-black">MadeEase / About</p>
+                    <p className="font-semibold bg-gray-300 px-3 py-1 rounded-md text-black">MadeEase / About Us</p>
                 </div>
             </div>
 
             {/* About Section */}
-            <div className="w-11/12 mx-auto my-12 p-6 shadow-lg rounded-lg border">
+            <div className="w-11/12 mx-auto my-10 p-4 md:p-6 lg:p-8 shadow-lg rounded-md border">
                 <h2 className="text-2xl md:text-3xl font-semibold mb-4">What is MadeEase?</h2>
                 <p className="leading-relaxed">
                     MadeEase is a multi-vendor e-commerce platform designed for buying and selling medicines and healthcare products. 

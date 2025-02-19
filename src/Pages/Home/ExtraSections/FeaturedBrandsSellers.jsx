@@ -18,33 +18,35 @@ const sellers = [
 
 const FeaturedBrandsSellers = () => {
     return (
-        <div className="py-10">
+        <div className="">
             <div className="w-11/12 mx-auto text-center">
 
                 <SectionTitle heading="Featured Brands & Seller" subHeading="Top Trusted Brands & Verified Sellers for Quality Healthcare"></SectionTitle>
 
                 <div className="mt-6">
-                    <div className="mb-6">
-                        <h3 className="text-xl font-medium mb-4">Top Brands</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-                            {brands.map((brand) => (
-                                <div key={brand.id} className="p-4 bg-white shadow rounded-md border">
-                                    <img src={brand.logo} alt={brand.name} className="h-16 mx-auto mb-2" />
-                                    <p className="text-gray-700 font-medium">{brand.name}</p>
-                                </div>
-                            ))}
+                    <div className="lg:flex gap-5">
+                        <div className="flex-1 mb-6">
+                            <h3 className="text-xl font-medium mb-4">Top Brands</h3>
+                            <div className="grid grid-cols-2 md:grid-cols-2 gap-5">
+                                {brands.map((brand) => (
+                                    <div key={brand.id} className="p-4 bg-white shadow rounded-md border">
+                                        <img src={brand.logo} alt={brand.name} className="h-16 mx-auto mb-2" />
+                                        <p className="text-gray-700 font-medium">{brand.name}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
 
-                    <div>
-                        <h3 className="text-xl font-medium mb-4">Trusted Sellers</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-                            {sellers.map((seller) => (
-                                <div key={seller.id} className="p-4 bg-white shadow rounded-md border">
-                                    <img src={seller.logo} alt={seller.name} className="h-16 mx-auto mb-2" />
-                                    <p className="text-gray-700 font-medium">{seller.name}</p>
-                                </div>
-                            ))}
+                        <div className="flex-1">
+                            <h3 className="text-xl font-medium mb-4">Trusted Sellers</h3>
+                            <div className="grid grid-cols-2 md:grid-cols-2 gap-5">
+                                {sellers.map((seller) => (
+                                    <div key={seller.id} className="p-4 bg-white shadow rounded-md border">
+                                        <img src={seller.logo} alt={seller.name} className="h-16 mx-auto mb-2" />
+                                        <p className="text-gray-700 font-medium">{seller.name}</p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
                 </div>

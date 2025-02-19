@@ -108,7 +108,7 @@ const ManageUsers = () => {
     return (
         <>
 
-            <SectionTitle heading="Manage all users" subHeading="Upgrade and Downgrade any user"></SectionTitle>
+            <SectionTitle heading="Manage all users" subHeading="Modify Access Levels Seamlessly"></SectionTitle>
             <div className='my-10'>
                 <div className='my-5'>
                     <h2 className='text-3xl font-bold'>Total Users: {users.length}</h2>
@@ -124,7 +124,6 @@ const ManageUsers = () => {
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Role</th>
-                                    {/* <th>Role</th> */}
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -186,7 +185,6 @@ const ManageUsers = () => {
                                         </tr>
                                     )
                                 }
-
                             </tbody>
                         </table>
                     </div>
