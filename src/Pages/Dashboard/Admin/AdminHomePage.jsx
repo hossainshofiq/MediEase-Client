@@ -23,15 +23,37 @@ const AdminHomePage = () => {
         }
     })
 
-    const { data: chartData = [] } = useQuery({
-        queryKey: ['payment-stats'],
-        queryFn: async () => {
-            const res = await axiosSecure.get('/payment-stats');
-            return res.data;
-        }
-    })
+    // const { data: chartData = [] } = useQuery({
+    //     queryKey: ['payment-stats'],
+    //     queryFn: async () => {
+    //         const res = await axiosSecure.get('/payment-stats');
+    //         return res.data;
+    //     }
+    // })
 
     // bar chart shape
+
+    const bardata = [
+        {
+            name: 'Revenue',
+            uv: stats?.revenue,
+            pv: 2400,
+            amt: 2400,
+        },
+        {
+            name: 'Paid Total',
+            uv: stats?.paidStatus,
+            pv: 1398,
+            amt: 2210,
+        },
+        {
+            name: 'Pending Total',
+            uv: stats?.pendingStatus,
+            pv: 9800,
+            amt: 2290,
+        },
+    ];
+
     const getPath = (x, y, width, height) => {
         return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
         ${x + width / 2}, ${y}
@@ -46,6 +68,12 @@ const AdminHomePage = () => {
     };
 
     // pie chart
+
+    const data = [
+        { name: 'Pending Total', value: stats?.pendingStatus },
+        { name: 'Paid Total', value: stats?.paidStatus },
+    ];
+
     const RADIAN = Math.PI / 180;
     const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
         const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
@@ -59,9 +87,9 @@ const AdminHomePage = () => {
         );
     };
 
-    const pieChartData = chartData.map(data => {
-        return {name: data.category, value: data.revenue}
-    })
+    // const pieChartData = chartData.map(data => {
+    //     return {name: data.category, value: data.revenue}
+    // })
 
     return (
         <div className="px-4 md:px-10 lg:px-16 py-10">
@@ -98,7 +126,53 @@ const AdminHomePage = () => {
                     <div className="stat-desc">↘︎ 90 (14%)</div>
                 </div>
             </div>
+
             <div className='lg:flex'>
+                <div className='w-1/2'>
+                    <BarChart
+                        width={500}
+                        height={300}
+                        data={bardata}
+                        margin={{
+                            top: 20,
+                            right: 30,
+                            left: 20,
+                            bottom: 5,
+                        }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+                            {data.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+                            ))}
+                        </Bar>
+                    </BarChart>
+                </div>
+
+                <div className='w-1/2'>
+                    <PieChart width={400} height={400}>
+                        <Pie
+                            data={data}
+                            cx={200}
+                            cy={200}
+                            labelLine={false}
+                            label={renderCustomizedLabel}
+                            outerRadius={80}
+                            fill="#8884d8"
+                            dataKey="value"
+                        >
+                            {data.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            ))}
+                        </Pie>
+                        <Legend></Legend>
+                    </PieChart>
+                </div>
+            </div>
+
+            {/* <div className='lg:flex'>
                 <div className='w-1/2'>
                     <BarChart
                         width={500}
@@ -140,7 +214,7 @@ const AdminHomePage = () => {
                         <Legend></Legend>
                     </PieChart>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };
