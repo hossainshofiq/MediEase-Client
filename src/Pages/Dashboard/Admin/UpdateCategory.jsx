@@ -62,7 +62,7 @@ const UpdateCategory = () => {
         <div>
             <SectionTitle heading="Update a Medicine" subHeading="Refresh Info"></SectionTitle>
 
-            <form onSubmit={handleSubmit(onSubmit)} className='border p-5'>
+            <form onSubmit={handleSubmit(onSubmit)} className='border p-5 my-10'>
                 {/* category name */}
                 <label className="form-control w-full">
                     <div className="label">

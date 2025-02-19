@@ -66,9 +66,14 @@ const DashboardLayout = () => {
                                             <FaUser></FaUser> Profile
                                         </NavLink>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <NavLink to="/dashboard/adminHome">
                                             <MdAdminPanelSettings></MdAdminPanelSettings> Admin Home
+                                        </NavLink>
+                                    </li> */}
+                                    <li>
+                                        <NavLink to="/dashboard/adminHome">
+                                            <MdAdminPanelSettings></MdAdminPanelSettings> Home Overview
                                         </NavLink>
                                     </li>
                                     <li>
@@ -105,9 +110,14 @@ const DashboardLayout = () => {
                                             <FaUser></FaUser> Profile
                                         </NavLink>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <NavLink to="/dashboard/sellerHome">
                                             <FaShopSlash></FaShopSlash> Seller Home
+                                        </NavLink>
+                                    </li> */}
+                                    <li>
+                                        <NavLink to="/dashboard/sellerHome">
+                                            <FaShopSlash></FaShopSlash> Home Overview
                                         </NavLink>
                                     </li>
                                     <li>

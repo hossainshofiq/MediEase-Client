@@ -49,14 +49,14 @@ const AskAdvertisement = () => {
     };
 
     return (
-        <div>
+        <div className='my-10'>
             <SectionTitle heading="Advertisements" subHeading="You can ask for advertisements from the Admin"></SectionTitle>
 
             <div id="main-content" className="my-10">
                 <Carousel autoPlay interval={3000} infiniteLoop showStatus={false}>
                     {advertise.map((ad) => (
                         <div key={ad._id} className="text-center">
-                            <img src={ad.image} alt="Advertisement" className="rounded-lg object-cover max-h-[400px] w-full" />
+                            <img src={ad.image} alt="Advertisement" className="rounded-lg object-cover max-h-[200px] md:max-h-[300px] lg:max-h-[400px] w-full" />
                             {/* <p className="text-sm mt-3">{ad.medicine_name}</p> */}
                             <p className="text-sm absolute right-0 mr-8 -mt-24 bg-slate-800 p-2 text-white rounded-md">{ad.status}</p>
                         </div>

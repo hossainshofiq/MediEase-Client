@@ -106,11 +106,10 @@ const ManageUsers = () => {
     }
 
     return (
-        <>
-
+        <div className='my-10'>
             <SectionTitle heading="Manage all users" subHeading="Modify Access Levels Seamlessly"></SectionTitle>
             <div className='my-10'>
-                <div className='my-5'>
+                <div className='mb-5'>
                     <h2 className='text-3xl font-bold'>Total Users: {users.length}</h2>
                 </div>
 
@@ -190,7 +189,7 @@ const ManageUsers = () => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

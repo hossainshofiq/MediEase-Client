@@ -98,7 +98,7 @@ const ManageCategory = () => {
         <div className='my-10'>
             <SectionTitle heading="Manage All Category" subHeading="Effortlessly Add, Edit, and Delete Categories"></SectionTitle>
 
-            <div className='flex justify-end mb-5'>
+            <div className='flex justify-end my-5'>
 
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
                 <button className="btn btn-primary" onClick={() => document.getElementById('my_modal_1').showModal()}>Add Category</button>

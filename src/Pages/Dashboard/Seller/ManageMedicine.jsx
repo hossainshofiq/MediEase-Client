@@ -13,7 +13,7 @@ const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_ke
 
 const ManageMedicine = () => {
 
-    const [Product] = useProduct();
+    const [Product, refetch] = useProduct();
     const { register, handleSubmit, reset } = useForm()
     const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
@@ -61,7 +61,7 @@ const ManageMedicine = () => {
     return (
         <div className='my-10'>
             <SectionTitle heading="Manage All Medicines" subHeading="All about added medicines"></SectionTitle>
-            <div className='flex justify-end mb-5'>
+            <div className='flex justify-end my-5'>
 
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
                 <button className="btn btn-primary" onClick={() => document.getElementById('my_modal_1').showModal()}>Add Medicine</button>

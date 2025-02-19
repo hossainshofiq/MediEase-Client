@@ -22,10 +22,10 @@ const SellerPaymentHistory = () => {
     })
 
     return (
-        <div>
+        <div className='my-10'>
             <SectionTitle heading="Payment History" subHeading="Find your all payments history is here from user"></SectionTitle>
 
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto my-10">
                 <table className="table border">
                     <thead>
                         <tr className='bg-primary text-white'>

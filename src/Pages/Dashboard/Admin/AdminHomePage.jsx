@@ -23,6 +23,14 @@ const AdminHomePage = () => {
         }
     })
 
+    const { data: payments = [], refetch } = useQuery({
+        queryKey: ['payments'],
+        queryFn: async () => {
+            const res = await axiosSecure.get(`/payments`);
+            return res.data;
+        }
+    });
+
     // const { data: chartData = [] } = useQuery({
     //     queryKey: ['payment-stats'],
     //     queryFn: async () => {
@@ -33,7 +41,7 @@ const AdminHomePage = () => {
 
     // bar chart shape
 
-    const bardata = [
+    const barData = [
         {
             name: 'Revenue',
             uv: stats?.revenue,
@@ -114,7 +122,7 @@ const AdminHomePage = () => {
                     </div>
                     <div className="stat-title">Paid Total</div>
                     <div className="stat-value">{stats?.paidStatus}</div>
-                    <div className="stat-desc">↘︎ 90 (14%)</div>
+                    <div className="stat-desc">↗︎ 400(57%)</div>
                 </div>
 
                 <div className="stat card shadow border p-5 rounded-lg">
@@ -123,7 +131,7 @@ const AdminHomePage = () => {
                     </div>
                     <div className="stat-title">Pending Total</div>
                     <div className="stat-value">{stats?.pendingStatus}</div>
-                    <div className="stat-desc">↘︎ 90 (14%)</div>
+                    <div className="stat-desc">↘︎ 90 (43%)</div>
                 </div>
             </div>
 
@@ -132,7 +140,7 @@ const AdminHomePage = () => {
                     <BarChart
                         width={500}
                         height={300}
-                        data={bardata}
+                        data={barData}
                         margin={{
                             top: 20,
                             right: 30,
@@ -144,7 +152,7 @@ const AdminHomePage = () => {
                         <XAxis dataKey="name" />
                         <YAxis />
                         <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-                            {data.map((entry, index) => (
+                            {barData.map((entry, index) => (
                                 <Cell key={`cell-${index}`} fill={colors[index % 20]} />
                             ))}
                         </Bar>

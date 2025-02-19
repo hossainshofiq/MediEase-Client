@@ -23,15 +23,36 @@ const SellerHomePage = () => {
         }
     })
 
-    const { data: chartData = [] } = useQuery({
-        queryKey: ['payment-stats'],
-        queryFn: async () => {
-            const res = await axiosSecure.get('/payment-stats');
-            return res.data;
-        }
-    })
+    // const { data: chartData = [] } = useQuery({
+    //     queryKey: ['payment-stats'],
+    //     queryFn: async () => {
+    //         const res = await axiosSecure.get('/payment-stats');
+    //         return res.data;
+    //     }
+    // })
 
     // bar chart shape
+    const barData = [
+        {
+            name: 'Revenue',
+            uv: stats?.revenue,
+            pv: 2400,
+            amt: 2400,
+        },
+        {
+            name: 'Paid Total',
+            uv: stats?.paidStatus,
+            pv: 1398,
+            amt: 2210,
+        },
+        {
+            name: 'Pending Total',
+            uv: stats?.pendingStatus,
+            pv: 9800,
+            amt: 2290,
+        },
+    ];
+
     const getPath = (x, y, width, height) => {
         return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
         ${x + width / 2}, ${y}
@@ -46,6 +67,11 @@ const SellerHomePage = () => {
     };
 
     // pie chart
+    const data = [
+        { name: 'Pending Total', value: stats?.pendingStatus },
+        { name: 'Paid Total', value: stats?.paidStatus },
+    ];
+
     const RADIAN = Math.PI / 180;
     const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index }) => {
         const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
@@ -59,9 +85,9 @@ const SellerHomePage = () => {
         );
     };
 
-    const pieChartData = chartData.map(data => {
-        return { name: data.category, value: data.revenue }
-    })
+    // const pieChartData = chartData.map(data => {
+    //     return { name: data.category, value: data.revenue }
+    // })
 
 
     return (
@@ -71,7 +97,7 @@ const SellerHomePage = () => {
                 {user?.displayName ? <span className='text-blue-500'>Mr. {user?.displayName}</span> : "Back"}
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
                 <div className="stat card shadow border p-5 rounded-lg">
                     <div className="stat-figure text-secondary">
                         <FaDollarSign className='text-4xl' />
@@ -87,7 +113,7 @@ const SellerHomePage = () => {
                     </div>
                     <div className="stat-title">Paid Total</div>
                     <div className="stat-value">{stats.paidStatus}</div>
-                    <div className="stat-desc">↗︎ 400 (22%)</div>
+                    <div className="stat-desc">↗︎ 400 (57%)</div>
                 </div>
 
                 <div className="stat card shadow border p-5 rounded-lg">
@@ -96,11 +122,56 @@ const SellerHomePage = () => {
                     </div>
                     <div className="stat-title">Pending Total</div>
                     <div className="stat-value">{stats.pendingStatus}</div>
-                    <div className="stat-desc">↘︎ 90 (14%)</div>
+                    <div className="stat-desc">↘︎ 90 (43%)</div>
                 </div>
             </div>
 
-            <div className='flex justify-center'>
+            <div className='lg:flex'>
+                <div className='w-1/2'>
+                    <BarChart
+                        width={500}
+                        height={300}
+                        data={barData}
+                        margin={{
+                            top: 20,
+                            right: 30,
+                            left: 20,
+                            bottom: 5,
+                        }}
+                    >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
+                            {barData.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={colors[index % 20]} />
+                            ))}
+                        </Bar>
+                    </BarChart>
+                </div>
+
+                <div className='w-1/2'>
+                    <PieChart width={400} height={400}>
+                        <Pie
+                            data={data}
+                            cx={200}
+                            cy={200}
+                            labelLine={false}
+                            label={renderCustomizedLabel}
+                            outerRadius={80}
+                            fill="#8884d8"
+                            dataKey="value"
+                        >
+                            {data.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            ))}
+                        </Pie>
+                        <Legend></Legend>
+                    </PieChart>
+                </div>
+            </div>
+
+            {/* <div className='flex justify-center'>
                 <div className='w-1/2'>
                     <BarChart
                         width={500}
@@ -142,7 +213,7 @@ const SellerHomePage = () => {
                         <Legend></Legend>
                     </PieChart>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

@@ -6,7 +6,7 @@ const AdminProfile = () => {
     const { user } = useAuth();
     
     return (
-        <div className="max-w-lg mx-auto shadow-lg rounded-md border p-6 mt-10">
+        <div className="max-w-lg lg:max-w-3xl mx-auto shadow-lg rounded-md border p-6 mt-10">
             <h2 className='text-2xl lg:text-3xl font-bold text-center mb-6'>
                 <span>Hi, Welcome </span>
                 {user?.displayName ? <span className='text-blue-500'>Mr. {user?.displayName}</span> : "Back"}
