@@ -48,7 +48,7 @@ const Cart = () => {
                         setCartItems((prev) =>
                             prev.filter((item) => item._id !== id)
                         );
-                        Swal.fire('Deleted!', 'Your item has been deleted.', 'success');
+                        Swal.fire('Deleted!', 'Your item has been successfully deleted from the cart.', 'success');
                     }
                 });
             }

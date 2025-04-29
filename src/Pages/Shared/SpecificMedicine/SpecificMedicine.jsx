@@ -81,11 +81,12 @@ const SpecificMedicine = () => {
             </div>
 
             <div className='flex justify-between items-center my-6'>
-                <h1 className='text-3xl font-semibold text-center'>All information of : <span className='font-bold text-blue-600'>{category}</span> </h1>
+                <h1 className='text-lg md:text-2xl lg:text-3xl font-semibold text-center'>All medicines of : <span className='font-bold text-blue-600'>{category}</span> </h1>
 
                 <Link to="/"><button className='btn btn-outline'><FaArrowLeft></FaArrowLeft> Back to Home</button></Link>
             </div>
 
+            {/* Table for showing specific medicines */}
             <div className="overflow-x-auto">
                 <table className="table border">
                     {/* head */}
