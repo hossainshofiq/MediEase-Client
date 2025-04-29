@@ -7,6 +7,14 @@
 - 📧 **Email:** `shofiq@gmail.com`  
 - 🔑 **Password:** `Shofiq1@`  
 
+## 🔑 **Seller Credentials**  
+- 📧 **Email:** `shofiq1@gmail.com`  
+- 🔑 **Password:** `Shofiq1@` 
+
+## 🔑 **User Credentials**  
+- 📧 **Email:** `shofiq2@gmail.com`  
+- 🔑 **Password:** `Shofiq1@` 
+
 ## 📞 **Contact Information**  
 📱 **Phone Number:** +8801689819951  
 

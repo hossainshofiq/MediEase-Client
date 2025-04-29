@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import loginLottie from '../assets/Lottie/login.json'
@@ -6,12 +6,14 @@ import Lottie from 'lottie-react';
 import useAuth from '../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import GoogleLogin from './GoogleLogin';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
 
     const { login } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
     const from = location.state?.from?.pathname || '/';
 
     // console.log(location);
@@ -38,6 +40,14 @@ const Login = () => {
                 });
                 navigate(from, { replace: true });
             })
+            .catch(error => {
+                // console.log(error.message);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Login Failed',
+                    text: error.message,
+                });
+            })
     }
 
     return (
@@ -61,11 +71,12 @@ const Login = () => {
                                 </label>
                                 <input name='email' type="email" placeholder="email" className="input input-bordered" required />
                             </div>
-                            <div className="form-control">
+                            <div className="form-control relative">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input name='password' type="password" placeholder="password" className="input input-bordered" required />
+                                <input type={showPassword ? "text" : "password"} name='password' placeholder="password" className="input input-bordered" required />
+                                <button type='button' onClick={() => setShowPassword(!showPassword)} className='absolute right-4 bottom-3'> {showPassword ? <FaEyeSlash className='text-xl'></FaEyeSlash> : <FaEye className='text-xl'></FaEye>} </button>
                             </div>
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="Login" />
