@@ -80,7 +80,7 @@ const UpdateCategory = () => {
                         <div className='flex justify-between'>
                             <input {...register("image", { required: true })} type="file" className="file-input file-input-bordered w-full max-w-xs" />
 
-                            <img className='w-16 rounded-md' src={image} alt="" />
+                            <img className='w-16 rounded-md' src={image} alt="Uploaded image" />
                         </div>
                     </label>
                 </div>

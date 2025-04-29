@@ -172,7 +172,7 @@ const ManageCategory = () => {
                                                 <div className="mask mask-squircle h-12 w-12">
                                                     <img
                                                         src={category.image}
-                                                        alt="Avatar Tailwind CSS Component" />
+                                                        alt="Category images" />
                                                 </div>
                                             </div>
                                         </div>

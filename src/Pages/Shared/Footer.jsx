@@ -16,24 +16,21 @@ const Footer = () => {
                 </aside>
                 <nav>
                     <h6 className="footer-title">Shop</h6>
-                    <a className="link link-hover">Browse Medicines</a>
-                    <a className="link link-hover">Categories</a>
-                    <a className="link link-hover">Top Sellers</a>
-                    <a className="link link-hover">Special Offers</a>
+                    <a href='/shop' className="link link-hover">Browse Medicines</a>
+                    <a href='' className="link link-hover">Categories</a>
+                    <a href='' className="link link-hover">Top Sellers</a>
                 </nav>
                 <nav>
                     <h6 className="footer-title">Company</h6>
-                    <a className="link link-hover">About Us</a>
-                    <a className="link link-hover">Contact Us</a>
-                    <a className="link link-hover">Careers</a>
-                    <a className="link link-hover">Press Releases</a>
+                    <a href='/about' className="link link-hover">About Us</a>
+                    <a href='/contact' className="link link-hover">Contact Us</a>
+                    <a href='/faq' className="link link-hover">FAQ</a>
                 </nav>
                 <nav>
-                    <h6 className="footer-title">Customer Support</h6>
-                    <a className="link link-hover">Help Center</a>
-                    <a className="link link-hover">Order Tracking</a>
-                    <a className="link link-hover">Return & Refund Policy</a>
-                    <a className="link link-hover">FAQs</a>
+                    <h6 className="footer-title">Legal</h6>
+                    <a href='/terms&conditions' className="link link-hover">Terms and Conditions</a>
+                    <a href='/privacyPolicy' className="link link-hover">Privacy policy</a>
+                    <a href='/imprint' className="link link-hover">Imprint</a>
                 </nav>
                 {/* <nav>
                     <h6 className="footer-title">Legal</h6>
@@ -48,10 +45,10 @@ const Footer = () => {
                         <a href='https://www.facebook.com/A.H.Shofiq/' target='blank' className='hover:cursor-pointer text-3xl'>
                             <FaFacebook className='text-blue-600'></FaFacebook>
                         </a>
-                        <a className='hover:cursor-pointer text-3xl'>
+                        <a href='https://www.linkedin.com/in/hossainshofiq/' target='blank' className='hover:cursor-pointer text-3xl'>
                             <FaLinkedinIn className='text-blue-600'></FaLinkedinIn>
                         </a>
-                        <a target='blank' className='hover:cursor-pointer text-3xl'>
+                        <a href='https://github.com/hossainshofiq' target='blank' className='hover:cursor-pointer text-3xl'>
                             <FaGithub ></FaGithub>
                         </a>
                     </div>
@@ -59,7 +56,7 @@ const Footer = () => {
             </div>
             <div className="footer footer-center bg-base-300 text-base-content p-4">
                 <aside>
-                    <p>Copyright © {new Date().getFullYear()} - All rights reserved by MediEase Industries Ltd</p>
+                    <p>Copyright © {new Date().getFullYear()} - All rights reserved by MediEase Industries Ltd.</p>
                 </aside>
             </div>
         </footer>

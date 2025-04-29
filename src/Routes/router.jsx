@@ -70,7 +70,7 @@ const router = createBrowserRouter([
                 path: '/invoice',
                 element: <InvoicePage></InvoicePage>
             },
-            //
+            // public routes
             {
                 path: '/about',
                 element: <About></About>

@@ -2,7 +2,7 @@ import React from 'react';
 import useProduct from '../../../Hooks/useProduct';
 import SectionTitle from '../../../Components/SectionTitle';
 import { useForm } from 'react-hook-form';
-import { GiMedicines } from 'react-icons/gi';
+import { GiMedicinePills, GiMedicines } from 'react-icons/gi';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
@@ -60,11 +60,11 @@ const ManageMedicine = () => {
 
     return (
         <div className='my-10'>
-            <SectionTitle heading="Manage All Medicines" subHeading="All about added medicines"></SectionTitle>
+            <SectionTitle heading="Manage All Medicines" subHeading="All about your added medicines"></SectionTitle>
             <div className='flex justify-end my-5'>
 
                 {/* Open the modal using document.getElementById('ID').showModal() method */}
-                <button className="btn btn-primary" onClick={() => document.getElementById('my_modal_1').showModal()}>Add Medicine</button>
+                <button className="btn btn-success text-white" onClick={() => document.getElementById('my_modal_1').showModal()}><GiMedicinePills></GiMedicinePills> Add Medicine</button>
                 <dialog id="my_modal_1" className="modal modal-bottom sm:modal-middle">
                     <div className="modal-box">
                         <h3 className="font-bold text-lg">Add Medicine</h3>
@@ -171,12 +171,12 @@ const ManageMedicine = () => {
                                 </label>
                             </div>
 
-                            <button className='btn btn-primary w-full'>Add Medicine <GiMedicines className='text-xl ml-2'></GiMedicines></button>
+                            <button className='btn btn-success text-white w-full'>Add Medicine <GiMedicines className='text-xl ml-2'></GiMedicines></button>
                         </form>
 
                         <div className="modal-action">
                             <form method="dialog">
-                                <button className="btn btn-secondary">Close</button>
+                                <button className="btn btn-error text-white">Close</button>
                             </form>
                         </div>
                     </div>
@@ -210,7 +210,7 @@ const ManageMedicine = () => {
                                                 <div className="mask mask-squircle h-12 w-12">
                                                     <img
                                                         src={item.image}
-                                                        alt="Avatar Tailwind CSS Component" />
+                                                        alt="Medicine image" />
                                                 </div>
                                             </div>
                                         </div>
