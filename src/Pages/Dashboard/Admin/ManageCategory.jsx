@@ -156,7 +156,8 @@ const ManageCategory = () => {
                             <th>#</th>
                             <th>Image</th>
                             <th>Category</th>
-                            <th>Available</th>
+                            {/* <th>Available</th> */}
+                            {/* <th>Description</th> */}
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -177,7 +178,8 @@ const ManageCategory = () => {
                                         </div>
                                     </td>
                                     <td>{category.category}</td>
-                                    <td>{category.medicine_count}</td>
+                                    {/* <td>{category.medicine_count}</td> */}
+                                    {/* <td>{category.short_description}</td> */}
                                     <th className='flex gap-2 items-center'>
                                         <Link to={`/dashboard/updateMedicine/${category._id}`}>
                                             <button className="btn btn-ghost btn-md text-green-600"><FaEdit className='text-xl'></FaEdit></button>
