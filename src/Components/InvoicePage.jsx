@@ -7,7 +7,7 @@ const InvoicePage = () => {
     const location = useLocation();
     const { transactionId, cart, totalPrice, date, userName, userEmail } = location.state || {};
     const invoiceRef = useRef();
-    
+
 
     return (
         <div className="p-10 mt-20">
@@ -18,17 +18,20 @@ const InvoicePage = () => {
             <div ref={invoiceRef} className="border rounded-lg p-6 shadow-md">
 
                 <div className="flex justify-between items-center mb-5">
-                    <img
-                        src={websiteLogo}
-                        alt="Website Logo"
-                        className="w-24"
-                    />
-                    <h1 className="text-2xl font-bold">Invoice</h1>
+                    <h1 className="text-lg md:text-xl lg:text-2xl font-bold">Invoice</h1>
+                    <div className='flex-col justify-center'>
+                        <h2 className="text-sm md:text-lg font-semibold text-center">MediEase</h2>
+                        <img
+                            src={websiteLogo}
+                            alt="Website Logo"
+                            className="w-16 md:w-20 lg:w-24"
+                        />
+                    </div>
                 </div>
 
                 <div className="mb-5">
                     <p>
-                        <strong>Transaction ID:</strong> {transactionId}
+                        <strong>Transaction ID:</strong> <span className='text-success'>{transactionId}</span>
                     </p>
                     <p>
                         <strong>Date:</strong> {date}
