@@ -17,8 +17,8 @@ const Footer = () => {
                 <nav>
                     <h6 className="footer-title">Shop</h6>
                     <a href='/shop' className="link link-hover">Browse Medicines</a>
-                    <a href='' className="link link-hover">Categories</a>
-                    <a href='' className="link link-hover">Top Sellers</a>
+                    <a href='/' className="link link-hover">Categories</a>
+                    <a href='/' className="link link-hover">Top Sellers</a>
                 </nav>
                 <nav>
                     <h6 className="footer-title">Company</h6>
@@ -32,13 +32,6 @@ const Footer = () => {
                     <a href='/privacyPolicy' className="link link-hover">Privacy policy</a>
                     <a href='/imprint' className="link link-hover">Imprint</a>
                 </nav>
-                {/* <nav>
-                    <h6 className="footer-title">Legal</h6>
-                    <a className="link link-hover">Terms & Conditions</a>
-                    <a className="link link-hover">Privacy Policy</a>
-                    <a className="link link-hover">Cookie Policy</a>
-                    <a className="link link-hover">Licenses</a>
-                </nav> */}
                 <nav>
                     <h6 className="footer-title">Social</h6>
                     <div className="grid grid-flow-col gap-2 lg:gap-4">

@@ -32,6 +32,9 @@ import ContactUs from '../Pages/Home/ExtraSections/ContactUs';
 import AdminProfile from '../Pages/Dashboard/Admin/AdminProfile';
 import SellerProfile from '../Pages/Dashboard/Seller/SellerProfile';
 import UserProfile from '../Pages/Dashboard/User/UserProfile';
+import TermsAndConditions from '../Pages/TermsAndConditions';
+import PrivacyPolicy from '../Pages/PrivacyPolicy';
+import Imprint from '../Pages/Imprint';
 
 const router = createBrowserRouter([
     {
@@ -82,6 +85,18 @@ const router = createBrowserRouter([
             {
                 path: '/contact',
                 element: <ContactUs></ContactUs>
+            },
+            {
+                path: '/terms&conditions',
+                element: <TermsAndConditions></TermsAndConditions>
+            },
+            {
+                path: '/privacyPolicy',
+                element: <PrivacyPolicy></PrivacyPolicy>
+            },
+            {
+                path: '/imprint',
+                element: <Imprint></Imprint>
             }
         ]
     },
